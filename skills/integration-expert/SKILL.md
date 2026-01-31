@@ -10,6 +10,48 @@ Master service integration, API connectivity, MCP configuration, and authenticat
 - Installing and configuring MCP servers
 - Connecting databases, APIs, hosting platforms
 - Resolving IDE integration issues
+- **Locating missing tokens, API keys, URLs, or authentication credentials**
+
+## Token & Credential Discovery Protocol
+
+**If a token, API key, URL, or authentication credential cannot be found:**
+
+### Step 1: Check the Connections Folder
+**ALWAYS check this location first before asking for credentials:**
+```
+C:\Users\heath\Desktop\connections\[filename]
+```
+
+**Expected files in this folder:**
+- `github-token.txt` - GitHub personal access token
+- `vercel-token.txt` - Vercel deployment token
+- `openai-api-key.txt` - OpenAI API key
+- `anthropic-api-key.txt` - Anthropic API key
+- `supabase-credentials.txt` - Supabase project credentials
+- `stripe-keys.txt` - Stripe publishable and secret keys
+- `oauth-credentials.txt` - OAuth app credentials
+- `database-connections.txt` - Database connection strings
+- `README.txt` - Index of all available credentials
+
+### Step 2: Check Common Environment Locations
+If not found in connections folder:
+1. Check `.env.local` in project root
+2. Check `.env` file
+3. Check System Environment Variables
+4. Check IDE settings (VS Code/Cursor MCP config)
+
+### Step 3: Retrieve from Service
+If credentials are not stored locally:
+1. Use CLI tools to retrieve tokens (e.g., `gh auth token` for GitHub)
+2. Check browser password managers
+3. Log into the service dashboard to regenerate tokens
+
+### Step 4: Document New Credentials
+**After discovering new credentials, ALWAYS save them to the connections folder:**
+```bash
+# Example: Save GitHub token
+echo "ghp_xxxxxxxxxxxx" > "C:\Users\heath\Desktop\connections\github-token.txt"
+```
 
 ## Integration Categories
 
