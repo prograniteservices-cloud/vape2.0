@@ -189,6 +189,174 @@
   }
 }
 
+/* Task 1: Advanced Dual-Layer Glow System - Phase 5 Spec */
+.card-glow-layer-1 {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    var(--card-accent-color) 60deg,
+    transparent 120deg,
+    var(--card-accent-color) 180deg,
+    transparent 240deg,
+    var(--card-accent-color) 300deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card-glow-layer-2 {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    var(--card-accent-color) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.group:hover .card-glow-layer-1,
+.card-glow-container:hover .card-glow-layer-1 {
+  opacity: 0.6;
+}
+
+.group:hover .card-glow-layer-2,
+.card-glow-container:hover .card-glow-layer-2 {
+  opacity: 0.4;
+}
+
+/* Glow color variants using --card-accent-color */
+.card-glow-purple {
+  --card-accent-color: #8b5cf6;
+}
+
+.card-glow-cyan {
+  --card-accent-color: #14b8a6;
+}
+
+/* Task 2: Shimmer/Sheen Effect - Phase 5 Spec */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.card-shimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.card-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  opacity: 0;
+}
+
+.group:hover .card-shimmer::after {
+  animation: shimmer-sweep 0.8s ease-out forwards;
+  opacity: 1;
+}
+
+/* Task 3: 3D Tilt/Perspective Styles */
+.card-3d-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d-tilt:hover {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(1.03) translateY(-8px);
+}
+
+/* Task 4: Animated Gradient Borders */
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card-animated-border {
+  position: relative;
+  z-index: 1;
+}
+
+.card-animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #14b8a6,
+    #f59e0b,
+    #ec4899,
+    #3b82f6,
+    #8b5cf6
+  );
+  background-size: 300% 100%;
+  animation: border-flow 3s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card-animated-border:hover::before {
+  opacity: 1;
+}
+
+/* Task 6: Content Parallax on Hover - Staggered depth effect */
+.card-content {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.group:hover .card-title {
+  transform: translateZ(20px) translateY(-4px);
+  transition-delay: 0.05s;
+}
+
+.group:hover .card-subtitle {
+  transform: translateZ(10px) translateY(-2px);
+  transition-delay: 0.1s;
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-out forwards;
 }
@@ -202,6 +370,37 @@
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
+}
+
+/* Task 7: Ambient Background Pulse - Living interface feel */
+@keyframes ambient-pulse {
+  0%, 100% {
+    opacity: 0.03;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.06;
+    transform: scale(1.02);
+  }
+}
+
+.card-ambient-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    var(--card-accent-color, #8b5cf6) 0%,
+    transparent 70%
+  );
+  animation: ambient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Pause ambient animation on hover */
+.group:hover .card-ambient-glow {
+  animation-play-state: paused;
 }
 
 /* Mobile Sidebar Overlay */
@@ -358,4 +557,44 @@
   .main-content {
     padding: 1.5rem;
   }
+}
+
+/* Task 8: Accessibility - Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card-glow-layer-1,
+  .card-glow-layer-2,
+  .card-shimmer::after,
+  .card-animated-border::before,
+  .card-ambient-glow {
+    animation: none !important;
+    opacity: 0 !important;
+    transition: none !important;
+  }
+  
+  .interactive-card,
+  .card-3d-tilt,
+  .glass-card {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .card-content,
+  .card-title,
+  .card-subtitle {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Performance Optimizations */
+.glass-card,
+.interactive-card,
+.card-3d-tilt {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Paint containment for better performance */
+.dashboard-grid {
+  contain: layout style paint;
 }

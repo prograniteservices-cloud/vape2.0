@@ -1,0 +1,131 @@
+# Mock Product Images Guide
+
+## Alternative: Placeholder Services (Recommended)
+
+Since direct product images may have licensing/restriction concerns, use these automated placeholder services:
+
+### 1. Lorem Picsum (Random photos)
+```
+https://picsum.photos/300/400?random=1
+https://picsum.photos/300/400?random=2
+```
+
+### 2. Placehold.co (Solid colors with text)
+```
+https://placehold.co/300x400/FF6B6B/FFFFFF?text=Vape
+https://placehold.co/300x400/4ECDC4/FFFFFF?text=Candy
+https://placehold.co/300x400/95E1D3/FFFFFF?text=Drink
+```
+
+### 3. DummyImage.com
+```
+https://dummyimage.com/300x400/3498db/ffffff&text=Product
+```
+
+## Folder Structure
+
+```
+public/
+  mockpics/
+    vapes/       # 60 images
+    eliquids/    # 40 images
+    candy/       # 25 images
+    drinks/      # 15 images
+    snacks/      # 10 images
+```
+
+## Quick Implementation Script
+
+Create `generate-mock-images.js`:
+
+```javascript
+const fs = require('fs');
+const path = require('path');
+
+const categories = {
+  vapes: 60,
+  eliquids: 40,
+  candy: 25,
+  drinks: 15,
+  snacks: 10
+};
+
+const colors = {
+  vapes: ['FF6B6B', 'FF8E53', 'FF6B9D', 'C44569'],
+  eliquids: ['4ECDC4', '44A08D', '96CEB4', '88D8B0'],
+  candy: ['FFE66D', 'FF6B6B', 'FF8E53', 'F8B500'],
+  drinks: ['3498DB', '2980B9', '6C5CE7', 'A29BFE'],
+  snacks: ['FD79A8', 'FDCB6E', 'E17055', 'D63031']
+};
+
+// Generate image URLs
+Object.entries(categories).forEach(([category, count]) => {
+  console.log(`\n${category.toUpperCase()}:`);
+  for (let i = 1; i <= count; i++) {
+    const color = colors[category][i % colors[category].length];
+    const url = `https://placehold.co/300x400/${color}/FFFFFF?text=${category}+${i}`;
+    console.log(`${i}. ${url}`);
+  }
+});
+```
+
+## Sample URLs (150 Total)
+
+### Vapes (1-60)
+```
+https://placehold.co/300x400/FF6B6B/FFFFFF?text=Vape+1
+https://placehold.co/300x400/FF8E53/FFFFFF?text=Vape+2
+https://placehold.co/300x400/FF6B9D/FFFFFF?text=Vape+3
+...
+https://placehold.co/300x400/C44569/FFFFFF?text=Vape+60
+```
+
+### E-Liquids (61-100)
+```
+https://placehold.co/300x400/4ECDC4/FFFFFF?text=E-Liquid+1
+https://placehold.co/300x400/44A08D/FFFFFF?text=E-Liquid+2
+...
+https://placehold.co/300x400/88D8B0/FFFFFF?text=E-Liquid+40
+```
+
+### Candy (101-125)
+```
+https://placehold.co/300x400/FFE66D/FFFFFF?text=Candy+1
+...
+https://placehold.co/300x400/F8B500/FFFFFF?text=Candy+25
+```
+
+### Drinks (126-140)
+```
+https://placehold.co/300x400/3498DB/FFFFFF?text=Drink+1
+...
+https://placehold.co/300x400/A29BFE/FFFFFF?text=Drink+15
+```
+
+### Snacks (141-150)
+```
+https://placehold.co/300x400/FD79A8/FFFFFF?text=Snack+1
+...
+https://placehold.co/300x400/D63031/FFFFFF?text=Snack+10
+```
+
+## Using Random Real Photos (Lorem Picsum)
+
+For more realistic mock data:
+```javascript
+// Generate 150 random product-like images
+const urls = Array.from({length: 150}, (_, i) => 
+  `https://picsum.photos/300/400?random=${i + 1}`
+);
+```
+
+## Next Steps
+
+1. Run the script to generate URLs
+2. Save URLs to `public/mockpics/urls.json`
+3. Use in your components:
+   ```jsx
+   <img src={`https://placehold.co/300x400/FF6B6B/FFFFFF?text=${product.name}`} />
+   ```
+
+**Note**: Placeholder services work instantly - no downloading needed!

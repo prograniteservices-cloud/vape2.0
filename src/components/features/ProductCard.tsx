@@ -21,6 +21,14 @@ const shapeStyles: Record<string, string> = {
   'pill': 'col-span-2 row-span-1 rounded-full',
 };
 
+const shimmerClassMap: Record<string, string> = {
+  'circle': 'card-shimmer-circle',
+  'pill': 'card-shimmer-pill',
+  'small-rect': 'card-shimmer-rect',
+  'medium-rect': 'card-shimmer-rect',
+  'large-rect': 'card-shimmer-rect',
+};
+
 export function ProductCard({
   product,
   onClick,
@@ -31,25 +39,66 @@ export function ProductCard({
     ? product.price * (1 - discount / 100)
     : product.price;
 
+  const shimmerClass = shimmerClassMap[shape || 'medium-rect'] || 'card-shimmer-rect';
+
+  // Task 3: 3D Tilt/Perspective Effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Calculate rotation (max 8 degrees)
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateY(-8px)`;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    // Smooth transition back to flat state (300ms)
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateY(0)';
+  };
+
   return (
     <motion.div
-      whileHover={{ scale: 1.03, y: -8 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={`
+        card-glow-container card-glow-cyan
+        card-shimmer ${shimmerClass}
         glass-card interactive-card
+        card-animated-border
         ${shapeStyles[shape]}
         flex flex-col p-4
-        relative overflow-hidden group
+        relative overflow-hidden group cursor-pointer
         border-cyan-500/30 hover:border-cyan-400/50
       `}
       style={{
         background: product.color
           ? `linear-gradient(135deg, rgba(255,255,255,0.08) 0%, ${product.color}15 100%)`
           : 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(20,184,166,0.1) 100%)',
+        // Task 3: Enable 3D transforms with smooth transition
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.3s ease',
       }}
     >
-      {/* Glow Effect */}
+      {/* Task 7: Ambient Background Glow */}
+      <div
+        className="card-ambient-glow"
+        style={{ '--card-accent-color': product.color || '#14b8a6' } as React.CSSProperties}
+      />
+
+      {/* Task 1: Dual-Layer Glow System */}
+      <div className="card-glow-layer-1" />
+      <div className="card-glow-layer-2" />
+
+      {/* Legacy Glow Effect - kept for compatibility */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
@@ -104,29 +153,29 @@ export function ProductCard({
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
       </div>
 
-      {/* Product Info */}
-      <div className="relative z-10 flex-1 flex flex-col">
+      {/* Product Info with Task 6: Parallax */}
+      <div className="relative z-10 flex-1 flex flex-col card-content">
         {/* Brand */}
         {product.brand && (
-          <p className="text-xs text-cyan-400 font-medium uppercase tracking-wider mb-1">
+          <p className="card-subtitle text-xs text-cyan-400 font-medium uppercase tracking-wider mb-1">
             {product.brand}
           </p>
         )}
 
         {/* Product Name */}
-        <h3 className="text-lg font-bold text-foreground group-hover:text-white transition-colors line-clamp-2 mb-1">
+        <h3 className="card-title text-lg font-bold text-foreground group-hover:text-white transition-colors line-clamp-2 mb-1">
           {product.name}
         </h3>
 
         {/* Flavor */}
         {product.flavor && (
-          <p className="text-sm text-muted-foreground group-hover:text-white/70 transition-colors mb-2">
+          <p className="card-subtitle text-sm text-muted-foreground group-hover:text-white/70 transition-colors mb-2">
             {product.flavor}
           </p>
         )}
 
         {/* Price Section */}
-        <div className="mt-auto flex items-center gap-2">
+        <div className="mt-auto flex items-center gap-2 card-subtitle">
           {discount && discount > 0 ? (
             <>
               <span className="text-xl font-bold text-accent">

@@ -5,6 +5,8 @@ import { Category, Product } from '@/types';
 import { hasChildren, categoryTree } from '@/lib/data';
 import { Sparkles, Package, ArrowLeft } from 'lucide-react';
 import { ProductCard } from '@/components/features/ProductCard';
+import { CategoryCard } from '@/components/features/CategoryCard';
+import { MagneticButton } from '@/components/shared/MagneticButton';
 
 interface DashboardProps {
   selectedCategory: Category | null;
@@ -87,6 +89,35 @@ export function Dashboard({
     console.log('Product clicked:', product);
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+    
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(1.02)
+      translateZ(10px)
+    `;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    card.style.transform = '';
+    card.style.transition = 'transform 300ms ease';
+    setTimeout(() => {
+      card.style.transition = '';
+    }, 300);
+  };
+
   const handleBackToCategories = () => {
     if (selectedCategory && hasChildren(selectedCategory)) {
       onNavigateToRoot();
@@ -154,31 +185,35 @@ export function Dashboard({
       </motion.div>
 
       {viewMode === 'categories' && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onBrowse}
-          className="mb-8 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-full font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all flex items-center gap-2"
-        >
-          <Sparkles size={20} />
-          Browse All Items
-        </motion.button>
+        <MagneticButton strength={0.3} className="mb-8">
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onBrowse}
+            className="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-full font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all flex items-center gap-2"
+          >
+            <Sparkles size={20} />
+            Browse All Items
+          </motion.button>
+        </MagneticButton>
       )}
 
       {viewMode === 'products' && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleBackToCategories}
-          className="mb-8 px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:bg-secondary/80 transition-all flex items-center gap-2"
-        >
-          <ArrowLeft size={20} />
-          Back to Categories
-        </motion.button>
+        <MagneticButton strength={0.3} className="mb-8">
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleBackToCategories}
+            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:bg-secondary/80 transition-all flex items-center gap-2"
+          >
+            <ArrowLeft size={20} />
+            Back to Categories
+          </motion.button>
+        </MagneticButton>
       )}
 
       {viewMode === 'categories' ? (
@@ -190,50 +225,12 @@ export function Dashboard({
             className="dashboard-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[160px]"
           >
             {categories.map((category) => (
-              <motion.div
+              <CategoryCard
                 key={category.id}
-                variants={cardVariants}
-                whileHover={{ scale: 1.03, y: -8 }}
-                whileTap={{ scale: 0.97 }}
+                category={category}
                 onClick={() => onSelectCategory(category)}
-                className={`
-                  glass-card interactive-card 
-                  ${shapeStyles[category.shape || 'medium-rect']}
-                  dashboard-card-${category.shape || 'medium-rect'}
-                  flex items-center justify-center p-4 sm:p-6
-                  relative overflow-hidden group
-                `}
-                style={{
-                  background: category.color
-                    ? `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, ${category.color}20 100%)`
-                    : undefined,
-                }}
-              >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(circle at center, ${category.color || '#8b5cf6'}30 0%, transparent 70%)`,
-                  }}
-                />
-
-                <div className="relative z-10 text-center">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-white transition-colors">
-                    {category.name}
-                  </h3>
-                  {hasChildren(category) && (
-                    <p className="text-sm text-muted-foreground mt-2 group-hover:text-white/80 transition-colors">
-                      {category.children?.length} options
-                    </p>
-                  )}
-                </div>
-
-                <div
-                  className="absolute top-0 right-0 w-16 h-16 opacity-20"
-                  style={{
-                    background: `linear-gradient(225deg, ${category.color || '#8b5cf6'} 0%, transparent 70%)`,
-                  }}
-                />
-              </motion.div>
+                shape={category.shape || 'medium-rect'}
+              />
             ))}
           </motion.div>
 

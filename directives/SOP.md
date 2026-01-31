@@ -170,12 +170,47 @@ vape2.0/
 - Revert AI chat to non-functional demo (simple greeting + capability examples)
 - Real AI Integration (when API key available) OR Polish & Animation Enhancements
 
-### Phase 4: Core Development - Category System
-**Features**:
-- Hierarchical category data structure
-- Recursive category tree component
-- Expand/collapse animations
-- Category selection state management
+### Phase 4: Core Development - Category System ✅ COMPLETE
+**Date Completed**: 2026-01-30
+**Status**: All deliverables implemented and tested
+
+**Required Resources**:
+- `skills/frontend-design/SKILL.md`
+- `skills/nextjs-best-practices/SKILL.md`
+
+**Deliverables**:
+1. ✅ AI chat reverted to non-functional demo mode
+   - Static greeting: "Hi! I'm your vape shop assistant."
+   - 6 capability example buttons with "Coming soon" toast
+   - Demo badge and disabled input state
+2. ✅ Page transition animations with AnimatePresence
+3. ✅ Loading states with spinner overlay
+4. ✅ Auto-expand parent categories when child selected
+5. ✅ Enhanced category tree animations (chevron rotation, hover effects)
+6. ✅ Visual polish: depth-based padding, selection highlighting, count badges
+7. ✅ Build successful, all TypeScript compiles
+
+**Handoff Notes for Phase 5**:
+- **AI Chat**: Demo mode ready for showcase (non-functional)
+- **Page Transitions**: Smooth 300ms fade transitions between views
+- **Category Tree**: Auto-expands to show selected category path
+- **New Components**:
+  - `DemoChat`: Self-contained demo chat interface
+  - `PageTransition`: Reusable transition wrapper
+- **Updated Components**:
+  - `Sidebar.tsx`: Complete refactor with auto-expand logic
+  - `page.tsx`: Added loading states and transitions
+
+**Key Decisions**:
+- Demo mode prioritizes showcasing capabilities over functionality
+- 150ms loading delay simulates data fetching for better UX
+- Auto-expand keeps navigation context visible
+- Chevron rotation (0°→90°) provides clear expand/collapse feedback
+
+**Phase 5 Ready To Start**:
+- Card grid enhancements and advanced hover effects
+- Real AI integration (when API key available)
+- Backend/Database integration (Supabase)
 
 ### Phase 5: Core Development - Cards
 **Features**:
