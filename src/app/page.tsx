@@ -6,6 +6,7 @@ import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { AIChat } from '@/components/features/AIChat';
+import { ThinkingGraphic } from '@/components/features/ThinkingGraphic';
 import { Menu, Sparkles, ShoppingBag, Bot } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts } from '@/lib/data';
 
@@ -159,14 +160,26 @@ export default function Home() {
               <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-50" />
               <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] pointer-events-none opacity-50" />
 
-              <div className="w-full max-w-4xl h-[80vh] relative z-10 pt-16">
+              <div className="w-full max-w-7xl h-[80vh] relative z-10 pt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Chat Interface */}
                 <motion.div
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="h-full"
+                  className="h-full w-full max-w-2xl mx-auto lg:mx-0 flex flex-col"
                 >
                   <AIChat />
+                </motion.div>
+
+                {/* Thinking Graphic (Desktop Only) */}
+                <motion.div
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="hidden lg:flex h-full items-center justify-center relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent rounded-full blur-3xl" />
+                  <ThinkingGraphic />
                 </motion.div>
               </div>
             </div>
