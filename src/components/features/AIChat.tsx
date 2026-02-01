@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, User, Sparkles, Send, MapPin, Tag, Box } from 'lucide-react';
-import { ChatMessage, SCRIPTED_RESPONSES, GUIDED_TOUR_SCRIPT } from '@/lib/mockChat';
+import { Bot, User, Sparkles, Send, Tag } from 'lucide-react';
+import { ChatMessage } from '@/lib/mockChat'; // We might need to redefine ChatMessage if mockChat is being removed or keep it for the type
 import { AnimatedBot } from '../shared/AnimatedBot';
+import { chatWithGemini } from '@/lib/gemini';
 
 // Type for Rich Content Card
 interface RichContentProps {
@@ -41,38 +42,17 @@ export function AIChat() {
         }
     }, [messages, isTyping]);
 
-    // Initial Guided Tour
+    // Initial Greeting
     useEffect(() => {
-        const startTour = async () => {
-            if (messages.length === 0) {
-                setIsTyping(true);
-                await new Promise(r => setTimeout(r, 1500));
-
-                const tourMessages: ChatMessage[] = GUIDED_TOUR_SCRIPT.map((content, i) => ({
-                    id: `tour-${i}`,
-                    role: 'ai',
-                    content,
-                    timestamp: new Date(),
-                    type: 'tour'
-                }));
-
-                setMessages([tourMessages[0]]);
-                setIsTyping(false);
-
-                // Sequence the rest of the tour
-                for (let i = 1; i < tourMessages.length; i++) {
-                    await new Promise(r => setTimeout(r, 2000));
-                    setIsTyping(true);
-                    await new Promise(r => setTimeout(r, 1000));
-                    setMessages(prev => [...prev, tourMessages[i]]);
-                    setIsTyping(false);
-                }
-            }
-        };
-
-        startTour();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        if (messages.length === 0) {
+            setMessages([{
+                id: 'intro',
+                role: 'ai',
+                content: "Hello! I'm your Vape Assistant powered by Gemini. Ask me anything about our products, recommendations, or vaping general advice!",
+                timestamp: new Date()
+            }]);
+        }
+    }, [messages.length]);
 
     const handleSend = async (text: string) => {
         if (!text.trim()) return;
@@ -86,29 +66,29 @@ export function AIChat() {
         };
         setMessages(prev => [...prev, userMsg]);
         setInputValue('');
-
-        // Simulate AI thinking
         setIsTyping(true);
-        await new Promise(r => setTimeout(r, 1500));
 
-        // Get scripted response
-        const responses = SCRIPTED_RESPONSES[text] || [
-            "That's a great question! In the live version, I would analyze our entire catalog to give you a precise answer.",
-            "For this demo, try clicking one of the suggested examples to see my specific capabilities."
-        ];
+        try {
+            const responseText = await chatWithGemini(text);
 
-        for (const content of responses) {
-            setIsTyping(true);
-            await new Promise(r => setTimeout(r, 1200));
             const aiMsg: ChatMessage = {
-                id: Math.random().toString(),
+                id: Date.now().toString(),
                 role: 'ai',
-                content,
+                content: responseText,
                 timestamp: new Date()
             };
             setMessages(prev => [...prev, aiMsg]);
+        } catch (error) {
+            console.error("Gemini Error:", error);
+            const errorMsg: ChatMessage = {
+                id: Date.now().toString(),
+                role: 'ai',
+                content: "I'm having trouble connecting to the server right now. Please try again later.",
+                timestamp: new Date()
+            };
+            setMessages(prev => [...prev, errorMsg]);
+        } finally {
             setIsTyping(false);
-            await new Promise(r => setTimeout(r, 500));
         }
     };
 
@@ -145,13 +125,10 @@ export function AIChat() {
                                     )}
                                     {msg.role === 'ai' ? 'Vape Assistant' : 'You'}
                                 </div>
-                                {msg.content}
+                                <div className="whitespace-pre-wrap">{msg.content}</div>
                                 {/* Rich Content Stub - Logic would expand here */}
-                                {msg.role === 'ai' && msg.content.includes("15% off") && (
-                                    <RichContentCard type="promo" data="Sale Category: 15% Off All Fruits" />
-                                )}
-                                {msg.role === 'ai' && msg.content.includes("Elf Bar") && (
-                                    <RichContentCard type="category" data="Filter: Brand = Elf Bar" />
+                                {msg.role === 'ai' && msg.content.toLowerCase().includes("sale") && (
+                                    <RichContentCard type="promo" data="Check out our Sale items!" />
                                 )}
                             </div>
                         </motion.div>
@@ -173,21 +150,6 @@ export function AIChat() {
                 )}
             </div>
 
-            {/* Suggested Examples (Quick Replies) */}
-            <div className="p-3 bg-black/40 border-t border-white/5">
-                <div className="flex flex-wrap gap-2">
-                    {Object.keys(SCRIPTED_RESPONSES).slice(0, 3).map((example, i) => (
-                        <button
-                            key={i}
-                            onClick={() => handleSend(example)}
-                            className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/30 transition-all text-muted-foreground hover:text-primary-foreground"
-                        >
-                            {example}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
             {/* Input Area */}
             <div className="p-3 bg-black/60 border-t border-white/10 flex gap-2">
                 <input
@@ -195,7 +157,7 @@ export function AIChat() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend(inputValue)}
-                    placeholder="Ask about vapes..."
+                    placeholder="Ask Gemini about vapes..."
                     className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors"
                 />
                 <button
@@ -208,3 +170,4 @@ export function AIChat() {
         </div>
     );
 }
+

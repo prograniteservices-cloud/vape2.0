@@ -17,27 +17,13 @@ interface DashboardProps {
   products: Product[];
 }
 
-const shapeStyles: Record<string, string> = {
-  'small-rect': 'col-span-1 row-span-1',
-  'medium-rect': 'col-span-2 row-span-1',
-  'large-rect': 'col-span-2 row-span-2',
-  'circle': 'col-span-1 row-span-1 aspect-square rounded-full',
-  'pill': 'col-span-2 row-span-1 rounded-full',
-};
-
-const productShapes: ('small-rect' | 'medium-rect' | 'large-rect' | 'circle' | 'pill')[] = [
-  'medium-rect', 'small-rect', 'large-rect', 'circle', 'pill',
-  'small-rect', 'medium-rect', 'circle', 'medium-rect', 'small-rect',
-  'large-rect', 'pill', 'small-rect', 'medium-rect', 'circle',
-];
-
-export function Dashboard({ 
-  selectedCategory, 
-  onSelectCategory, 
-  onBrowse, 
+export function Dashboard({
+  selectedCategory,
+  onSelectCategory,
+  onBrowse,
   onNavigateToRoot,
   viewMode,
-  products 
+  products
 }: DashboardProps) {
   const getCategoriesToDisplay = (): Category[] => {
     if (!selectedCategory) {
@@ -96,10 +82,10 @@ export function Dashboard({
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const rotateX = (y - centerY) / 20;
     const rotateY = (centerX - x) / 20;
-    
+
     card.style.transform = `
       perspective(1000px)
       rotateX(${rotateX}deg)
@@ -152,11 +138,10 @@ export function Dashboard({
               <span className="text-muted-foreground">/</span>
               <button
                 onClick={() => onSelectCategory(cat)}
-                className={`${
-                  index === breadcrumb.length - 2
-                    ? 'text-primary font-semibold'
-                    : 'text-muted-foreground hover:text-foreground'
-                } transition-colors`}
+                className={`${index === breadcrumb.length - 2
+                  ? 'text-primary font-semibold'
+                  : 'text-muted-foreground hover:text-foreground'
+                  } transition-colors`}
               >
                 {cat.name}
               </button>
@@ -171,7 +156,7 @@ export function Dashboard({
         className="mb-8"
       >
         <h2 className="text-4xl font-bold text-foreground mb-2">
-          {viewMode === 'products' 
+          {viewMode === 'products'
             ? (selectedCategory ? `${selectedCategory.name} Products` : 'All Products')
             : (selectedCategory ? selectedCategory.name : 'Browse Categories')
           }
@@ -252,17 +237,18 @@ export function Dashboard({
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="dashboard-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]"
+            className="dashboard-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
           >
-            {products.map((product, index) => (
+            {products.map((product) => (
               <motion.div
                 key={product.id}
                 variants={cardVariants}
+                className="col-span-1"
               >
                 <ProductCard
                   product={product}
                   onClick={() => handleProductClick(product)}
-                  shape={productShapes[index % productShapes.length]}
+                  shape="medium-rect"
                   discount={product.salePrice ? Math.round(((product.price - product.salePrice) / product.price) * 100) : undefined}
                 />
               </motion.div>

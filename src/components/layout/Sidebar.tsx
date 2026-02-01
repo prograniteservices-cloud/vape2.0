@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Category } from '@/types';
 import { categoryTree, hasChildren } from '@/lib/data';
 import { ChevronRight, ChevronDown, MessageCircle, Sparkles, X, Bot } from 'lucide-react';
-import { AIChat } from '../features/AIChat';
 
 
 
@@ -169,26 +168,6 @@ export function Sidebar({ selectedCategory, onSelectCategory, isMobileOpen = fal
         <div className="p-6 border-b border-white/10">
           <h1 className="text-2xl font-bold gradient-text">Vape Shop</h1>
           <p className="text-sm text-muted-foreground mt-1">Find your perfect vape</p>
-        </div>
-
-        {/* AI Chat Section - Enhanced Presentation Mode */}
-        <div className="flex-shrink-0 p-4 border-b border-white/10 bg-black/5">
-          <div className="flex items-center gap-2 mb-3">
-            <Sparkles className="text-primary" size={20} />
-            <h2 className="font-semibold text-foreground">AI Showcase</h2>
-            <motion.span
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="ml-auto text-[10px] px-2 py-0.5 bg-primary/20 text-primary border border-primary/30 rounded-full font-bold tracking-widest"
-            >
-              LIVE DEMO
-            </motion.span>
-          </div>
-
-          {/* Enhanced AI Chat Interface */}
-          <div className="h-[420px] relative">
-            <AIChat />
-          </div>
         </div>
 
         {/* Category Tree */}
