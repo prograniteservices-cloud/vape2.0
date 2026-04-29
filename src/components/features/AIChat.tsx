@@ -68,11 +68,21 @@ export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string) => vo
     };
 
     const toggleListening = () => {
-        if (isListening) {
-            recognitionRef.current?.stop();
-        } else {
-            recognitionRef.current?.start();
-            setIsListening(true);
+        try {
+            if (isListening) {
+                recognitionRef.current?.stop();
+                setIsListening(false);
+            } else {
+                if (recognitionRef.current) {
+                    recognitionRef.current.start();
+                    setIsListening(true);
+                } else {
+                    console.error("Speech recognition not supported or not initialized");
+                }
+            }
+        } catch (error) {
+            console.error("Speech recognition error:", error);
+            setIsListening(false);
         }
     };
 
