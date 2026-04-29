@@ -6,7 +6,7 @@ import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { AIChat } from '@/components/features/AIChat';
-import { Menu, Sparkles, Bot, Package, Layers } from 'lucide-react';
+import { Menu, Sparkles, Bot, Package, Layers, X } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
@@ -141,8 +141,20 @@ export default function Home() {
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
-              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-zinc-950 z-[70] md:hidden p-6"
+              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-zinc-950 z-[70] md:hidden p-6 border-r border-white/10 shadow-2xl overflow-y-auto"
             >
+               <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-2">
+                    <Bot size={20} className="text-primary" />
+                    <h2 className="text-lg font-bold">Navigator</h2>
+                  </div>
+                  <button 
+                    onClick={() => setIsMobileSidebarOpen(false)}
+                    className="p-2 -mr-2 text-white/40 hover:text-white transition-colors"
+                  >
+                    <X size={20} />
+                  </button>
+               </div>
                <Sidebar
                 selectedCategory={selectedCategory}
                 onSelectCategory={handleSelectCategory}
