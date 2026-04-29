@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Category } from '@/types';
 import { categoryTree, hasChildren } from '@/lib/data';
-import { ChevronRight, ChevronDown, MessageCircle, Sparkles, X, Bot } from 'lucide-react';
+import { ChevronRight, ChevronDown, MessageCircle, Sparkles, X, Bot, Camera } from 'lucide-react';
+import { BarcodeScanner } from '../features/BarcodeScanner';
 
 
 
@@ -18,6 +19,12 @@ interface SidebarProps {
 
 export function Sidebar({ selectedCategory, onSelectCategory, isMobileOpen = false, onCloseMobile }: SidebarProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(['vapes']));
+  const [isScannerOpen, setIsScannerOpen] = useState(false);
+
+  const handleScan = (barcode: string) => {
+    console.log('Scanned barcode:', barcode);
+    // TODO: Look up product in Firebase/GCP
+  };
 
   // Auto-expand parent categories when a child is selected
   useEffect(() => {
@@ -171,13 +178,23 @@ export function Sidebar({ selectedCategory, onSelectCategory, isMobileOpen = fal
         </div>
 
         {/* Category Tree */}
-        <div className="flex-1 overflow-y-auto p-4">
-          <div className="flex items-center gap-2 mb-3">
-            <MessageCircle className="text-accent" size={18} />
-            <h2 className="font-semibold text-foreground">Categories</h2>
-          </div>
-          <div className="space-y-1">
-            {categoryTree.children?.map((category) => renderCategoryTree(category))}
+        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <button 
+            onClick={() => setIsScannerOpen(true)}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 rounded-xl transition-all font-bold group"
+          >
+            <Camera size={18} className="group-hover:scale-110 transition-transform" />
+            <span>Scan Product</span>
+          </button>
+
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <MessageCircle className="text-accent" size={18} />
+              <h2 className="font-semibold text-foreground">Categories</h2>
+            </div>
+            <div className="space-y-1">
+              {categoryTree.children?.map((category) => renderCategoryTree(category))}
+            </div>
           </div>
         </div>
 
@@ -188,6 +205,15 @@ export function Sidebar({ selectedCategory, onSelectCategory, isMobileOpen = fal
           </p>
         </div>
       </aside>
+
+      <AnimatePresence>
+        {isScannerOpen && (
+          <BarcodeScanner 
+            onScan={handleScan} 
+            onClose={() => setIsScannerOpen(false)} 
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

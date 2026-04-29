@@ -6,30 +6,10 @@ import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { AIChat } from '@/components/features/AIChat';
-import { ThinkingGraphic } from '@/components/features/ThinkingGraphic';
-import { Menu, Sparkles, ShoppingBag, Bot } from 'lucide-react';
-import { hasChildren, getProductsByCategory, products as allProducts } from '@/lib/data';
-
-// Page transition wrapper
-function PageTransition({ children, mode }: { children: React.ReactNode; mode: string }) {
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={mode}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className="w-full h-full"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
-  );
-}
+import { Menu, Sparkles, Bot, Package, Layers } from 'lucide-react';
+import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
-  const [appMode, setAppMode] = useState<'ai' | 'shop'>('ai');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'categories' | 'products'>('categories');
@@ -41,7 +21,6 @@ export default function Home() {
     setSelectedCategory(category);
     setIsMobileSidebarOpen(false);
 
-    // Simulate loading for smooth transition
     setTimeout(() => {
       if (!hasChildren(category)) {
         setViewMode('products');
@@ -50,21 +29,6 @@ export default function Home() {
       } else {
         setViewMode('categories');
         setProductsToDisplay([]);
-      }
-      setIsLoading(false);
-    }, 150);
-  };
-
-  const handleBrowse = () => {
-    setIsLoading(true);
-    setViewMode('products');
-
-    setTimeout(() => {
-      if (selectedCategory) {
-        const products = getProductsByCategory(selectedCategory.id);
-        setProductsToDisplay(products);
-      } else {
-        setProductsToDisplay(allProducts);
       }
       setIsLoading(false);
     }, 150);
@@ -80,129 +44,114 @@ export default function Home() {
     }, 150);
   };
 
-  const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen(!isMobileSidebarOpen);
-  };
-
-  const closeMobileSidebar = () => {
-    setIsMobileSidebarOpen(false);
+  const handleChatNavigate = (categoryId: string) => {
+    const category = findCategoryById(categoryTree, categoryId);
+    if (category) {
+      handleSelectCategory(category);
+    }
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-background text-foreground relative">
-
-      {/* Premium Mode Switcher */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl">
-        <button
-          onClick={() => setAppMode('ai')}
-          className={`
-            flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
-            ${appMode === 'ai'
-              ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/20 scale-105'
-              : 'text-muted-foreground hover:text-white hover:bg-white/5'
-            }
-          `}
-        >
-          <Bot size={18} />
-          <span>AI Assistant</span>
-        </button>
-        <button
-          onClick={() => setAppMode('shop')}
-          className={`
-            flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
-            ${appMode === 'shop'
-              ? 'bg-white text-black shadow-lg shadow-white/10 scale-105'
-              : 'text-muted-foreground hover:text-white hover:bg-white/5'
-            }
-          `}
-        >
-          <ShoppingBag size={18} />
-          <span>Browse Shop</span>
-        </button>
+    <div className="flex h-screen overflow-hidden bg-[#050505] text-white relative font-sans">
+      
+      {/* Background Ambient Glows */}
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-accent/20 rounded-full blur-[100px]" />
       </div>
 
-      {appMode === 'shop' && (
-        <header className="md:hidden flex items-center justify-between p-4 bg-[#0f0f1a] border-b border-white/10 z-30 pt-20">
-          <h1 className="text-xl font-bold gradient-text">Vape Shop</h1>
-          <button
-            onClick={toggleMobileSidebar}
-            className="hamburger-btn"
-            aria-label="Toggle menu"
-          >
-            <Menu size={24} />
-          </button>
-        </header>
-      )}
-
-      {/* Loading Overlay */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-background/50 backdrop-blur-sm flex items-center justify-center pointer-events-none"
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <main className="flex-1 flex overflow-hidden relative">
-        <PageTransition mode={appMode}>
-          {appMode === 'ai' ? (
-            <div className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden relative">
-              {/* Background Ambient Effects */}
-              <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-50" />
-              <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] pointer-events-none opacity-50" />
-
-              <div className="w-full max-w-7xl h-[80vh] relative z-10 pt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                {/* Chat Interface */}
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="h-full w-full max-w-2xl mx-auto lg:mx-0 flex flex-col"
-                >
-                  <AIChat />
-                </motion.div>
-
-                {/* Thinking Graphic (Desktop Only) */}
-                <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="hidden lg:flex h-full items-center justify-center relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent rounded-full blur-3xl" />
-                  <ThinkingGraphic />
-                </motion.div>
-              </div>
+      {/* Left Panel: Navigation & Products (Compressed) */}
+      <div className="w-[320px] lg:w-[380px] h-full border-r border-white/5 bg-zinc-950/40 backdrop-blur-3xl z-20 flex flex-col hidden md:flex shadow-2xl">
+        <div className="p-6 border-b border-white/5 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
+            <Bot size={22} className="text-white" />
+          </div>
+          <div>
+            <h1 className="text-lg font-bold tracking-tight">VapeOS <span className="text-primary">v2</span></h1>
+            <p className="text-[10px] text-white/40 uppercase tracking-widest font-bold leading-none mt-0.5">Enterprise Edition</p>
+          </div>
+        </div>
+        
+        <div className="flex-1 overflow-hidden flex flex-col">
+          <div className="p-4 border-b border-white/5 bg-white/5">
+            <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-3 px-2">
+              <Layers size={14} className="text-primary" />
+              <span>NAVIGATOR</span>
             </div>
-          ) : (
-            <div className="flex w-full h-full pt-20 md:pt-0">
-              <Sidebar
+            <Sidebar
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleSelectCategory}
+            />
+          </div>
+          
+          <div className="flex-1 overflow-y-auto scrollbar-hide p-4">
+             <div className="flex items-center justify-between mb-4 px-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-white/60">
+                  <Package size={14} className="text-accent" />
+                  <span>PREVIEW</span>
+                </div>
+                {selectedCategory && (
+                   <button 
+                    onClick={handleNavigateToRoot}
+                    className="text-[10px] text-primary hover:underline font-bold"
+                   >
+                     RESET
+                   </button>
+                )}
+             </div>
+             <Dashboard
                 selectedCategory={selectedCategory}
                 onSelectCategory={handleSelectCategory}
-                isMobileOpen={isMobileSidebarOpen}
-                onCloseMobile={closeMobileSidebar}
-              />
-              <Dashboard
-                selectedCategory={selectedCategory}
-                onSelectCategory={handleSelectCategory}
-                onBrowse={handleBrowse}
+                onBrowse={() => {}}
                 onNavigateToRoot={handleNavigateToRoot}
                 viewMode={viewMode}
                 products={productsToDisplay}
+                compact={true}
               />
-            </div>
-          )}
-        </PageTransition>
+          </div>
+        </div>
+      </div>
+
+      {/* Center Panel: Verbal AI Chat */}
+      <main className="flex-1 h-full flex flex-col z-10 relative">
+        <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
+          <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
+          <button onClick={() => setIsMobileSidebarOpen(true)} className="p-2 relative z-50">
+            <Menu size={24} />
+          </button>
+        </header>
+
+        <div className="flex-1 flex flex-col overflow-hidden relative">
+          <AIChat onNavigate={handleChatNavigate} />
+        </div>
       </main>
+
+      {/* Mobile Sidebar Overlay */}
+      <AnimatePresence>
+        {isMobileSidebarOpen && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileSidebarOpen(false)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] md:hidden"
+            />
+            <motion.div 
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-zinc-950 z-[70] md:hidden p-6"
+            >
+               <Sidebar
+                selectedCategory={selectedCategory}
+                onSelectCategory={handleSelectCategory}
+                onCloseMobile={() => setIsMobileSidebarOpen(false)}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

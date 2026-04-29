@@ -153,7 +153,6 @@ export function hasChildren(category: Category): boolean {
 
 // Mock Product Data
 export const products: Product[] = [
-  // Elf Bar Products
   {
     id: 'elfbar-watermelon-5000',
     name: 'Elf Bar Watermelon Ice 5000',
@@ -166,6 +165,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Red',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'elfbar-strawberry-10000',
@@ -179,6 +180,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Pink',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'elfbar-grape-15000',
@@ -192,6 +195,8 @@ export const products: Product[] = [
     hits: 15000,
     color: 'Purple',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'elfbar-mango-20000',
@@ -205,6 +210,8 @@ export const products: Product[] = [
     hits: 20000,
     color: 'Orange',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'elfbar-blueberry-5000',
@@ -218,6 +225,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Blue',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'elfbar-peach-10000',
@@ -231,6 +240,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Orange',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'elfbar-mint-5000',
@@ -244,9 +255,9 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Teal',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // Geek Bar Products
   {
     id: 'geekbar-vanilla-10000',
     name: 'Geek Bar Vanilla Cream 10000',
@@ -259,6 +270,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Yellow',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'geekbar-watermelon-15000',
@@ -272,6 +285,8 @@ export const products: Product[] = [
     hits: 15000,
     color: 'Red',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'geekbar-mango-5000',
@@ -285,6 +300,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Orange',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'geekbar-grape-20000',
@@ -298,6 +315,8 @@ export const products: Product[] = [
     hits: 20000,
     color: 'Purple',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'geekbar-strawberry-10000',
@@ -311,9 +330,9 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Pink',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // Lost Mary Products
   {
     id: 'lostmary-blueberry-5000',
     name: 'Lost Mary Blueberry Ice 5000',
@@ -326,6 +345,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Blue',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'lostmary-mint-10000',
@@ -339,6 +360,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Teal',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'lostmary-peach-15000',
@@ -352,6 +375,8 @@ export const products: Product[] = [
     hits: 15000,
     color: 'Orange',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'lostmary-vanilla-20000',
@@ -365,6 +390,8 @@ export const products: Product[] = [
     hits: 20000,
     color: 'Yellow',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'lostmary-strawberry-5000',
@@ -378,9 +405,9 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Pink',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // Funky Republic Products
   {
     id: 'funky-watermelon-20000',
     name: 'Funky Republic Watermelon Nana 20000',
@@ -393,6 +420,8 @@ export const products: Product[] = [
     hits: 20000,
     color: 'Red',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'funky-grape-10000',
@@ -406,6 +435,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Purple',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'funky-mango-15000',
@@ -419,6 +450,8 @@ export const products: Product[] = [
     hits: 15000,
     color: 'Orange',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'funky-mint-5000',
@@ -432,6 +465,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Teal',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'funky-blueberry-10000',
@@ -445,9 +480,9 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Blue',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // Hyde Products
   {
     id: 'hyde-vanilla-5000',
     name: 'Hyde Vanilla Custard 5000',
@@ -460,6 +495,8 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Yellow',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'hyde-peach-10000',
@@ -473,6 +510,8 @@ export const products: Product[] = [
     hits: 10000,
     color: 'Orange',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'hyde-strawberry-15000',
@@ -486,6 +525,8 @@ export const products: Product[] = [
     hits: 15000,
     color: 'Pink',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'hyde-mint-20000',
@@ -499,6 +540,8 @@ export const products: Product[] = [
     hits: 20000,
     color: 'Teal',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'hyde-grape-5000',
@@ -512,9 +555,9 @@ export const products: Product[] = [
     hits: 5000,
     color: 'Purple',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // E-Liquid Products
   {
     id: 'eliquid-fruity-mix-3mg',
     name: 'Vape Juice Fruity Mix 3mg',
@@ -525,6 +568,8 @@ export const products: Product[] = [
     flavor: 'fruity',
     color: 'Orange',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-berry-blast-6mg',
@@ -536,6 +581,8 @@ export const products: Product[] = [
     flavor: 'fruity',
     color: 'Blue',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-vanilla-custard-0mg',
@@ -547,6 +594,8 @@ export const products: Product[] = [
     flavor: 'dessert',
     color: 'Yellow',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-chocolate-donut-12mg',
@@ -558,6 +607,8 @@ export const products: Product[] = [
     flavor: 'dessert',
     color: 'Brown',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'eliquid-menthol-ice-6mg',
@@ -569,6 +620,8 @@ export const products: Product[] = [
     flavor: 'menthol',
     color: 'Cyan',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-spearmint-3mg',
@@ -580,6 +633,8 @@ export const products: Product[] = [
     flavor: 'menthol',
     color: 'Teal',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-classic-tobacco-18mg',
@@ -591,6 +646,8 @@ export const products: Product[] = [
     flavor: 'tobacco',
     color: 'Brown',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'eliquid-virginia-tobacco-12mg',
@@ -602,9 +659,9 @@ export const products: Product[] = [
     flavor: 'tobacco',
     color: 'Tan',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
-
-  // Accessories
   {
     id: 'usb-c-charger',
     name: 'USB-C Fast Charger',
@@ -614,6 +671,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'chargers'],
     color: 'Black',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'wireless-charging-pad',
@@ -624,6 +683,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'chargers', 'sale'],
     color: 'White',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'silicone-case-black',
@@ -634,6 +695,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'cases'],
     color: 'Black',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'leather-case-brown',
@@ -644,6 +707,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'cases'],
     color: 'Brown',
     inStock: false,
+    organization_id: 'default-shop',
+    stock: 0,
   },
   {
     id: 'lanyard-black',
@@ -654,6 +719,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'lanyards'],
     color: 'Black',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'lanyard-rainbow',
@@ -664,6 +731,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'lanyards'],
     color: 'Rainbow',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'replacement-cartridges-3pack',
@@ -674,6 +743,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'cartridges', 'sale'],
     color: 'Clear',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'mesh-cartridge-5pack',
@@ -684,6 +755,8 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'cartridges'],
     color: 'Clear',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
   {
     id: 'carrying-pouch-teal',
@@ -694,10 +767,11 @@ export const products: Product[] = [
     categoryPath: ['accessories', 'cases'],
     color: 'Teal',
     inStock: true,
+    organization_id: 'default-shop',
+    stock: 15,
   },
 ];
 
-// Helper function to filter products by category
 export function getProductsByCategory(categoryId: string): Product[] {
   return products.filter(product => product.categoryPath.includes(categoryId));
 }

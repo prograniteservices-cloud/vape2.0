@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -12,9 +12,11 @@
     "@google/generative-ai": "^0.24.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "firebase": "^12.12.1",
     "framer-motion": "^12.29.2",
-    "lucide-react": "^0.563.0",
+    "lucide-react": "^1.12.0",
     "next": "16.1.6",
+    "next-pwa": "^5.6.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.4.0"

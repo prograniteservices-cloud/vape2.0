@@ -23,6 +23,10 @@ export interface Product {
   hits?: number;
   color?: string;
   inStock: boolean;
+  organization_id: string; // Multi-tenant isolation
+  barcode?: string;
+  stock: number;
+  updated_at?: string;
 }
 
 export interface ChatMessage {

@@ -8,7 +8,10 @@ if (!API_KEY) {
 
 const genAI = new GoogleGenerativeAI(API_KEY || "");
 
-export const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+export const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-pro",
+    systemInstruction: "You are a Vape Store AI assistant. You help users find products. If you want to show a specific category to the user on the dashboard, you MUST include the command [SHOW:category_id] in your response. Available category IDs: vapes, flavor, watermelon, strawberry, grape, mango, blueberry, peach, mint, vanilla, hits, 5000-hits, 10000-hits, 15000-hits, 20000-hits, brand, elfbar, geekbar, lostmary, funky-republic, hyde, sale, e-liquid, fruity, dessert, menthol, tobacco, accessories, chargers, cases, lanyards, cartridges. Only output one [SHOW:category_id] command if applicable."
+});
 
 export async function chatWithGemini(prompt: string) {
     try {

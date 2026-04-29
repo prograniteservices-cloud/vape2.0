@@ -21,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <div className="flex flex-col md:flex-row h-screen overflow-hidden">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to check organization membership
+    function isMemberOf(orgId) {
+      return request.auth != null && (
+        request.auth.token.organization_id == orgId || 
+        get(/databases/$(database)/documents/users/${request.auth.uid}).data.organization_id == orgId
+      );
+    }
+
+    match /products/{productId} {
+      allow read: if true; // Public catalog view
+      allow write: if isMemberOf(request.resource.data.organization_id);
+    }
+    
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
