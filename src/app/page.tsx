@@ -17,45 +17,58 @@ export default function Home() {
   const [productsToDisplay, setProductsToDisplay] = useState<Product[]>([]);
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
-  const [showInstallBanner, setShowInstallBanner] = useState(false);
+  const [showInstallBanner, setShowInstallBanner] = useState(() => {
+    if (typeof window !== 'undefined' && !window.matchMedia('(display-mode: standalone)').matches) {
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !localStorage.getItem('pwa-dismissed')) {
+        return true;
+      }
+    }
+    return false;
+  });
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isIOS] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent);
+    }
+    return false;
+  });
+  const [isPWAInstalled, setIsPWAInstalled] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(display-mode: standalone)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-    const hasDismissed = localStorage.getItem('pwa-dismissed');
-    if (isStandalone || hasDismissed) return;
+    if (isPWAInstalled) return;
 
-    // Android: listen for the native install prompt event
-    window.addEventListener('beforeinstallprompt', (e: any) => {
+    const hasDismissed = localStorage.getItem('pwa-dismissed');
+
+    const promptHandler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
+      if (!hasDismissed) setShowInstallBanner(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', promptHandler);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', promptHandler);
+    };
+  }, [isPWAInstalled, isIOS]);
+
+  const handleInstall = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const result = await deferredPrompt.userChoice;
+      if (result.outcome === 'accepted') {
+        setIsPWAInstalled(true);
+        setShowInstallBanner(false);
+      }
+      setDeferredPrompt(null);
+    } else {
       setShowInstallBanner(true);
-    });
-
-    // iOS: show banner immediately
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isIOS) setShowInstallBanner(true);
-  }, []);
-
-  const handleInstall = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const result = await deferredPrompt.userChoice;
-      if (result.outcome === 'accepted') {
-        setShowInstallBanner(false);
-      }
-      setDeferredPrompt(null);
-    }
-  };
-
-  const handleInstall = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const result = await deferredPrompt.userChoice;
-      if (result.outcome === 'accepted') {
-        setShowInstallBanner(false);
-      }
-      setDeferredPrompt(null);
+      localStorage.removeItem('pwa-dismissed');
     }
   };
 
@@ -170,7 +183,7 @@ export default function Home() {
                     Install
                   </button>
                 )}
-                <button onClick={() => { setShowInstallBanner(false); localStorage.setItem('pwa-dismissed', '1'); }} className="p-1 text-white/70 hover:text-white">
+                <button onClick={() => { setShowInstallBanner(false); setIsPWAInstalled(true); localStorage.setItem('pwa-dismissed', '1'); }} className="p-1 text-white/70 hover:text-white">
                   <X size={16} />
                 </button>
               </div>
@@ -181,12 +194,12 @@ export default function Home() {
         <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
           <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
           <div className="flex gap-3 items-center">
-            {!selectedCategory && deferredPrompt && (
+            {!isPWAInstalled && (
               <button 
                 onClick={handleInstall}
-                className="text-[10px] text-primary hover:text-primary/80 uppercase tracking-widest font-bold flex items-center gap-1 bg-primary/10 px-2 py-1 rounded border border-primary/30 transition-colors"
+                className="text-xs font-bold flex items-center gap-1.5 bg-primary/20 hover:bg-primary/30 px-3 py-1.5 rounded-lg border border-primary/40 hover:border-primary/60 transition-all text-white/90"
               >
-                <Download size={10} /> Install
+                <Download size={14} /> {deferredPrompt ? 'Install App' : isIOS ? 'Add to Home Screen' : 'Install App'}
               </button>
             )}
             <button 
