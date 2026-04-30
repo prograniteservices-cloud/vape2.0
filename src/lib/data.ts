@@ -93,7 +93,9 @@ export const products: Product[] = (inventoryData as any[]).map((item, index) =>
         inStock: true,
         organization_id: 'default-shop',
         stock: 15,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
+        nicotine: undefined,
+        hits: undefined,
     };
 });
 

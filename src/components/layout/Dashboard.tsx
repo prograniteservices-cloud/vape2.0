@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Category, Product } from '@/types';
 import { hasChildren, categoryTree } from '@/lib/data';
-import { Sparkles, Package, ArrowLeft, ChevronRight } from 'lucide-react';
+import { Sparkles, ArrowLeft, ChevronRight, X, Zap, Droplets } from 'lucide-react';
 import { ProductCard } from '@/components/features/ProductCard';
 import { CategoryCard } from '@/components/features/CategoryCard';
-import { MagneticButton } from '@/components/shared/MagneticButton';
 
 interface DashboardProps {
   selectedCategory: Category | null;
@@ -27,6 +27,10 @@ export function Dashboard({
   products,
   compact = false
 }: DashboardProps) {
+  const [expandedProduct, setExpandedProduct] = useState<Product | null>(null);
+
+  const isVapeProduct = (product: Product) =>
+    product.categoryPath?.some(cat => ['vapes', 'vape-devices', 'e-liquids'].includes(cat));
   
   if (compact) {
     return (
@@ -188,15 +192,149 @@ export function Dashboard({
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product) => (
-            <ProductCard
+              <ProductCard
               key={product.id}
               product={product}
-              onClick={() => {}}
+              onClick={() => setExpandedProduct(product)}
               shape="medium-rect"
             />
           ))}
         </div>
       )}
+
+      <AnimatePresence>
+        {expandedProduct && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedProduct(null)}
+              className="absolute inset-0 bg-black/70 backdrop-blur-xl"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-3xl max-h-[90vh] glass-card rounded-3xl overflow-hidden flex flex-col shadow-2xl border border-white/10"
+              style={{
+                background: `linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.6) 100%)`,
+              }}
+            >
+              <div
+                className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[100px] pointer-events-none"
+                style={{ background: expandedProduct.color ? `${expandedProduct.color}30` : '#8b5cf630' }}
+              />
+              <div
+                className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full blur-[80px] pointer-events-none"
+                style={{ background: expandedProduct.color ? `${expandedProduct.color}20` : '#8b5cf620' }}
+              />
+
+              <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-white/5 relative z-10">
+                <div className="flex items-center gap-2 text-xs font-bold text-white/40 uppercase tracking-widest">
+                  {expandedProduct.categoryPath?.map((cat, i) => (
+                    <span key={cat} className="flex items-center gap-2">
+                      {i > 0 && <span className="text-white/10">/</span>}
+                      <span className="text-white/50">{cat.replace(/-/g, ' ')}</span>
+                    </span>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setExpandedProduct(null)}
+                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto scrollbar-hide">
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/2 relative aspect-square md:aspect-auto md:min-h-[400px] bg-black/40 overflow-hidden">
+                    <img
+                      src={expandedProduct.imageUrl}
+                      alt={expandedProduct.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent md:bg-gradient-to-r md:from-zinc-950/80 md:via-transparent md:to-transparent" />
+                    <div className="absolute bottom-4 left-4 md:hidden">
+                      <h2 className="text-2xl font-black text-white tracking-tight drop-shadow-lg">
+                        {expandedProduct.name}
+                      </h2>
+                      <p className="text-3xl font-black text-primary mt-1">
+                        ${expandedProduct.price.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="md:w-1/2 p-6 md:p-8 flex flex-col gap-5 relative z-10">
+                    <div className="hidden md:block">
+                      <h2 className="text-3xl font-black text-white tracking-tight leading-tight">
+                        {expandedProduct.name}
+                      </h2>
+                      <p className="text-3xl font-black text-primary mt-1">
+                        ${expandedProduct.price.toFixed(2)}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {expandedProduct.brand && (
+                        <span className="text-[10px] font-bold uppercase tracking-widest bg-white/10 text-white/60 px-3 py-1 rounded-full border border-white/5">
+                          {expandedProduct.brand}
+                        </span>
+                      )}
+                      {expandedProduct.flavor && (
+                        <span className="text-[10px] font-bold uppercase tracking-widest bg-white/10 text-white/60 px-3 py-1 rounded-full border border-white/5">
+                          {expandedProduct.flavor}
+                        </span>
+                      )}
+                      <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${expandedProduct.inStock ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-destructive/10 text-destructive border-destructive/20'}`}>
+                        {expandedProduct.inStock ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </div>
+
+                    <p className="text-sm text-white/60 leading-relaxed border-l-2 border-primary/30 pl-4">
+                      {expandedProduct.description}
+                    </p>
+
+                    {isVapeProduct(expandedProduct) && (
+                      <div className="space-y-3">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">Specifications</p>
+                        <div className="glass-card px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-between group hover:border-primary/30 transition-all">
+                          <div className="flex items-center gap-2">
+                            <Zap size={14} className="text-amber-400" />
+                            <span className="text-xs font-bold text-white/60 uppercase tracking-wider">Amount of Hits</span>
+                          </div>
+                          <span className="text-sm text-white/20 font-mono">— puffs</span>
+                        </div>
+                        <div className="glass-card px-4 py-3 rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-between group hover:border-primary/30 transition-all">
+                          <div className="flex items-center gap-2">
+                            <Droplets size={14} className="text-cyan-400" />
+                            <span className="text-xs font-bold text-white/60 uppercase tracking-wider">Nicotine %</span>
+                          </div>
+                          <span className="text-sm text-white/20 font-mono">—</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-shrink-0 border-t border-white/5 px-6 py-3 flex items-center justify-between relative z-10">
+                <span className="text-[10px] text-white/20 uppercase tracking-widest font-bold">
+                  {expandedProduct.organization_id || 'VapeOS'}
+                </span>
+                <button
+                  onClick={() => setExpandedProduct(null)}
+                  className="text-[10px] font-bold text-white/40 hover:text-white uppercase tracking-widest transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

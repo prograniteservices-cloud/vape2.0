@@ -21,6 +21,7 @@ export interface Product {
   brand?: string;
   flavor?: string;
   hits?: number;
+  nicotine?: number;
   color?: string;
   inStock: boolean;
   organization_id: string; // Multi-tenant isolation

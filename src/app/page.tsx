@@ -44,6 +44,7 @@ export default function Home() {
       if (!hasDismissed) setShowInstallBanner(true);
     };
 
+    navigator.serviceWorker.register('/sw.js');
     window.addEventListener('beforeinstallprompt', handler);
     setPwaReady(true);
 
