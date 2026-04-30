@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { AIVoiceBot } from '@/components/features/AIVoiceBot';
-import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw } from 'lucide-react';
+import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw, Download } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
@@ -17,6 +17,16 @@ export default function Home() {
   const [productsToDisplay, setProductsToDisplay] = useState<Product[]>([]);
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
+
+  useEffect(() => {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const hasDismissed = localStorage.getItem('pwa-dismissed');
+    if (!isStandalone && !hasDismissed && isIOS) {
+      setShowInstallBanner(true);
+    }
+  }, []);
 
   const handlePulse = (target: string) => {
     setActiveHighlight(target);
@@ -103,6 +113,26 @@ export default function Home() {
 
       {/* Center Panel: Verbal AI Chat or Dashboard */}
       <main className="flex-1 h-full flex flex-col z-10 relative">
+        {/* PWA Install Banner (iOS) */}
+        <AnimatePresence>
+          {showInstallBanner && (
+            <motion.div
+              initial={{ y: -60, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -60, opacity: 0 }}
+              className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary/90 to-accent/90 backdrop-blur-xl border-b border-white/10 px-4 py-3 flex items-center justify-between"
+            >
+              <div className="flex items-center gap-3">
+                <Download size={18} className="text-white" />
+                <span className="text-xs font-bold text-white">Install VapeOS — tap <span className="underline">Share → Add to Home Screen</span></span>
+              </div>
+              <button onClick={() => { setShowInstallBanner(false); localStorage.setItem('pwa-dismissed', '1'); }} className="p-1 text-white/70 hover:text-white">
+                <X size={16} />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
           <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
           <div className="flex gap-3 items-center">

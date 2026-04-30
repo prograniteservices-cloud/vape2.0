@@ -1,21 +1,23 @@
 {
   "name": "VapeOS v2",
   "short_name": "VapeOS",
-  "description": "Premium Vape Inventory Management",
+  "description": "Premium Vape Store AI Assistant",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f0f1a",
+  "background_color": "#050505",
   "theme_color": "#8b5cf6",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

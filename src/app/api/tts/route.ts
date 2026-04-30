@@ -40,7 +40,7 @@ async function synthesizeWithCloudTTS(text: string, apiKey: string) {
 }
 
 export async function GET() {
-  const googleApiKey = process.env.GOOGLE_TTS_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  const googleApiKey = process.env.GOOGLE_TTS_API_KEY;
   return Response.json({
     ok: true,
     provider: 'Google Cloud TTS',
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Text is required' }, { status: 400 });
     }
 
-    const googleApiKey = process.env.GOOGLE_TTS_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  const googleApiKey = process.env.GOOGLE_TTS_API_KEY;
     if (!googleApiKey) {
       return Response.json({ error: 'TTS API Key not set' }, { status: 500 });
     }
