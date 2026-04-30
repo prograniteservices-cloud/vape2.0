@@ -132,7 +132,7 @@ export function AIVoiceBot({
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4" style={{ perspective: 1000 }}>
+        <div className="flex flex-col items-center justify-center gap-8 w-full max-w-lg mx-auto" style={{ perspective: 1000 }}>
             <AnimatePresence>
                 {(state !== 'idle' || responseMessage) && (
                     <motion.div 
@@ -144,7 +144,7 @@ export function AIVoiceBot({
                         style={{
                             transformStyle: 'preserve-3d'
                         }}
-                        className="bg-black/40 backdrop-blur-xl border border-white/10 p-5 rounded-2xl max-w-[320px] shadow-2xl relative overflow-visible cursor-default"
+                        className="bg-black/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl w-full shadow-2xl relative overflow-visible cursor-default"
                     >
                         {/* Inner 3D Glass Layer */}
                         <div 

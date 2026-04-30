@@ -148,7 +148,7 @@ export default function Home() {
           </button>
         </header>
 
-        <div className="flex-1 flex flex-col overflow-hidden relative">
+        <div className="flex-1 flex items-center justify-center overflow-hidden relative p-8">
           <AIVoiceBot onNavigate={handleChatNavigate} onPulse={handlePulse} resetKey={resetKey} />
         </div>
       </main>
