@@ -44,7 +44,8 @@ export default function Home() {
       if (!hasChildren(category)) {
         setViewMode('products');
         const products = getProductsByCategory(category.id);
-        setProductsToDisplay(products);
+        // Limit to 50 items to prevent browser freezing
+        setProductsToDisplay(products.slice(0, 50));
       } else {
         setViewMode('categories');
         setProductsToDisplay([]);
