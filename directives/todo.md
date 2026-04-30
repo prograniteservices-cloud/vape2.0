@@ -23,3 +23,6 @@
 - [x] Build verification: `npm run build`
 - [x] TypeScript verification: `npx tsc --noEmit`
 - [ ] Functional walkthrough of all scripted interactions.
+
+### 5. Known Bugs & Next Steps 🐛
+- [ ] Fix Vercel production API connection issue: Chatbot STT works, but fails to connect to Gemini/Cloud TTS backend (falls back to native browser TTS). Verify Vercel environment variables (`NEXT_PUBLIC_GEMINI_API_KEY`, `GOOGLE_TTS_API_KEY`, etc.) and API route configurations.

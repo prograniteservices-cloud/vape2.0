@@ -38,8 +38,8 @@
   - Phase 2: Cloud SQL (PostgreSQL) using Prisma (Scaling path).
 - **Scanner**: Browser-native Barcode Detection API (or polyfill).
 - **Voice Agent**: 
-  - Implementation of "Voice Mode" using Web Speech API or Google Cloud STT/TTS.
-  - Integration with Gemini for conversational voice commerce.
+  - Implemented client-side Web Speech STT and server-side Google Cloud TTS with Gemini integration.
+  - *Current Status*: UI/UX complete. Debugging Vercel production API connection fallbacks.
 - **Frontend**:
   - Phase 1: Vercel (Next.js App Router, SSG focus).
   - Phase 2: Cloud Run for containerized auto-scaling.
@@ -49,5 +49,5 @@
   - Predictive ordering logic.
 
 ## Last Updated
-2026-04-28 (Refined for Phase 2 scaling)
+2026-04-30 (Refined for Phase 6 Voice AI Showcase)
 
