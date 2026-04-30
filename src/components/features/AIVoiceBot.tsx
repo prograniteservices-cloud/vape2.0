@@ -118,6 +118,17 @@ export function AIVoiceBot({
         }
     };
 
+    const handleTextSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const text = formData.get('textInput') as string;
+        if (!text.trim() || isProcessing) return;
+        
+        const form = e.currentTarget;
+        form.reset();
+        await handleSpeechEnd(text);
+    };
+
     const { state, setState, startListening, stopListening, isSupported, transcript } = useVoiceEngine({
         onSpeechEnd: handleSpeechEnd
     });
@@ -199,6 +210,16 @@ export function AIVoiceBot({
             >
                 <AnimatedBot state={state} />
             </motion.button>
+
+            <form onSubmit={handleTextSubmit} className="w-full relative mt-4">
+                <input 
+                    type="text" 
+                    name="textInput"
+                    disabled={isProcessing || state === 'talking'}
+                    placeholder="Or type here to chat..." 
+                    className="w-full bg-white/5 border border-white/10 rounded-full px-5 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all disabled:opacity-50"
+                />
+            </form>
         </div>
     );
 }
