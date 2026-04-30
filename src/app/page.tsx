@@ -18,15 +18,46 @@ export default function Home() {
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
   const [showInstallBanner, setShowInstallBanner] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
   useEffect(() => {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const hasDismissed = localStorage.getItem('pwa-dismissed');
-    if (!isStandalone && !hasDismissed && isIOS) {
+    if (isStandalone || hasDismissed) return;
+
+    // Android: listen for the native install prompt event
+    window.addEventListener('beforeinstallprompt', (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
       setShowInstallBanner(true);
-    }
+    });
+
+    // iOS: show banner immediately
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS) setShowInstallBanner(true);
   }, []);
+
+  const handleInstall = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const result = await deferredPrompt.userChoice;
+      if (result.outcome === 'accepted') {
+        setShowInstallBanner(false);
+      }
+      setDeferredPrompt(null);
+    }
+  };
+
+  const handleInstall = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const result = await deferredPrompt.userChoice;
+      if (result.outcome === 'accepted') {
+        setShowInstallBanner(false);
+      }
+      setDeferredPrompt(null);
+    }
+  };
 
   const handlePulse = (target: string) => {
     setActiveHighlight(target);
@@ -113,7 +144,7 @@ export default function Home() {
 
       {/* Center Panel: Verbal AI Chat or Dashboard */}
       <main className="flex-1 h-full flex flex-col z-10 relative">
-        {/* PWA Install Banner (iOS) */}
+        {/* PWA Install Banner */}
         <AnimatePresence>
           {showInstallBanner && (
             <motion.div
@@ -124,11 +155,25 @@ export default function Home() {
             >
               <div className="flex items-center gap-3">
                 <Download size={18} className="text-white" />
-                <span className="text-xs font-bold text-white">Install VapeOS — tap <span className="underline">Share → Add to Home Screen</span></span>
+                <span className="text-xs font-bold text-white">
+                  {deferredPrompt
+                    ? 'Install VapeOS on your device'
+                    : 'Install VapeOS — tap Share → Add to Home Screen'}
+                </span>
               </div>
-              <button onClick={() => { setShowInstallBanner(false); localStorage.setItem('pwa-dismissed', '1'); }} className="p-1 text-white/70 hover:text-white">
-                <X size={16} />
-              </button>
+              <div className="flex items-center gap-2">
+                {deferredPrompt && (
+                  <button
+                    onClick={handleInstall}
+                    className="bg-white text-primary px-3 py-1 rounded-full text-xs font-bold hover:bg-white/90 transition-colors"
+                  >
+                    Install
+                  </button>
+                )}
+                <button onClick={() => { setShowInstallBanner(false); localStorage.setItem('pwa-dismissed', '1'); }} className="p-1 text-white/70 hover:text-white">
+                  <X size={16} />
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -136,6 +181,14 @@ export default function Home() {
         <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
           <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
           <div className="flex gap-3 items-center">
+            {!selectedCategory && deferredPrompt && (
+              <button 
+                onClick={handleInstall}
+                className="text-[10px] text-primary hover:text-primary/80 uppercase tracking-widest font-bold flex items-center gap-1 bg-primary/10 px-2 py-1 rounded border border-primary/30 transition-colors"
+              >
+                <Download size={10} /> Install
+              </button>
+            )}
             <button 
               onClick={handleResetDemo}
               className="text-[10px] text-white/40 hover:text-white uppercase tracking-widest font-bold flex items-center gap-1 bg-white/5 px-2 py-1 rounded hover:bg-white/10 transition-colors relative z-50"
