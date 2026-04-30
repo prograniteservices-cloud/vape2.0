@@ -6,6 +6,7 @@ import { Loader2, Volume2 } from 'lucide-react';
 import { useVoiceEngine } from '@/lib/voice-engine';
 import { chatWithGemini } from '@/lib/gemini';
 import { AnimatedBot } from './AnimatedBot';
+import { RichMessage } from './RichMessage';
 
 export function AIVoiceBot({ onNavigate }: { onNavigate?: (categoryId: string) => void }) {
     const [responseMessage, setResponseMessage] = useState('');
@@ -154,7 +155,7 @@ export function AIVoiceBot({ onNavigate }: { onNavigate?: (categoryId: string) =
                             {state === 'talking' && (
                                 <div className="flex items-start gap-3">
                                     <Volume2 className="w-4 h-4 text-emerald-400 mt-1 shrink-0" />
-                                    <p className="text-sm font-medium text-white/90 leading-relaxed shadow-sm">{responseMessage}</p>
+                                    <RichMessage content={responseMessage} />
                                 </div>
                             )}
 

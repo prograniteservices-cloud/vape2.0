@@ -46,3 +46,5 @@ connections/
 *token*
 *secret*
 *_key*
+
+service-account-key.json
