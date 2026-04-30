@@ -80,7 +80,7 @@ export default function Home() {
     setResetKey(prev => prev + 1);
   };
 
-  const handleSelectCategory = (category: Category) => {
+  const handleSelectCategory = (category: Category, searchQuery?: string, sortOrder?: string) => {
     console.log("[Navigation] Selecting category:", category.id);
     setSelectedCategory(category);
     setIsMobileSidebarOpen(false);
@@ -88,8 +88,26 @@ export default function Home() {
     try {
       if (!hasChildren(category)) {
         console.log("[Navigation] Category has no children, fetching products...");
-        const products = getProductsByCategory(category.id);
+        let products = getProductsByCategory(category.id);
         console.log(`[Navigation] Found ${products?.length || 0} products.`);
+
+        if (searchQuery) {
+          const terms = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+          products = products.filter(p =>
+            terms.every(term =>
+              p.name.toLowerCase().includes(term) ||
+              (p.description && p.description.toLowerCase().includes(term))
+            )
+          );
+          console.log(`[Navigation] Filtered to ${products.length} products matching "${searchQuery}"`);
+        }
+
+        if (sortOrder === 'cheapest') {
+          products = [...products].sort((a, b) => a.price - b.price);
+        } else if (sortOrder === 'priciest') {
+          products = [...products].sort((a, b) => b.price - a.price);
+        }
+
         setProductsToDisplay(products.slice(0, 50));
         setViewMode('products');
       } else {
@@ -108,10 +126,10 @@ export default function Home() {
     setProductsToDisplay([]);
   };
 
-  const handleChatNavigate = (categoryId: string) => {
+  const handleChatNavigate = (categoryId: string, searchQuery?: string, sortOrder?: string) => {
     const category = findCategoryById(categoryTree, categoryId);
     if (category) {
-      handleSelectCategory(category);
+      handleSelectCategory(category, searchQuery, sortOrder);
     }
   };
 

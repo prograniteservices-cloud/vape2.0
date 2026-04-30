@@ -29,7 +29,7 @@ function RichContentCard({ type, data }: RichContentProps) {
     );
 }
 
-export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string) => void }) {
+export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string, searchQuery?: string, sortOrder?: string) => void }) {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [isTyping, setIsTyping] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -122,11 +122,13 @@ export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string) => vo
         try {
             const responseText = await chatWithGemini(messageText);
             let displayString = responseText;
-            const match = responseText.match(/\[SHOW:([a-zA-Z0-9-]+)\]/);
+            const match = responseText.match(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/);
             if (match) {
                 const catId = match[1];
-                if (onNavigate) onNavigate(catId);
-                displayString = responseText.replace(/\[SHOW:([a-zA-Z0-9-]+)\]/g, '').trim();
+                const searchQuery = match[2]?.trim() || undefined;
+                const sortOrder = match[3]?.trim() || undefined;
+                if (onNavigate) onNavigate(catId, searchQuery, sortOrder);
+                displayString = responseText.replace(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/g, '').trim();
             }
 
             const aiMsg: ChatMessage = {

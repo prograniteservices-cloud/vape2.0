@@ -13,7 +13,7 @@ export function AIVoiceBot({
     onPulse,
     resetKey
 }: { 
-    onNavigate?: (categoryId: string) => void;
+    onNavigate?: (categoryId: string, searchQuery?: string, sortOrder?: string) => void;
     onPulse?: (target: string) => void;
     resetKey?: number;
 }) {
@@ -96,12 +96,14 @@ export function AIVoiceBot({
             let displayString = aiResponse;
             
             // Command Handling
-            const match = aiResponse.match(/\[SHOW:([a-zA-Z0-9-]+)\]/);
+            const match = aiResponse.match(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/);
             if (match) {
                 const catId = match[1];
-                console.log("[AIBot] Navigation command detected:", catId);
-                if (onNavigate) onNavigate(catId);
-                displayString = aiResponse.replace(/\[SHOW:([a-zA-Z0-9-]+)\]/g, '').trim();
+                const searchQuery = match[2]?.trim() || undefined;
+                const sortOrder = match[3]?.trim() || undefined;
+                console.log("[AIBot] Navigation command detected:", catId, searchQuery, sortOrder);
+                if (onNavigate) onNavigate(catId, searchQuery, sortOrder);
+                displayString = aiResponse.replace(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/g, '').trim();
             }
 
             const pulseMatch = displayString.match(/\[PULSE:([a-zA-Z0-9-]+)\]/);
