@@ -6,7 +6,7 @@ import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { AIVoiceBot } from '@/components/features/AIVoiceBot';
-import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw } from 'lucide-react';
+import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw, Loader2 } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
@@ -103,7 +103,7 @@ export default function Home() {
             />
           </div>
           
-          <div className={`flex-1 overflow-y-auto scrollbar-hide p-4 transition-all duration-500 ${activeHighlight === 'preview' ? 'bg-emerald-500/5 shadow-[inset_0_0_30px_rgba(16,185,129,0.15)] border-t border-emerald-500/20' : ''}`}>
+          <div className={`flex-1 overflow-y-auto scrollbar-hide p-4 transition-all duration-500 relative ${activeHighlight === 'preview' ? 'bg-emerald-500/5 shadow-[inset_0_0_30px_rgba(16,185,129,0.15)] border-t border-emerald-500/20' : ''}`}>
              <div className="flex items-center justify-between mb-4 px-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-white/60">
                   <Package size={14} className="text-accent" />
@@ -126,15 +126,23 @@ export default function Home() {
                    </button>
                 </div>
              </div>
-             <Dashboard
-                selectedCategory={selectedCategory}
-                onSelectCategory={handleSelectCategory}
-                onBrowse={() => {}}
-                onNavigateToRoot={handleNavigateToRoot}
-                viewMode={viewMode}
-                products={productsToDisplay}
-                compact={true}
-              />
+             
+             {isLoading ? (
+               <div className="flex flex-col items-center justify-center h-48 gap-3">
+                 <Loader2 className="w-8 h-8 text-primary animate-spin opacity-20" />
+                 <p className="text-[10px] text-white/20 uppercase tracking-[0.2em] font-bold">Processing Data</p>
+               </div>
+             ) : (
+               <Dashboard
+                  selectedCategory={selectedCategory}
+                  onSelectCategory={handleSelectCategory}
+                  onBrowse={() => {}}
+                  onNavigateToRoot={handleNavigateToRoot}
+                  viewMode={viewMode}
+                  products={productsToDisplay}
+                  compact={true}
+                />
+             )}
           </div>
         </div>
       </div>

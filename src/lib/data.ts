@@ -22,21 +22,22 @@ export const categoryTree: Category = {
   ],
 };
 
-const categoryMap: Record<string, string> = {
-    'Vapes': 'vapes',
-    'Cigarettes': 'cigarettes',
-    'Lighters & Torches': 'lighters-torches',
-    'Smoking Accessories': 'smoking-accessories',
-    'Adult Novelties': 'adult-novelties',
-    'Vape Devices': 'vape-devices',
-    'Candy & Snacks': 'candy-snacks',
-    'CBD & Delta': 'cbd-delta',
-    'Cigars': 'cigars',
-    'Chewing Tobacco': 'chewing-tobacco',
-    'E-Liquids': 'e-liquids',
-    'Glassware': 'glassware',
-    'Miscellaneous': 'miscellaneous',
-    'All Items': 'root'
+// Robust mapping with case-insensitive matching
+const rawCategoryMap: Record<string, string> = {
+    'vapes': 'vapes',
+    'cigarettes': 'cigarettes',
+    'lighters & torches': 'lighters-torches',
+    'smoking accessories': 'smoking-accessories',
+    'adult novelties': 'adult-novelties',
+    'vape devices': 'vape-devices',
+    'candy & snacks': 'candy-snacks',
+    'cbd & delta': 'cbd-delta',
+    'cigars': 'cigars',
+    'chewing tobacco': 'chewing-tobacco',
+    'e-liquids': 'e-liquids',
+    'glassware': 'glassware',
+    'miscellaneous': 'miscellaneous',
+    'all items': 'root'
 };
 
 // Helper function to find a category by ID
@@ -68,18 +69,26 @@ export function hasChildren(category: Category): boolean {
   return !!(category.children && category.children.length > 0);
 }
 
-// Map inventory items to Product type
+// Map inventory items to Product type with safe parsing
 export const products: Product[] = (inventoryData as any[]).map((item, index) => {
-    const categoryId = categoryMap[item.category] || 'miscellaneous';
-    const priceStr = typeof item.price === 'string' ? item.price.replace('$', '') : String(item.price || '0');
-    const price = parseFloat(priceStr) || 0;
+    // Robust category matching
+    const rawCategory = String(item.category || '').trim().toLowerCase();
+    const categoryId = rawCategoryMap[rawCategory] || 'miscellaneous';
+    
+    // Improved price parsing
+    let price = 0;
+    if (typeof item.price === 'number') {
+        price = item.price;
+    } else if (typeof item.price === 'string') {
+        price = parseFloat(item.price.replace(/[$,]/g, '')) || 0;
+    }
 
     return {
         id: `prod-${index}`,
-        name: item.name || 'Unknown Product',
-        description: item.description || `High-quality ${item.name || 'product'} from the ${item.category || 'miscellaneous'} collection.`,
+        name: String(item.name || 'Unknown Product').trim(),
+        description: item.description || `High-quality ${item.name || 'product'} from our collection.`,
         price: price,
-        imageUrl: item.image || '',
+        imageUrl: item.image || '/assets/categories/vapes.png', // Default image fallback
         categoryPath: [categoryId],
         inStock: true,
         organization_id: 'default-shop',
@@ -87,6 +96,7 @@ export const products: Product[] = (inventoryData as any[]).map((item, index) =>
         updated_at: new Date().toISOString()
     };
 });
+
 
 export function getProductsByCategory(categoryId: string): Product[] {
   if (categoryId === 'root') return products;

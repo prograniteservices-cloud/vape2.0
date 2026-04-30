@@ -22,6 +22,9 @@ export function AIVoiceBot({
     
     useEffect(() => {
         setResponseMessage('');
+        // Securely check for API key presence in client logs
+        const hasKey = typeof process.env.NEXT_PUBLIC_GEMINI_API_KEY === 'string' && process.env.NEXT_PUBLIC_GEMINI_API_KEY.length > 20;
+        console.log(`[VapeOS AI] Service Initialization: ${hasKey ? 'Armed' : 'Missing Credentials'}`);
     }, [resetKey]);
 
     // 3D Tilt Effect Setup

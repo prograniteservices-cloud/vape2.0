@@ -22,20 +22,20 @@ export const modelFlash = genAI.getGenerativeModel({
 
 export async function chatWithGemini(prompt: string) {
     try {
-        // Try Pro first
-        const result = await modelPro.generateContent(prompt);
+        // Try Flash first as it is more robust for free keys and faster
+        const result = await modelFlash.generateContent(prompt);
         const response = await result.response;
         return response.text();
-    } catch (proError) {
-        console.warn("Gemini Pro failed, falling back to Flash:", proError);
+    } catch (flashError) {
+        console.warn("Gemini Flash failed, falling back to Pro:", flashError);
         try {
-            // Fallback to Flash
-            const result = await modelFlash.generateContent(prompt);
+            // Fallback to Pro
+            const result = await modelPro.generateContent(prompt);
             const response = await result.response;
             return response.text();
-        } catch (flashError) {
-            console.error("Gemini Flash also failed:", flashError);
-            throw flashError;
+        } catch (proError) {
+            console.error("Gemini Pro also failed:", proError);
+            throw proError;
         }
     }
 }
