@@ -17,45 +17,39 @@ export default function Home() {
   const [productsToDisplay, setProductsToDisplay] = useState<Product[]>([]);
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
-  const [showInstallBanner, setShowInstallBanner] = useState(() => {
-    if (typeof window !== 'undefined' && !window.matchMedia('(display-mode: standalone)').matches) {
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !localStorage.getItem('pwa-dismissed')) {
-        return true;
-      }
-    }
-    return false;
-  });
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isIOS] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent);
-    }
-    return false;
-  });
-  const [isPWAInstalled, setIsPWAInstalled] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(display-mode: standalone)').matches;
-    }
-    return false;
-  });
+  const [isIOS, setIsIOS] = useState(false);
+  const [isPWAInstalled, setIsPWAInstalled] = useState(false);
+  const [pwaReady, setPwaReady] = useState(false);
 
   useEffect(() => {
-    if (isPWAInstalled) return;
+    /* eslint-disable react-hooks/set-state-in-effect */
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    setIsPWAInstalled(isStandalone);
+    if (isStandalone) {
+      setPwaReady(true);
+      return;
+    }
+
+    const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsIOS(isIOSDevice);
 
     const hasDismissed = localStorage.getItem('pwa-dismissed');
+    if (isIOSDevice && !hasDismissed) setShowInstallBanner(true);
 
-    const promptHandler = (e: Event) => {
+    const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
       if (!hasDismissed) setShowInstallBanner(true);
     };
 
-    window.addEventListener('beforeinstallprompt', promptHandler);
+    window.addEventListener('beforeinstallprompt', handler);
+    setPwaReady(true);
 
-    return () => {
-      window.removeEventListener('beforeinstallprompt', promptHandler);
-    };
-  }, [isPWAInstalled, isIOS]);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, []);
 
   const handleInstall = async () => {
     if (deferredPrompt) {
@@ -194,7 +188,7 @@ export default function Home() {
         <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
           <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
           <div className="flex gap-3 items-center">
-            {!isPWAInstalled && (
+            {pwaReady && !isPWAInstalled && (
               <button 
                 onClick={handleInstall}
                 className="text-xs font-bold flex items-center gap-1.5 bg-primary/20 hover:bg-primary/30 px-3 py-1.5 rounded-lg border border-primary/40 hover:border-primary/60 transition-all text-white/90"
