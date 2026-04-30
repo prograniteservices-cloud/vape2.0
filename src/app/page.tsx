@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
-import { AIChat } from '@/components/features/AIChat';
+import { AIVoiceBot } from '@/components/features/AIVoiceBot';
 import { Menu, Sparkles, Bot, Package, Layers, X } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
@@ -122,7 +122,7 @@ export default function Home() {
         </header>
 
         <div className="flex-1 flex flex-col overflow-hidden relative">
-          <AIChat onNavigate={handleChatNavigate} />
+          <AIVoiceBot onNavigate={handleChatNavigate} />
         </div>
       </main>
 
