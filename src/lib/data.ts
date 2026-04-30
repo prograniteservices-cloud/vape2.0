@@ -71,15 +71,15 @@ export function hasChildren(category: Category): boolean {
 // Map inventory items to Product type
 export const products: Product[] = (inventoryData as any[]).map((item, index) => {
     const categoryId = categoryMap[item.category] || 'miscellaneous';
-    const priceStr = item.price.replace('$', '');
+    const priceStr = typeof item.price === 'string' ? item.price.replace('$', '') : String(item.price || '0');
     const price = parseFloat(priceStr) || 0;
 
     return {
         id: `prod-${index}`,
-        name: item.name,
-        description: item.description || `High-quality ${item.name} from the ${item.category} collection.`,
+        name: item.name || 'Unknown Product',
+        description: item.description || `High-quality ${item.name || 'product'} from the ${item.category || 'miscellaneous'} collection.`,
         price: price,
-        imageUrl: item.image,
+        imageUrl: item.image || '',
         categoryPath: [categoryId],
         inStock: true,
         organization_id: 'default-shop',
