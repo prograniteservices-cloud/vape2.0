@@ -20,6 +20,6 @@
 - [ ] Ensure URL syncing for deep-linking (optional but recommended).
 
 ### 4. Verification ⏳
-- [ ] Build verification: `npm run build`
-- [ ] TypeScript verification: `npx tsc --noEmit`
+- [x] Build verification: `npm run build`
+- [x] TypeScript verification: `npx tsc --noEmit`
 - [ ] Functional walkthrough of all scripted interactions.
