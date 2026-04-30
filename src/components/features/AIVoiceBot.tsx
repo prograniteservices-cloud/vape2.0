@@ -8,10 +8,22 @@ import { chatWithGemini } from '@/lib/gemini';
 import { AnimatedBot } from './AnimatedBot';
 import { RichMessage } from './RichMessage';
 
-export function AIVoiceBot({ onNavigate }: { onNavigate?: (categoryId: string) => void }) {
+export function AIVoiceBot({ 
+    onNavigate,
+    onPulse,
+    resetKey
+}: { 
+    onNavigate?: (categoryId: string) => void;
+    onPulse?: (target: string) => void;
+    resetKey?: number;
+}) {
     const [responseMessage, setResponseMessage] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
     
+    useEffect(() => {
+        setResponseMessage('');
+    }, [resetKey]);
+
     // 3D Tilt Effect Setup
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -77,6 +89,13 @@ export function AIVoiceBot({ onNavigate }: { onNavigate?: (categoryId: string) =
                 const catId = match[1];
                 if (onNavigate) onNavigate(catId);
                 displayString = aiResponse.replace(/\[SHOW:([a-zA-Z0-9-]+)\]/g, '').trim();
+            }
+
+            const pulseMatch = displayString.match(/\[PULSE:([a-zA-Z0-9-]+)\]/);
+            if (pulseMatch) {
+                const target = pulseMatch[1];
+                if (onPulse) onPulse(target);
+                displayString = displayString.replace(/\[PULSE:([a-zA-Z0-9-]+)\]/g, '').trim();
             }
             
             setResponseMessage(displayString);

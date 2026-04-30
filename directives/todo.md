@@ -15,8 +15,8 @@
 - [x] Integrate 3D Tilt effect on the chat container.
 
 ### 3. Presentation State Management ⏳
-- [ ] Map AI responses to dashboard highlight triggers.
-- [ ] Implement `ResetDemo` utility.
+- [x] Map AI responses to dashboard highlight triggers.
+- [x] Implement `ResetDemo` utility.
 - [ ] Ensure URL syncing for deep-linking (optional but recommended).
 
 ### 4. Verification ⏳

@@ -18,5 +18,4 @@ Normalize and generate professional one-sentence descriptions for ~1,760 invento
 - **Premium AI Interface & Polish**: **COMPLETED**. Built the `AnimatedBot` avatar using glassmorphism and dual-layer glow. Added 3D tilt effects to the main chat container. Implemented `RichMessage` components (Highlight Cards, Capability Badges) for inline response formatting. Added `service-account-key.json` to `.gitignore`.
 
 ## Next Steps for Development
-1. **Presentation State Management**: Map AI responses to dashboard highlight triggers (e.g. pulsing sidebars when the AI talks about filtering).
-2. **Reset Utilities**: Implement the `ResetDemo` utility for easy repeatable showcases.
+1. **Verification**: Functional walkthrough of all scripted interactions and overall showcase readiness.

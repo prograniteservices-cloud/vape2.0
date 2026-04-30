@@ -6,7 +6,7 @@ import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { AIVoiceBot } from '@/components/features/AIVoiceBot';
-import { Menu, Sparkles, Bot, Package, Layers, X } from 'lucide-react';
+import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
@@ -15,6 +15,25 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<'categories' | 'products'>('categories');
   const [productsToDisplay, setProductsToDisplay] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
+  const [resetKey, setResetKey] = useState(0);
+
+  const handlePulse = (target: string) => {
+    setActiveHighlight(target);
+    setTimeout(() => setActiveHighlight(null), 4000);
+  };
+
+  const handleResetDemo = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setSelectedCategory(null);
+      setViewMode('categories');
+      setProductsToDisplay([]);
+      setActiveHighlight(null);
+      setResetKey(prev => prev + 1);
+      setIsLoading(false);
+    }, 150);
+  };
 
   const handleSelectCategory = (category: Category) => {
     setIsLoading(true);
@@ -73,7 +92,7 @@ export default function Home() {
         </div>
         
         <div className="flex-1 overflow-hidden flex flex-col">
-          <div className="p-4 border-b border-white/5 bg-white/5">
+          <div className={`p-4 border-b border-white/5 transition-all duration-500 ${activeHighlight === 'sidebar' ? 'bg-emerald-500/10 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] border-emerald-500/30' : 'bg-white/5'}`}>
             <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-3 px-2">
               <Layers size={14} className="text-primary" />
               <span>NAVIGATOR</span>
@@ -84,20 +103,28 @@ export default function Home() {
             />
           </div>
           
-          <div className="flex-1 overflow-y-auto scrollbar-hide p-4">
+          <div className={`flex-1 overflow-y-auto scrollbar-hide p-4 transition-all duration-500 ${activeHighlight === 'preview' ? 'bg-emerald-500/5 shadow-[inset_0_0_30px_rgba(16,185,129,0.15)] border-t border-emerald-500/20' : ''}`}>
              <div className="flex items-center justify-between mb-4 px-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-white/60">
                   <Package size={14} className="text-accent" />
                   <span>PREVIEW</span>
                 </div>
-                {selectedCategory && (
+                <div className="flex gap-3 items-center">
+                   {selectedCategory && (
+                      <button 
+                       onClick={handleNavigateToRoot}
+                       className="text-[10px] text-primary hover:underline font-bold"
+                      >
+                        BACK
+                      </button>
+                   )}
                    <button 
-                    onClick={handleNavigateToRoot}
-                    className="text-[10px] text-primary hover:underline font-bold"
+                     onClick={handleResetDemo}
+                     className="text-[10px] text-white/40 hover:text-white uppercase tracking-widest font-bold flex items-center gap-1 bg-white/5 px-2 py-1 rounded hover:bg-white/10 transition-colors"
                    >
-                     RESET
+                     <RefreshCw size={10} /> Reset Showcase
                    </button>
-                )}
+                </div>
              </div>
              <Dashboard
                 selectedCategory={selectedCategory}
@@ -122,7 +149,7 @@ export default function Home() {
         </header>
 
         <div className="flex-1 flex flex-col overflow-hidden relative">
-          <AIVoiceBot onNavigate={handleChatNavigate} />
+          <AIVoiceBot onNavigate={handleChatNavigate} onPulse={handlePulse} resetKey={resetKey} />
         </div>
       </main>
 
