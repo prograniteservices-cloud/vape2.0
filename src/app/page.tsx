@@ -80,7 +80,7 @@ export default function Home() {
     setResetKey(prev => prev + 1);
   };
 
-  const handleSelectCategory = (category: Category, searchQuery?: string, sortOrder?: string) => {
+  const handleSelectCategory = (category: Category) => {
     console.log("[Navigation] Selecting category:", category.id);
     setSelectedCategory(category);
     setIsMobileSidebarOpen(false);
@@ -88,26 +88,8 @@ export default function Home() {
     try {
       if (!hasChildren(category)) {
         console.log("[Navigation] Category has no children, fetching products...");
-        let products = getProductsByCategory(category.id);
+        const products = getProductsByCategory(category.id);
         console.log(`[Navigation] Found ${products?.length || 0} products.`);
-
-        if (searchQuery) {
-          const terms = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
-          products = products.filter(p =>
-            terms.every(term =>
-              p.name.toLowerCase().includes(term) ||
-              (p.description && p.description.toLowerCase().includes(term))
-            )
-          );
-          console.log(`[Navigation] Filtered to ${products.length} products matching "${searchQuery}"`);
-        }
-
-        if (sortOrder === 'cheapest') {
-          products = [...products].sort((a, b) => a.price - b.price);
-        } else if (sortOrder === 'priciest') {
-          products = [...products].sort((a, b) => b.price - a.price);
-        }
-
         setProductsToDisplay(products.slice(0, 50));
         setViewMode('products');
       } else {
@@ -120,6 +102,28 @@ export default function Home() {
     }
   };
 
+  const filterAndSortProducts = (products: Product[], searchQuery?: string, sortOrder?: string): Product[] => {
+    let result = products;
+
+    if (searchQuery) {
+      const terms = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+      result = result.filter(p =>
+        terms.every(term =>
+          p.name.toLowerCase().includes(term) ||
+          (p.description && p.description.toLowerCase().includes(term))
+        )
+      );
+    }
+
+    if (sortOrder === 'cheapest') {
+      result = [...result].sort((a, b) => a.price - b.price);
+    } else if (sortOrder === 'priciest') {
+      result = [...result].sort((a, b) => b.price - a.price);
+    }
+
+    return result;
+  };
+
   const handleNavigateToRoot = () => {
     setSelectedCategory(null);
     setViewMode('categories');
@@ -128,8 +132,13 @@ export default function Home() {
 
   const handleChatNavigate = (categoryId: string, searchQuery?: string, sortOrder?: string) => {
     const category = findCategoryById(categoryTree, categoryId);
-    if (category) {
-      handleSelectCategory(category, searchQuery, sortOrder);
+    if (!category) return;
+    handleSelectCategory(category);
+
+    if (!hasChildren(category) && (searchQuery || sortOrder)) {
+      const products = getProductsByCategory(category.id);
+      const filtered = filterAndSortProducts(products, searchQuery, sortOrder);
+      setProductsToDisplay(filtered.slice(0, 50));
     }
   };
 
