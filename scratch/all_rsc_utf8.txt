@@ -1,0 +1,981 @@
+﻿
+scratch\all_items.html:75:$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousS
+ibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=perf
+ormance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};$RC("B:0","
+S:0")</script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fr
+agment\"\n4:I[339756,[\"/_next/static/chunks/6e8475f9a0c5fe8d.js\",\"/_next/static/chunks/96c0a41d0f0dc35b.js\",\"/_nex
+t/static/chunks/0e24f85597843972.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/0476eee2b74af
+879.js\"],\"default\"]\n5:I[837457,[\"/_next/static/chunks/6e8475f9a0c5fe8d.js\",\"/_next/static/chunks/96c0a41d0f0dc35
+b.js\",\"/_next/static/chunks/0e24f85597843972.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks
+/0476eee2b74af879.js\"],\"default\"]\n7:I[897367,[\"/_next/static/chunks/6e8475f9a0c5fe8d.js\",\"/_next/static/chunks/9
+6c0a41d0f0dc35b.js\",\"/_next/static/chunks/0e24f85597843972.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next
+/static/chunks/0476eee2b74af879.js\"],\"OutletBoundary\"]\n8:\"$Sreact.suspense\"\na:I[897367,[\"/_next/static/chunks/6
+e8475f9a0c5fe8d.js\",\"/_next/static/chunks/96c0a41d0f0dc35b.js\",\"/_next/static/chunks/0e24f85597843972.js\",\"/_next
+/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/0476eee2b74af879.js\"],\"ViewportBoundary\"]\nc:I[897367,[\
+"/_next/static/chunks/6e8475f9a0c5fe8d.js\",\"/_next/static/chunks/96c0a41d0f0dc35b.js\",\"/_next/static/chunks/0e24f85
+597843972.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/0476eee2b74af879.js\"],\"MetadataBou
+ndary\"]\ne:I[563491,[\"/_next/static/chunks/6e8475f9a0c5fe8d.js\",\"/_next/static/chunks/96c0a41d0f0dc35b.js\",\"/_nex
+t/static/chunks/0e24f85597843972.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/0476eee2b74af
+879.js\"],\"default\"]\n:HL[\"/_next/static/chunks/ec15ad7f2b890d86.css\",\"style\"]\n:HL[\"/_next/static/chunks/f0728a
+9b37dc79c6.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"f6NP-iTy8XpRMKNhuWY3F\",\
+"c\":[\"\",\"all\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"(shop)\",{\"children\":[\"all\",{\"children\"
+:[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",
+{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/ec15ad7f2b890d86.css\",\"precedence\":\"next\",\"crossOrigin\":
+\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/ebc3deeee2f4a8
+a5.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/14ab85
+3f01f6beeb.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunk
+s/ba406ff3b9491c68.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/stat
+ic/chunks/dc4402841ca378c3.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-4\",{\"src\":\"/_n
+ext/static/chunks/ccf1c57d38f5cecb.js\",\"async\":true,\"nonce\":\"$undefined\"}]],\"$L2\"]}],{\"children\":[[\"$\",\"$
+1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/f0728a9b37dc79c
+6.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\
+",{\"src\":\"/_next/static/chunks/757e9d9ef15d4ab2.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"s
+cript-1\",{\"src\":\"/_next/static/chunks/4c292ee2298ffc92.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"scri
+pt\",\"script-2\",{\"src\":\"/_next/static/chunks/c59aa953778527d7.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\
+",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/59e022a7766c9911.js\",\"async\":true,\"nonce\":\"$undefined\"
+}],[\"$\",\"script\",\"script-4\",{\"src\":\"/_next/static/chunks/d51eb47492e4204c.js\",\"async\":true,\"nonce\":\"$und
+efined\"}],[\"$\",\"script\",\"script-5\",{\"src\":\"/_next/static/chunks/d5c81502a49ebc05.js\",\"async\":true,\"nonce\
+":\"$undefined\"}],[\"$\",\"script\",\"script-6\",{\"src\":\"/_next/static/chunks/85a3c040414d3fea.js\",\"async\":true,
+\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-7\",{\"src\":\"/_next/static/chunks/a6abcb595c5a25db.js\",\"async
+\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-8\",{\"src\":\"/_next/static/chunks/1c11d23b914eefbf.js\"
+,\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-9\",{\"src\":\"/_next/static/chunks/f879b2a4134b9
+a17.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-10\",{\"src\":\"/_next/static/chunks/5f47
+304412212a23.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-11\",{\"src\":\"/_next/static/ch
+unks/60ac01df40c79bb9.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-12\",{\"src\":\"/_next/
+static/chunks/f704b22c87909368.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-13\",{\"src\":
+\"/_next/static/chunks/beb42051be1d427d.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-14\",
+{\"src\":\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"scr
+ipt-15\",{\"src\":\"/_next/static/chunks/e749e72da2069d60.js\",\"async\":true,\"nonce\":\"$undefined\"}]],\"$L3\"]}],{\
+"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"error\":
+\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"te
+mplateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined
+\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",[[\"$\",\"script\",\"
+script-0\",{\"src\":\"/_next/static/chunks/58acc59e03a48eed.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"scr
+ipt\",\"script-1\",{\"src\":\"/_next/static/chunks/bf047970fb84cfbf.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"
+$\",\"$L7\",null,{\"children\":[\"$\",\"$8\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@9\"}]}]]}],{},null
+,false,false]},null,false,false]},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\
+"$La\",null,{\"children\":\"$Lb\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lc\",null,{\"children\"
+:[\"$\",\"$8\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Ld\"}]}]}],null]}],false]],\"m\":\"$undefined\",\"G\":[
+\"$e\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/ec15ad7f2b890d86.css\",\"preceden
+ce\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"S\":false}\n"])</script><script>self.__next
+_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":
+\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"f:I[800975,[\"/_next/static/chun
+ks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_
+next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"default\"]\n10:I[824865,[\"/_n
+ext/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b94
+91c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"MerchantProvide
+r\"]\n"])</script><script>self.__next_f.push([1,"2:[\"$\",\"html\",null,{\"lang\":\"en-US\",\"children\":[\"$\",\"body\
+",null,{\"id\":\"app\",\"style\":{\"--merchant-color\":\"#1646A5\"},\"className\":\"flex flex-col h-screen bg-white 
+text-black\",\"children\":[\"$\",\"$Lf\",null,{\"children\":[\"$\",\"$L10\",null,{\"initialMerchant\":{\"name\":\"VAPE 
+\u0026 MORE\",\"cosMerchantName\":\"VAPE \u0026 
+MORE\",\"phone\":\"8036966046\",\"itemTypesBitmap\":4,\"address\":{\"address1\":\"523 S MILL ST\",\"address2\":\"\",\"c
+ity\":\"MANNING\",\"state\":\"SC\",\"zip\":\"29102\",\"country\":\"US\"},\"services\":[{\"id\":\"J3SPJ2HKFRCC8\",\"type
+\":\"PICKUP\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"monday\":[{\"start\":\"
+1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"start\":\"1100\",\"end\
+":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"MPSBB1M56PCJ4\"}},{\"id\":\"N
+62YGAHHAJQ5R\",\"type\":\"DELIVERY\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+monday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"
+start\":\"1100\",\"end\":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\
+",\"end\":\"2000\"}],\"saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"Q63156
+RM22HC6\"}}],\"tipSuggestions\":[{\"id\":\"X0X3JM1YTP6CC\",\"name\":\"Best Service Ever!\",\"percentage\":30},{\"id\":\
+"J01FJ0D7XJ6FG\",\"name\":\"Wow!\",\"percentage\":20},{\"id\":\"FKC7HGV20HCX8\",\"name\":\"Great\",\"percentage\":18},{
+\"id\":\"DY9RZ4GSHJBGA\",\"name\":\"Good\",\"percentage\":15}],\"businessHours\":{\"hours\":{\"sunday\":[{\"start\":\"9
+00\",\"end\":\"2100\"}],\"monday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"tuesday\":[{\"start\":\"800\",\"end\":\"220
+0\"}],\"wednesday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"thursday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"friday
+\":[{\"start\":\"800\",\"end\":\"2200\"}],\"saturday\":[{\"start\":\"800\",\"end\":\"2200\"}]}},\"tipsEnabled\":false,\
+"timezone\":\"America/New_York\",\"locale\":\"en-US\",\"leadTime\":60,\"slug\":\"vape-more\",\"defaultCurrency\":\"USD\
+",\"serviceHoursInformation\":{\"PICKUP\":{\"serviceHoursState\":\"CLOSED\"},\"DELIVERY\":{\"serviceHoursState\":\"CLOS
+ED\"}},\"onlineServices\":{\"ONLINE_ORDERING\":{\"type\":\"ONLINE_ORDERING\",\"enabled\":true}},\"paymentMethods\":[\"E
+COMM\",\"GIFTCARD\",\"APPLE_PAY\",\"GOOGLE_PAY\"],\"scheduledOrdering\":{\"enabled\":true,\"maxDays\":3},\"enabledSetti
+ngs\":[\"EMAIL_SIGNUP_LOGIN_ON_COLO2\",\"APPLE_PAY_V2\",\"INCLUDE_SCHEDULED_PERKS\",\"THREEDS_COLO_ENABLED\",\"MIGRATE_
+TO_GCP_CE_ENDPOINTS\",\"PERKS_ENABLED\",\"ECOMM_THREEDS_FEATURE_ENABLE\",\"ENABLE_SERVICE_CHARGE\",\"ENABLE_CWO_GIFT_RE
+DEMPTION\",\"RETAIL_DDD_ENABLED\"],\"launchDarklyFeatures\":[{\"name\":\"PAZE_ON_COLO2\",\"enabled\":true},{\"name\":\"
+HORIZONTAL_SCROLL_ON_COLO2\",\"enabled\":false},{\"name\":\"SERVICES_FRENCH_LOCALIZATION_ENABLED\",\"enabled\":false}],
+\"deliveryMinimum\":0,\"deliveryOrderNoFeesAmount\":100000,\"deliveryFee\":0,\"modules\":{\"elements\":[{\"id\":\"S9JWE
+KZQKY2JJ\",\"name\":\"merchant\"},{\"id\":\"WNHJTPTMK2SJT\",\"name\":\"payments\"},{\"id\":\"KZSH7ZBZ2FJKE\",\"name\":\
+"employees\"},{\"id\":\"8VPP5JMP1HVT8\",\"name\":\"printers\"},{\"id\":\"EG2M3YE32JFW4\",\"name\":\"customers\"},{\"id\
+":\"B2QJASV4D927J\",\"name\":\"orders\"},{\"id\":\"Z4ETYWM9YCJ2C\",\"name\":\"items\"},{\"id\":\"EQ09X0M1MTBKM\",\"name
+\":\"cash\"},{\"id\":\"B9TXTF18V0QM6\",\"name\":\"discounts\"},{\"id\":\"FZHZS2HJ746G2\",\"name\":\"tax_rates\"},{\"id\
+":\"VMKVYBYP472YA\",\"name\":\"order_types\"},{\"id\":\"J82GPGP566VHM\",\"name\":\"order_printers\"},{\"id\":\"DR1D9FWJ
+TD0W2\",\"name\":\"item_modifiers\"},{\"id\":\"J8VMD5SE5CM90\",\"name\":\"service_charges\"},{\"id\":\"KM1YWKXZ86988\",
+\"name\":\"combine_assign_orders\"},{\"id\":\"N6QB1F5JVW576\",\"name\":\"weigh_per_unit_items\"},{\"id\":\"YS4W2NFFKGKZ
+G\",\"name\":\"item_variants\"},{\"id\":\"46SJRC1PFWN00\",\"name\":\"item_exchanges\"},{\"id\":\"Q2QVYZ5GPNF88\",\"name
+\":\"customer_preferences_promotions\"},{\"id\":\"DECMQ1JSR4WEY\",\"name\":\"register_preauth\"},{\"id\":\"8HTGZ03ECBJ5
+M\",\"name\":\"fast_pay\"},{\"id\":\"ATN9FNR1JSF4W\",\"name\":\"cost_of_goods\"},{\"id\":\"ER9YTVHG5DQ6C\",\"name\":\"a
+dvanced_reporting\"},{\"id\":\"GWESE1PJ0C99W\",\"name\":\"purchasing_card\"},{\"id\":\"X9E4CF51E6SZ2\",\"name\":\"retai
+l_hub\"},{\"id\":\"4BCNR1X7AV0MM\",\"name\":\"basic_website\"},{\"id\":\"P47GT5234V72R\",\"name\":\"storefront\"},{\"id
+\":\"G784A17RXEJM2\",\"name\":\"checkout\"},{\"id\":\"B1N6J8FMWTS6M\",\"name\":\"adp_payroll\"},{\"id\":\"S8KC6S6B2M8V0
+\",\"name\":\"hb_timesheets\"},{\"id\":\"Y5H79KTSBM5DE\",\"name\":\"clover_vault\"},{\"id\":\"XD39988SZ20QC\",\"name\":
+\"multi_location\"},{\"id\":\"3W2BAPVT9340W\",\"name\":\"estimate\"},{\"id\":\"QTKNS3PCJXDTJ\",\"name\":\"hb_scheduling
+\"}]},\"merchantBusinessType\":\"4\",\"customerContactEmail\":\"lackmariononestop@gmail.com\",\"enforcedCoFEnabled\":fa
+lse,\"logo\":\"https://www.clover.com/v2/image/ChatGPTImageNov30202511_40_58AM_1268443685029375153.png\",\"id\":\"WV2BF
+YZ60SBX1\",\"merchantMeta\":{\"merchantUuid\":\"WV2BFYZ60SBX1\",\"uuid\":\"BXQ9CD57A83G6\",\"aboutUsGcs\":\"https://clo
+verstatic.com/online-assets/merchant-website/WV2BFYZ60SBX1/BXQ9CD57A83G6/aboutUs/image/aboutUs\",\"aboutUsText\":\"At 
+Vape \u0026 More, we’ve built our reputation on quality, integrity, and an exceptional customer experience. We proudly 
+offer a premium selection of vape products, disposables, e-liquids, tobacco alternatives, cigars, and accessories — 
+all carefully chosen to meet the highest standards in the industry. Our commitment goes beyond just stocking shelves; 
+we focus on providing knowledgeable service, a clean and welcoming environment, and a shopping experience that feels 
+both reliable and refined. Whether you're exploring new flavors, picking up daily essentials, or discovering the 
+latest devices, Vape \u0026 More delivers a level of professionalism and attention to detail that sets us apart. Your 
+satisfaction is our priority, and we strive to make every visit one worth returning for.\",\"aboutUsTitle\":\"THE 
+MANNING VAPE \u0026 MORE \u0026 UHAUL DEALER\",\"appleTapToPay\":{\"domain\":\"vape-more.cloveronline.com\",\"uuid\":\"
+PWV4VYZ2QCJ1C\",\"merchantUuid\":\"WV2BFYZ60SBX1\",\"status\":\"VERIFIED\",\"_class\":\"com.clover.merchant_website.mod
+el.PaymentObject\"},\"businessType\":\"4\",\"cloverTermsAccepted\":true,\"colorPalette\":{\"color\":\"#1646A5\",\"name\
+":\"Blue\"},\"ctaButtonText\":\"NEW INVENTORY\",\"defaultSeoMetaDescription\":\"Shop the latest in  Candy_, CBD 
+Products and Chew Tobacco online, or stop by our store in person. Based in MANNING.\",\"domainName\":\"vape-more.clover
+online.com\",\"featuredCategory\":\"0\",\"heroCtaDestination\":\"all\",\"locale\":\"en-US\",\"merchantName\":\"VAPE 
+\u0026 MORE\",\"navigationCategories\":[{\"label\":\"Misc\",\"value\":\"GNTZW8P7P9DSR\",\"sortOrder\":0},{\"label\":\"C
+igaretts\",\"value\":\"8X3JMRM34MEFJ\",\"sortOrder\":1},{\"label\":\"Vape\",\"value\":\"YW6MK4MVFG1GG\",\"sortOrder\":2
+},{\"label\":\"CBD Products\",\"value\":\"894ZX04X618E4\",\"sortOrder\":3},{\"label\":\"Cigars\",\"value\":\"9BSY1F291B
+TGP\",\"sortOrder\":4}],\"newWebsite\":true,\"previewUrl\":\"preview-v1-WV2BFYZ60SBX1.cloveronline.com\",\"publishedUrl
+\":\"vape-more.cloveronline.com\",\"selectedSetup\":\"Custom\",\"selectedTemplate\":\"Description Focused\",\"subdomain
+\":\"vape-more\",\"subdomainCounter\":1,\"welcomeGcs\":\"https://cloverstatic.com/online-assets/merchant-website/WV2BFY
+Z60SBX1/BXQ9CD57A83G6/welcome/image/welcome\",\"welcomeMessage\":\"VAPE \u0026 MORE -MANNING- 
+\",\"seoMetaDescription\":\"Vape \u0026 More delivers top vapes, vape juice, tobacco, wraps, and accessories. Great 
+deals, quick service, and curbside pickup. Your go-to smoke shop.\",\"seoMetaKeywords\":\"vape shop, smoke shop, 
+disposable vapes, vape juice, tobacco store, cigars, wraps, vape accessories, nicotine vapes, vape near me, tobacco 
+near me, smoke shop near me\\n\"},\"isHybrid\":false,\"isService\":false,\"isRestaurant\":false,\"isRetail\":true,\"isE
+ssentialMerchant\":false,\"isPreview\":false,\"hasOnlyRetailItems\":true,\"isCheckoutEnabled\":true,\"isSellingGiftCard
+s\":false,\"isDeliveryEnabled\":false,\"isStandaloneGiftCardWebsite\":false,\"isRunningTabsEnabled\":false,\"isBusiness
+HourAvailable\":true},\"children\":[\"$L11\",\"$L12\"]}]}]}]}]\n"])</script><script>self.__next_f.push([1,"13:I[809791,
+[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406
+ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"QuantumMe
+trics\"]\n14:I[75144,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_nex
+t/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5c
+ecb.js\"],\"CartProvider\"]\n15:I[375862,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f0
+1f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/
+chunks/ccf1c57d38f5cecb.js\"],\"CartDrawerProvider\"]\n16:I[319993,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_ne
+xt/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca3
+78c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"NavigationProvider\"]\n18:I[144953,[\"/_next/static/chunks/eb
+c3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/
+static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"ChatBotIframeWidget\"]\n11:[\"$\",\
+"$L13\",null,{}]\n12:[\"$\",\"$L14\",null,{\"children\":[\"$\",\"$L15\",null,{\"children\":[\"$\",\"$L16\",null,{\"chil
+dren\":[\"$L17\",[\"$\",\"$L18\",null,{\"merchant\":\"$2:props:children:props:children:props:children:props:initialMerc
+hant\"}]]}]}]}]\n"])</script><script>self.__next_f.push([1,"19:I[67196,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"
+/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc440284
+1ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\",\"/_next/static/chunks/757e9d9ef15d4ab2.js\",\"/_next/static
+/chunks/4c292ee2298ffc92.js\",\"/_next/static/chunks/c59aa953778527d7.js\",\"/_next/static/chunks/59e022a7766c9911.js\"
+,\"/_next/static/chunks/d51eb47492e4204c.js\",\"/_next/static/chunks/d5c81502a49ebc05.js\",\"/_next/static/chunks/85a3c
+040414d3fea.js\",\"/_next/static/chunks/a6abcb595c5a25db.js\",\"/_next/static/chunks/1c11d23b914eefbf.js\",\"/_next/sta
+tic/chunks/f879b2a4134b9a17.js\",\"/_next/static/chunks/5f47304412212a23.js\",\"/_next/static/chunks/60ac01df40c79bb9.j
+s\",\"/_next/static/chunks/f704b22c87909368.js\",\"/_next/static/chunks/beb42051be1d427d.js\",\"/_next/static/chunks/31
+f88d8ec5dbedb9.js\",\"/_next/static/chunks/e749e72da2069d60.js\"],\"RouteChangeListener\"]\n1b:I[745211,[\"/_next/stati
+c/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\
+",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\",\"/_next/static/chunks/757e
+9d9ef15d4ab2.js\",\"/_next/static/chunks/4c292ee2298ffc92.js\",\"/_next/static/chunks/c59aa953778527d7.js\",\"/_next/st
+atic/chunks/59e022a7766c9911.js\",\"/_next/static/chunks/d51eb47492e4204c.js\",\"/_next/static/chunks/d5c81502a49ebc05.
+js\",\"/_next/static/chunks/85a3c040414d3fea.js\",\"/_next/static/chunks/a6abcb595c5a25db.js\",\"/_next/static/chunks/1
+c11d23b914eefbf.js\",\"/_next/static/chunks/f879b2a4134b9a17.js\",\"/_next/static/chunks/5f47304412212a23.js\",\"/_next
+/static/chunks/60ac01df40c79bb9.js\",\"/_next/static/chunks/f704b22c87909368.js\",\"/_next/static/chunks/beb42051be1d42
+7d.js\",\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"/_next/static/chunks/e749e72da2069d60.js\"],\"default\"]\n1c:I[1
+11926,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks
+/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\",\"/_ne
+xt/static/chunks/757e9d9ef15d4ab2.js\",\"/_next/static/chunks/4c292ee2298ffc92.js\",\"/_next/static/chunks/c59aa9537785
+27d7.js\",\"/_next/static/chunks/59e022a7766c9911.js\",\"/_next/static/chunks/d51eb47492e4204c.js\",\"/_next/static/chu
+nks/d5c81502a49ebc05.js\",\"/_next/static/chunks/85a3c040414d3fea.js\",\"/_next/static/chunks/a6abcb595c5a25db.js\",\"/
+_next/static/chunks/1c11d23b914eefbf.js\",\"/_next/static/chunks/f879b2a4134b9a17.js\",\"/_next/static/chunks/5f4730441
+2212a23.js\",\"/_next/static/chunks/60ac01df40c79bb9.js\",\"/_next/static/chunks/f704b22c87909368.js\",\"/_next/static/
+chunks/beb42051be1d427d.js\",\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"/_next/static/chunks/e749e72da2069d60.js\"]
+,\"Footer\"]\n"])</script><script>self.__next_f.push([1,"3:[\"$\",\"div\",null,{\"className\":\"flex flex-col h-full\",
+\"children\":[[\"$\",\"$L19\",null,{}],[\"$\",\"header\",null,{\"children\":\"$L1a\"}],[\"$\",\"$L1b\",null,{\"footer\"
+:[\"$\",\"$L1c\",null,{\"googlePlayUrl\":\"https://play.google.com/store/apps/details?id=com.getperka.android\u0026hl=e
+n_US\",\"appStoreUrl\":\"https://apps.apple.com/us/app/clover/id428620381\",\"policiesPromise\":\"$@1d\",\"merchant\":{
+\"name\":\"VAPE \u0026 MORE\",\"cosMerchantName\":\"VAPE \u0026 
+MORE\",\"phone\":\"8036966046\",\"itemTypesBitmap\":4,\"address\":{\"address1\":\"523 S MILL ST\",\"address2\":\"\",\"c
+ity\":\"MANNING\",\"state\":\"SC\",\"zip\":\"29102\",\"country\":\"US\"},\"services\":[{\"id\":\"J3SPJ2HKFRCC8\",\"type
+\":\"PICKUP\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"monday\":[{\"start\":\"
+1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"start\":\"1100\",\"end\
+":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"MPSBB1M56PCJ4\"}},{\"id\":\"N
+62YGAHHAJQ5R\",\"type\":\"DELIVERY\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+monday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"
+start\":\"1100\",\"end\":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\
+",\"end\":\"2000\"}],\"saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"Q63156
+RM22HC6\"}}],\"tipSuggestions\":[{\"id\":\"X0X3JM1YTP6CC\",\"name\":\"Best Service Ever!\",\"percentage\":30},{\"id\":\
+"J01FJ0D7XJ6FG\",\"name\":\"Wow!\",\"percentage\":20},{\"id\":\"FKC7HGV20HCX8\",\"name\":\"Great\",\"percentage\":18},{
+\"id\":\"DY9RZ4GSHJBGA\",\"name\":\"Good\",\"percentage\":15}],\"businessHours\":{\"hours\":{\"sunday\":[{\"start\":\"9
+00\",\"end\":\"2100\"}],\"monday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"tuesday\":[{\"start\":\"800\",\"end\":\"220
+0\"}],\"wednesday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"thursday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"friday
+\":[{\"start\":\"800\",\"end\":\"2200\"}],\"saturday\":[{\"start\":\"800\",\"end\":\"2200\"}]}},\"tipsEnabled\":false,\
+"timezone\":\"America/New_York\",\"locale\":\"en-US\",\"leadTime\":60,\"slug\":\"vape-more\",\"defaultCurrency\":\"USD\
+",\"serviceHoursInformation\":{\"PICKUP\":{\"serviceHoursState\":\"CLOSED\"},\"DELIVERY\":{\"serviceHoursState\":\"CLOS
+ED\"}},\"onlineServices\":{\"ONLINE_ORDERING\":{\"type\":\"ONLINE_ORDERING\",\"enabled\":true}},\"paymentMethods\":[\"E
+COMM\",\"GIFTCARD\",\"APPLE_PAY\",\"GOOGLE_PAY\"],\"scheduledOrdering\":{\"enabled\":true,\"maxDays\":3},\"enabledSetti
+ngs\":[\"EMAIL_SIGNUP_LOGIN_ON_COLO2\",\"APPLE_PAY_V2\",\"INCLUDE_SCHEDULED_PERKS\",\"THREEDS_COLO_ENABLED\",\"MIGRATE_
+TO_GCP_CE_ENDPOINTS\",\"PERKS_ENABLED\",\"ECOMM_THREEDS_FEATURE_ENABLE\",\"ENABLE_SERVICE_CHARGE\",\"ENABLE_CWO_GIFT_RE
+DEMPTION\",\"RETAIL_DDD_ENABLED\"],\"launchDarklyFeatures\":[{\"name\":\"PAZE_ON_COLO2\",\"enabled\":true},{\"name\":\"
+HORIZONTAL_SCROLL_ON_COLO2\",\"enabled\":false},{\"name\":\"SERVICES_FRENCH_LOCALIZATION_ENABLED\",\"enabled\":false}],
+\"deliveryMinimum\":0,\"deliveryOrderNoFeesAmount\":100000,\"deliveryFee\":0,\"modules\":{\"elements\":[{\"id\":\"S9JWE
+KZQKY2JJ\",\"name\":\"merchant\"},{\"id\":\"WNHJTPTMK2SJT\",\"name\":\"payments\"},{\"id\":\"KZSH7ZBZ2FJKE\",\"name\":\
+"employees\"},{\"id\":\"8VPP5JMP1HVT8\",\"name\":\"printers\"},{\"id\":\"EG2M3YE32JFW4\",\"name\":\"customers\"},{\"id\
+":\"B2QJASV4D927J\",\"name\":\"orders\"},{\"id\":\"Z4ETYWM9YCJ2C\",\"name\":\"items\"},{\"id\":\"EQ09X0M1MTBKM\",\"name
+\":\"cash\"},{\"id\":\"B9TXTF18V0QM6\",\"name\":\"discounts\"},{\"id\":\"FZHZS2HJ746G2\",\"name\":\"tax_rates\"},{\"id\
+":\"VMKVYBYP472YA\",\"name\":\"order_types\"},{\"id\":\"J82GPGP566VHM\",\"name\":\"order_printers\"},{\"id\":\"DR1D9FWJ
+TD0W2\",\"name\":\"item_modifiers\"},{\"id\":\"J8VMD5SE5CM90\",\"name\":\"service_charges\"},{\"id\":\"KM1YWKXZ86988\",
+\"name\":\"combine_assign_orders\"},{\"id\":\"N6QB1F5JVW576\",\"name\":\"weigh_per_unit_items\"},{\"id\":\"YS4W2NFFKGKZ
+G\",\"name\":\"item_variants\"},{\"id\":\"46SJRC1PFWN00\",\"name\":\"item_exchanges\"},{\"id\":\"Q2QVYZ5GPNF88\",\"name
+\":\"customer_preferences_promotions\"},{\"id\":\"DECMQ1JSR4WEY\",\"name\":\"register_preauth\"},{\"id\":\"8HTGZ03ECBJ5
+M\",\"name\":\"fast_pay\"},{\"id\":\"ATN9FNR1JSF4W\",\"name\":\"cost_of_goods\"},{\"id\":\"ER9YTVHG5DQ6C\",\"name\":\"a
+dvanced_reporting\"},{\"id\":\"GWESE1PJ0C99W\",\"name\":\"purchasing_card\"},{\"id\":\"X9E4CF51E6SZ2\",\"name\":\"retai
+l_hub\"},{\"id\":\"4BCNR1X7AV0MM\",\"name\":\"basic_website\"},{\"id\":\"P47GT5234V72R\",\"name\":\"storefront\"},{\"id
+\":\"G784A17RXEJM2\",\"name\":\"checkout\"},{\"id\":\"B1N6J8FMWTS6M\",\"name\":\"adp_payroll\"},{\"id\":\"S8KC6S6B2M8V0
+\",\"name\":\"hb_timesheets\"},{\"id\":\"Y5H79KTSBM5DE\",\"name\":\"clover_vault\"},{\"id\":\"XD39988SZ20QC\",\"name\":
+\"multi_location\"},{\"id\":\"3W2BAPVT9340W\",\"name\":\"estimate\"},{\"id\":\"QTKNS3PCJXDTJ\",\"name\":\"hb_scheduling
+\"}]},\"merchantBusinessType\":\"4\",\"customerContactEmail\":\"lackmariononestop@gmail.com\",\"enforcedCoFEnabled\":fa
+lse,\"logo\":\"https://www.clover.com/v2/image/ChatGPTImageNov30202511_40_58AM_1268443685029375153.png\",\"id\":\"WV2BF
+YZ60SBX1\",\"merchantMeta\":{\"merchantUuid\":\"WV2BFYZ60SBX1\",\"uuid\":\"BXQ9CD57A83G6\",\"aboutUsGcs\":\"https://clo
+verstatic.com/online-assets/merchant-website/WV2BFYZ60SBX1/BXQ9CD57A83G6/aboutUs/image/aboutUs\",\"aboutUsText\":\"At 
+Vape \u0026 More, we’ve built our reputation on quality, integrity, and an exceptional customer experience. We proudly 
+offer a premium selection of vape products, disposables, e-liquids, tobacco alternatives, cigars, and accessories — 
+all carefully chosen to meet the highest standards in the industry. Our commitment goes beyond just stocking shelves; 
+we focus on providing knowledgeable service, a clean and welcoming environment, and a shopping experience that feels 
+both reliable and refined. Whether you're exploring new flavors, picking up daily essentials, or discovering the 
+latest devices, Vape \u0026 More delivers a level of professionalism and attention to detail that sets us apart. Your 
+satisfaction is our priority, and we strive to make every visit one worth returning for.\",\"aboutUsTitle\":\"THE 
+MANNING VAPE \u0026 MORE \u0026 UHAUL DEALER\",\"appleTapToPay\":{\"domain\":\"vape-more.cloveronline.com\",\"uuid\":\"
+PWV4VYZ2QCJ1C\",\"merchantUuid\":\"WV2BFYZ60SBX1\",\"status\":\"VERIFIED\",\"_class\":\"com.clover.merchant_website.mod
+el.PaymentObject\"},\"businessType\":\"4\",\"cloverTermsAccepted\":true,\"colorPalette\":{\"color\":\"#1646A5\",\"name\
+":\"Blue\"},\"ctaButtonText\":\"NEW INVENTORY\",\"defaultSeoMetaDescription\":\"Shop the latest in  Candy_, CBD 
+Products and Chew Tobacco online, or stop by our store in person. Based in MANNING.\",\"domainName\":\"vape-more.clover
+online.com\",\"featuredCategory\":\"0\",\"heroCtaDestination\":\"all\",\"locale\":\"en-US\",\"merchantName\":\"VAPE 
+\u0026 MORE\",\"navigationCategories\":[{\"label\":\"Misc\",\"value\":\"GNTZW8P7P9DSR\",\"sortOrder\":0},{\"label\":\"C
+igaretts\",\"value\":\"8X3JMRM34MEFJ\",\"sortOrder\":1},{\"label\":\"Vape\",\"value\":\"YW6MK4MVFG1GG\",\"sortOrder\":2
+},{\"label\":\"CBD Products\",\"value\":\"894ZX04X618E4\",\"sortOrder\":3},{\"label\":\"Cigars\",\"value\":\"9BSY1F291B
+TGP\",\"sortOrder\":4}],\"newWebsite\":true,\"previewUrl\":\"preview-v1-WV2BFYZ60SBX1.cloveronline.com\",\"publishedUrl
+\":\"vape-more.cloveronline.com\",\"selectedSetup\":\"Custom\",\"selectedTemplate\":\"Description Focused\",\"subdomain
+\":\"vape-more\",\"subdomainCounter\":1,\"welcomeGcs\":\"https://cloverstatic.com/online-assets/merchant-website/WV2BFY
+Z60SBX1/BXQ9CD57A83G6/welcome/image/welcome\",\"welcomeMessage\":\"VAPE \u0026 MORE -MANNING- 
+\",\"seoMetaDescription\":\"Vape \u0026 More delivers top vapes, vape juice, tobacco, wraps, and accessories. Great 
+deals, quick service, and curbside pickup. Your go-to smoke shop.\",\"seoMetaKeywords\":\"vape shop, smoke shop, 
+disposable vapes, vape juice, tobacco store, cigars, wraps, vape accessories, nicotine vapes, vape near me, tobacco 
+near me, smoke shop near me\\n\"},\"isHybrid\":false,\"isService\":false,\"isRestaurant\":false,\"isRetail\":true,\"isE
+ssentialMerchant\":false,\"isPreview\":false,\"hasOnlyRetailItems\":true,\"isCheckoutEnabled\":true,\"isSellingGiftCard
+s\":false,\"isDeliveryEnabled\":false,\"isStandaloneGiftCardWebsite\":false,\"isRunningTabsEnabled\":false,\"isBusiness
+HourAvailable\":true}}],\"children\":\"$L1e\"}]]}]\n"])</script><script>self.__next_f.push([1,"1f:I[206097,[\"/_next/st
+atic/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.
+js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\",\"/_next/static/chunks/7
+57e9d9ef15d4ab2.js\",\"/_next/static/chunks/4c292ee2298ffc92.js\",\"/_next/static/chunks/c59aa953778527d7.js\",\"/_next
+/static/chunks/59e022a7766c9911.js\",\"/_next/static/chunks/d51eb47492e4204c.js\",\"/_next/static/chunks/d5c81502a49ebc
+05.js\",\"/_next/static/chunks/85a3c040414d3fea.js\",\"/_next/static/chunks/a6abcb595c5a25db.js\",\"/_next/static/chunk
+s/1c11d23b914eefbf.js\",\"/_next/static/chunks/f879b2a4134b9a17.js\",\"/_next/static/chunks/5f47304412212a23.js\",\"/_n
+ext/static/chunks/60ac01df40c79bb9.js\",\"/_next/static/chunks/f704b22c87909368.js\",\"/_next/static/chunks/beb42051be1
+d427d.js\",\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"/_next/static/chunks/e749e72da2069d60.js\",\"/_next/static/ch
+unks/9c9a9f2c0e2d0be9.js\"],\"default\"]\n1e:[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undef
+ined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateSt
+yles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L1f\",null,{}],[]],\"forbidden\":\"$un
+defined\",\"unauthorized\":\"$undefined\"}]\n"])</script><script>self.__next_f.push([1,"20:I[125886,[\"/_next/static/ch
+unks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"
+/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\",\"/_next/static/chunks/757e9d9e
+f15d4ab2.js\",\"/_next/static/chunks/4c292ee2298ffc92.js\",\"/_next/static/chunks/c59aa953778527d7.js\",\"/_next/static
+/chunks/59e022a7766c9911.js\",\"/_next/static/chunks/d51eb47492e4204c.js\",\"/_next/static/chunks/d5c81502a49ebc05.js\"
+,\"/_next/static/chunks/85a3c040414d3fea.js\",\"/_next/static/chunks/a6abcb595c5a25db.js\",\"/_next/static/chunks/1c11d
+23b914eefbf.js\",\"/_next/static/chunks/f879b2a4134b9a17.js\",\"/_next/static/chunks/5f47304412212a23.js\",\"/_next/sta
+tic/chunks/60ac01df40c79bb9.js\",\"/_next/static/chunks/f704b22c87909368.js\",\"/_next/static/chunks/beb42051be1d427d.j
+s\",\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"/_next/static/chunks/e749e72da2069d60.js\",\"/_next/static/chunks/58
+acc59e03a48eed.js\",\"/_next/static/chunks/bf047970fb84cfbf.js\"],\"AllPageClient\"]\n"])</script><script>self.__next_f
+.push([1,"6:[\"$\",\"div\",null,{\"className\":\"container w-full 
+mx-auto\",\"children\":[\"$\",\"$L20\",null,{\"merchant\":{\"name\":\"VAPE \u0026 MORE\",\"cosMerchantName\":\"VAPE 
+\u0026 MORE\",\"phone\":\"8036966046\",\"itemTypesBitmap\":4,\"address\":{\"address1\":\"523 S MILL ST\",\"address2\":\
+"\",\"city\":\"MANNING\",\"state\":\"SC\",\"zip\":\"29102\",\"country\":\"US\"},\"services\":[{\"id\":\"J3SPJ2HKFRCC8\"
+,\"type\":\"PICKUP\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"monday\":[{\"sta
+rt\":\"1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"start\":\"1100\"
+,\"end\":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\",\"end\":\"2000
+\"}],\"saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"MPSBB1M56PCJ4\"}},{\"i
+d\":\"N62YGAHHAJQ5R\",\"type\":\"DELIVERY\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000
+\"}],\"monday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday
+\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":
+\"1100\",\"end\":\"2000\"}],\"saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\
+"Q63156RM22HC6\"}}],\"tipSuggestions\":[{\"id\":\"X0X3JM1YTP6CC\",\"name\":\"Best Service Ever!\",\"percentage\":30},{\
+"id\":\"J01FJ0D7XJ6FG\",\"name\":\"Wow!\",\"percentage\":20},{\"id\":\"FKC7HGV20HCX8\",\"name\":\"Great\",\"percentage\
+":18},{\"id\":\"DY9RZ4GSHJBGA\",\"name\":\"Good\",\"percentage\":15}],\"businessHours\":{\"hours\":{\"sunday\":[{\"star
+t\":\"900\",\"end\":\"2100\"}],\"monday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"tuesday\":[{\"start\":\"800\",\"end\
+":\"2200\"}],\"wednesday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"thursday\":[{\"start\":\"800\",\"end\":\"2200\"}],\
+"friday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"saturday\":[{\"start\":\"800\",\"end\":\"2200\"}]}},\"tipsEnabled\":
+false,\"timezone\":\"America/New_York\",\"locale\":\"en-US\",\"leadTime\":60,\"slug\":\"vape-more\",\"defaultCurrency\"
+:\"USD\",\"serviceHoursInformation\":{\"PICKUP\":{\"serviceHoursState\":\"CLOSED\"},\"DELIVERY\":{\"serviceHoursState\"
+:\"CLOSED\"}},\"onlineServices\":{\"ONLINE_ORDERING\":{\"type\":\"ONLINE_ORDERING\",\"enabled\":true}},\"paymentMethods
+\":[\"ECOMM\",\"GIFTCARD\",\"APPLE_PAY\",\"GOOGLE_PAY\"],\"scheduledOrdering\":{\"enabled\":true,\"maxDays\":3},\"enabl
+edSettings\":[\"EMAIL_SIGNUP_LOGIN_ON_COLO2\",\"APPLE_PAY_V2\",\"INCLUDE_SCHEDULED_PERKS\",\"THREEDS_COLO_ENABLED\",\"M
+IGRATE_TO_GCP_CE_ENDPOINTS\",\"PERKS_ENABLED\",\"ECOMM_THREEDS_FEATURE_ENABLE\",\"ENABLE_SERVICE_CHARGE\",\"ENABLE_CWO_
+GIFT_REDEMPTION\",\"RETAIL_DDD_ENABLED\"],\"launchDarklyFeatures\":[{\"name\":\"PAZE_ON_COLO2\",\"enabled\":true},{\"na
+me\":\"HORIZONTAL_SCROLL_ON_COLO2\",\"enabled\":false},{\"name\":\"SERVICES_FRENCH_LOCALIZATION_ENABLED\",\"enabled\":f
+alse}],\"deliveryMinimum\":0,\"deliveryOrderNoFeesAmount\":100000,\"deliveryFee\":0,\"modules\":{\"elements\":[{\"id\":
+\"S9JWEKZQKY2JJ\",\"name\":\"merchant\"},{\"id\":\"WNHJTPTMK2SJT\",\"name\":\"payments\"},{\"id\":\"KZSH7ZBZ2FJKE\",\"n
+ame\":\"employees\"},{\"id\":\"8VPP5JMP1HVT8\",\"name\":\"printers\"},{\"id\":\"EG2M3YE32JFW4\",\"name\":\"customers\"}
+,{\"id\":\"B2QJASV4D927J\",\"name\":\"orders\"},{\"id\":\"Z4ETYWM9YCJ2C\",\"name\":\"items\"},{\"id\":\"EQ09X0M1MTBKM\"
+,\"name\":\"cash\"},{\"id\":\"B9TXTF18V0QM6\",\"name\":\"discounts\"},{\"id\":\"FZHZS2HJ746G2\",\"name\":\"tax_rates\"}
+,{\"id\":\"VMKVYBYP472YA\",\"name\":\"order_types\"},{\"id\":\"J82GPGP566VHM\",\"name\":\"order_printers\"},{\"id\":\"D
+R1D9FWJTD0W2\",\"name\":\"item_modifiers\"},{\"id\":\"J8VMD5SE5CM90\",\"name\":\"service_charges\"},{\"id\":\"KM1YWKXZ8
+6988\",\"name\":\"combine_assign_orders\"},{\"id\":\"N6QB1F5JVW576\",\"name\":\"weigh_per_unit_items\"},{\"id\":\"YS4W2
+NFFKGKZG\",\"name\":\"item_variants\"},{\"id\":\"46SJRC1PFWN00\",\"name\":\"item_exchanges\"},{\"id\":\"Q2QVYZ5GPNF88\"
+,\"name\":\"customer_preferences_promotions\"},{\"id\":\"DECMQ1JSR4WEY\",\"name\":\"register_preauth\"},{\"id\":\"8HTGZ
+03ECBJ5M\",\"name\":\"fast_pay\"},{\"id\":\"ATN9FNR1JSF4W\",\"name\":\"cost_of_goods\"},{\"id\":\"ER9YTVHG5DQ6C\",\"nam
+e\":\"advanced_reporting\"},{\"id\":\"GWESE1PJ0C99W\",\"name\":\"purchasing_card\"},{\"id\":\"X9E4CF51E6SZ2\",\"name\":
+\"retail_hub\"},{\"id\":\"4BCNR1X7AV0MM\",\"name\":\"basic_website\"},{\"id\":\"P47GT5234V72R\",\"name\":\"storefront\"
+},{\"id\":\"G784A17RXEJM2\",\"name\":\"checkout\"},{\"id\":\"B1N6J8FMWTS6M\",\"name\":\"adp_payroll\"},{\"id\":\"S8KC6S
+6B2M8V0\",\"name\":\"hb_timesheets\"},{\"id\":\"Y5H79KTSBM5DE\",\"name\":\"clover_vault\"},{\"id\":\"XD39988SZ20QC\",\"
+name\":\"multi_location\"},{\"id\":\"3W2BAPVT9340W\",\"name\":\"estimate\"},{\"id\":\"QTKNS3PCJXDTJ\",\"name\":\"hb_sch
+eduling\"}]},\"merchantBusinessType\":\"4\",\"customerContactEmail\":\"lackmariononestop@gmail.com\",\"enforcedCoFEnabl
+ed\":false,\"logo\":\"https://www.clover.com/v2/image/ChatGPTImageNov30202511_40_58AM_1268443685029375153.png\",\"id\":
+\"WV2BFYZ60SBX1\",\"merchantMeta\":{\"merchantUuid\":\"WV2BFYZ60SBX1\",\"uuid\":\"BXQ9CD57A83G6\",\"aboutUsGcs\":\"http
+s://cloverstatic.com/online-assets/merchant-website/WV2BFYZ60SBX1/BXQ9CD57A83G6/aboutUs/image/aboutUs\",\"aboutUsText\"
+:\"At Vape \u0026 More, we’ve built our reputation on quality, integrity, and an exceptional customer experience. We 
+proudly offer a premium selection of vape products, disposables, e-liquids, tobacco alternatives, cigars, and 
+accessories — all carefully chosen to meet the highest standards in the industry. Our commitment goes beyond just 
+stocking shelves; we focus on providing knowledgeable service, a clean and welcoming environment, and a shopping 
+experience that feels both reliable and refined. Whether you're exploring new flavors, picking up daily essentials, or 
+discovering the latest devices, Vape \u0026 More delivers a level of professionalism and attention to detail that sets 
+us apart. Your satisfaction is our priority, and we strive to make every visit one worth returning 
+for.\",\"aboutUsTitle\":\"THE MANNING VAPE \u0026 MORE \u0026 UHAUL DEALER\",\"appleTapToPay\":{\"domain\":\"vape-more.
+cloveronline.com\",\"uuid\":\"PWV4VYZ2QCJ1C\",\"merchantUuid\":\"WV2BFYZ60SBX1\",\"status\":\"VERIFIED\",\"_class\":\"c
+om.clover.merchant_website.model.PaymentObject\"},\"businessType\":\"4\",\"cloverTermsAccepted\":true,\"colorPalette\":
+{\"color\":\"#1646A5\",\"name\":\"Blue\"},\"ctaButtonText\":\"NEW INVENTORY\",\"defaultSeoMetaDescription\":\"Shop the 
+latest in  Candy_, CBD Products and Chew Tobacco online, or stop by our store in person. Based in MANNING.\",\"domainNa
+me\":\"vape-more.cloveronline.com\",\"featuredCategory\":\"0\",\"heroCtaDestination\":\"all\",\"locale\":\"en-US\",\"me
+rchantName\":\"VAPE \u0026 MORE\",\"navigationCategories\":[{\"label\":\"Misc\",\"value\":\"GNTZW8P7P9DSR\",\"sortOrder
+\":0},{\"label\":\"Cigaretts\",\"value\":\"8X3JMRM34MEFJ\",\"sortOrder\":1},{\"label\":\"Vape\",\"value\":\"YW6MK4MVFG1
+GG\",\"sortOrder\":2},{\"label\":\"CBD Products\",\"value\":\"894ZX04X618E4\",\"sortOrder\":3},{\"label\":\"Cigars\",\"
+value\":\"9BSY1F291BTGP\",\"sortOrder\":4}],\"newWebsite\":true,\"previewUrl\":\"preview-v1-WV2BFYZ60SBX1.cloveronline.
+com\",\"publishedUrl\":\"vape-more.cloveronline.com\",\"selectedSetup\":\"Custom\",\"selectedTemplate\":\"Description F
+ocused\",\"subdomain\":\"vape-more\",\"subdomainCounter\":1,\"welcomeGcs\":\"https://cloverstatic.com/online-assets/mer
+chant-website/WV2BFYZ60SBX1/BXQ9CD57A83G6/welcome/image/welcome\",\"welcomeMessage\":\"VAPE \u0026 MORE -MANNING- 
+\",\"seoMetaDescription\":\"Vape \u0026 More delivers top vapes, vape juice, tobacco, wraps, and accessories. Great 
+deals, quick service, and curbside pickup. Your go-to smoke shop.\",\"seoMetaKeywords\":\"vape shop, smoke shop, 
+disposable vapes, vape juice, tobacco store, cigars, wraps, vape accessories, nicotine vapes, vape near me, tobacco 
+near me, smoke shop near me\\n\"},\"isHybrid\":false,\"isService\":false,\"isRestaurant\":false,\"isRetail\":true,\"isE
+ssentialMerchant\":false,\"isPreview\":false,\"hasOnlyRetailItems\":true,\"isCheckoutEnabled\":true,\"isSellingGiftCard
+s\":false,\"isDeliveryEnabled\":false,\"isStandaloneGiftCardWebsite\":false,\"isRunningTabsEnabled\":false,\"isBusiness
+HourAvailable\":true},\"itemTemplate\":\"Description Focused\",\"paymentConfigPromise\":\"$@21\"}]}]\n"])</script><scri
+pt>self.__next_f.push([1,"21:{\"is_hipaa_merchant\":false,\"mcr\":false,\"mcc\":\"5499\",\"surcharging\":{\"supported\"
+:false},\"gpay\":{\"supported\":true,\"auth_methods\":[\"PAN_ONLY\",\"CRYPTOGRAM_3DS\"]},\"apple_pay\":{\"supported\":t
+rue},\"samsung_pay\":{\"supported\":true},\"paze\":{\"supported\":true,\"client_id\":\"K007HM1XL0DWJX3OR69814OntJVvJr4B
+yXRSmMUVOiK7CjSXw\"},\"ach\":{\"supported\":false},\"ach_manual_entry\":{\"supported\":false},\"pay_by_bank\":{\"suppor
+ted\":false},\"soft_descriptors\":{\"supported\":true},\"fraud_tools\":{\"validate_card_holder_name_provided\":false,\"
+validate_card_holder_name_verified\":false,\"validate_street_address_match\":false,\"validate_street_address_provided\"
+:false,\"validate_card_holder_name_match\":false,\"validate_street_address_verified\":false},\"purchase_card\":{\"suppo
+rted\":true},\"convenience_fee\":{\"supported\":false},\"gift_card\":{\"supported\":true},\"klarna\":{\"supported\":fal
+se}}\n"])</script><script>self.__next_f.push([1,"22:I[175696,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/sta
+tic/chunks/14ab853f01f6beeb.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.j
+s\",\"/_next/static/chunks/ccf1c57d38f5cecb.js\"],\"default\"]\n24:I[27201,[\"/_next/static/chunks/6e8475f9a0c5fe8d.js\
+",\"/_next/static/chunks/96c0a41d0f0dc35b.js\",\"/_next/static/chunks/0e24f85597843972.js\",\"/_next/static/chunks/ba40
+6ff3b9491c68.js\",\"/_next/static/chunks/0476eee2b74af879.js\"],\"IconMark\"]\n"])</script><script>self.__next_f.push([
+1,"17:[\"$\",\"$L22\",null,{\"formats\":\"$undefined\",\"locale\":\"en\",\"messages\":{\"confirm\":\"Confirm\",\"homePa
+ge\":{\"noScheduleMsg\":\"We are temporarily closed and not accepting scheduled orders at this time. We look forward 
+to serving you when we return.\",\"scheduleLaterMsg\":\"You can schedule an order for later. 
+\",\"scheduleAnOrder\":\"Schedule an order\",\"noOnlineOrdersMsg\":\"{merchantName} isn't accepting online orders 
+right now.\"},\"Scheduler\":{\"loading\":\"Loading...\"},\"restaurantMenu\":{\"uncategorized\":\"Uncategorized\",\"item
+Name\":\"Item name\",\"ageRestriction\":\"Requires valid government-issued ID upon delivery or 
+pickup\",\"closeItem\":\"Close {itemName}\",\"menuItemDetails\":\"Menu item 
+details\"},\"CategoryPage\":{\"noItemsForSale\":\"No items for sale in this 
+category.\"},\"RetailContainer\":{\"currentOrders\":\"Current orders\",\"noOrdersInProgress\":\"You don't have any 
+orders in progress\",\"pastOrders\":\"Past orders\"},\"checkout\":{\"scheduleYourOrder\":\"Schedule your 
+order\",\"backToCart\":\"Back to cart\"},\"AgeRestricted\":{\"text\":\"Government-issued ID 
+required\"},\"DoubleCheckOrderBanner\":{\"title\":\"Double check your order.\",\"message\":\"Some items may not be 
+editable after sending to the kitchen.\"},\"CheckoutOrder\":{\"maxItemsError\":\"Your order exceeds the maximum number 
+of items ({maxRetailDeliveryItems} items).\",\"purchaseFailedError\":\"This order cannot be paid for online. Please 
+contact your server to pay for this order.\",\"dayPartMenuMessage\":\"{menuName} orders can be placed only until 
+{time}.\"},\"ScanToOrderCartContent\":{\"failedToSendToKitchenError\":\"Couldn't send your order to the kitchen. 
+Contact a server.\",\"dayPartMenuMessage\":\"{menuName} orders can be placed only until 
+{time}.\",\"invalidItems\":\"Your cart has items from a menu that is no longer being served. To continue, please 
+remove all items first.\",\"successConfirmationMessage\":\"Your order has been sent to the kitchen and will be brought 
+to your table soon.\",\"successConfirmationTitle\":\"Hooray!\",\"buttonAddMoreText\":\"Add more to your 
+order\",\"buttonCloseOutText\":\"Close out / 
+Pay\",\"close\":\"Close\"},\"SuccessBanner\":{\"itemsAddedToCart\":\"{count} item(s) added to 
+cart\"},\"UnavailableBanner\":{\"itemsUnavailable\":\"{count} item(s) added to cart. Certain item(s) are unavailable 
+and could not be added.\",\"allItemsUnavailable\":\"Items are unavailable and could not be added to 
+cart.\"},\"CancellationPolicyFeeContent\":{\"cancellationFee\":\"A {amount} cancellation fee will apply if you do not 
+cancel at least {time} before your appointment.\",\"viewFullPolicy\":\"View full policy.\",\"cardOnFile\":\"To proceed 
+with booking, a card must be saved on file.\",\"cancellationPolicy\":\"Cancellation 
+Policy\",\"ok\":\"OK\",\"close\":\"Close\"},\"ContactInfo\":{\"title\":\"Provide your contact 
+info\",\"subtitle\":\"Please review your information to ensure it is correct.\",\"curbsideInstructions\":\"Curbside 
+pickup instructions.\",\"vehicleDescription\":\"Describe your vehicle (e.g. White Honda Civic)\",\"firstName\":\"First 
+Name\",\"lastName\":\"Last Name\",\"email\":\"Email\",\"specialInstructions\":\"Special instructions 
++\",\"specialInstructionsLabel\":\"Special instructions\",\"marketingCheckbox\":\"I agree to periodically receive 
+offers and marketing texts and/or emails from {merchantName}. Reply stop to opt-out. Consent is not required to buy. 
+Msg. \u0026 data rates may apply. Program subject to privacy practices available at 
+\u003cprivacyLink\u003eclover.com/privacy.\u003c/privacyLink\u003e\",\"marketingCheckBoxLabel\":\"I agree to 
+periodically receive offers and marketing texts and/or emails from {merchantName}. Reply stop to opt-out. Consent is 
+not required to buy. Msg. \u0026 data rates may apply. Program subject to privacy practices available at 
+clover.com/privacy.\",\"ageVerification\":\"Age verification\",\"ageVerificationCheckbox\":\"I confirm that I will 
+have a valid government issued ID, I am not underaged, and I will not be intoxicated at the time of delivery or 
+pickup.\",\"cancellationPolicy\":\"Cancellation Policy\",\"cardOnFile\":\"Card on file\",\"addCardDetails\":\"Add card 
+details\",\"cardOnFileRequired\":\"Card on file is required\",\"cancellationPolicyCheckbox\":\"I have read and agreed 
+to the cancellation policy for {merchantName}\",\"agreeToCancellationPolicy\":\"Please agree to the cancellation 
+policy\",\"contactInfo\":\"Contact info\",\"edit\":\"Edit\",\"requiredField\":\"{subject} is 
+required\",\"invalidEmail\":\"Valid email is required\",\"invalidVehicleDescription\":\"Vehicle description is 
+required\"},\"ClearCartModal\":{\"servicesTitle\":\"Your cart contains services\",\"retailItemsTitle\":\"Your cart 
+contains retail items\",\"servicesMessage\":\"To add this item, you'll need to either book your appointment first or 
+clear your cart.\",\"retailItemsMessage\":\"To add this service, you'll need to either check out your items first or 
+clear your cart.\",\"clearCart\":\"Clear cart\",\"goBack\":\"Go back\",\"cancel\":\"Cancel\",\"close\":\"Close\"},\"Cus
+tomerProfileHeader\":{\"account\":\"Account\"},\"EditContactInfoModal\":{\"title\":\"Edit your contact 
+info\",\"subtitle\":\"Please make sure your name and contact info below are correct.\",\"firstName\":\"First 
+Name\",\"lastName\":\"Last Name\",\"email\":\"Email\",\"save\":\"Save\",\"verifyPhoneNumber\":\"Verify your phone 
+number\",\"otpMessage\":\"A 6-digit code was just sent to {phoneNumber}. Please enter it below to keep your account 
+information safe.\",\"resendCode\":\"Re-send code\",\"verifyEmail\":\"Verify your email 
+address\",\"emailOtpMessage\":\"A 6-digit code was just sent to {email}. Please enter it below to keep your account 
+information safe.\",\"requiredField\":\"{subject} is required\",\"invalidEmail\":\"Valid email is 
+required\",\"captchaError\":\"An error occurred with the captcha.\",\"otpError\":\"There is an error with your OTP 
+code.\",\"unexpectedError\":\"Unexpected error occurred. Please try again.\",\"goBack\":\"Go 
+back\",\"close\":\"Close\",\"loginModalLabel\":\"Sign up or log in\"},\"SavedPaymentMethod\":{\"title\":\"Saved 
+payment methods\",\"addPaymentMethod\":\"Add payment method\",\"deleteError\":\"There was an error deleting your card 
+details. Please try again.\",\"deleteCreditCardlabel\":\"Delete saved credit 
+card\",\"managePaymentMethodlabel\":\"Manage saved payment 
+method\"},\"DeliveryEstimateBanner\":{\"freeDelivery\":\"You've earned free delivery on this 
+order!\",\"awayFromFreeDelivery\":\"You're {amount} away from free delivery! \u003clink\u003eAdd more to your 
+cart\u003c/link\u003e to remove delivery fees.\",\"minimumForDelivery\":\"There's {amount} minimum for delivery 
+orders. \u003clink\u003eAdd more to your cart\u003c/link\u003e to place your 
+order.\"},\"DeliveryInfo\":{\"title\":\"Delivery info\",\"edit\":\"Edit\",\"notSet\":\"Delivery info is not 
+set\",\"contactless\":\"Leave it in front of my door\",\"meetAtDoor\":\"Meet me at my 
+door\"},\"DeliveryModalError\":{\"title\":\"Deliveries cannot be made to your 
+address\",\"cannotDeliver\":\"{merchantName} cannot make deliveries to\",\"chooseDifferentAddress\":\"Choose a 
+different address or place an order for pickup\",\"chooseDifferentDeliveryAddress\":\"Select a delivery address closer 
+to the store.\",\"switchToPickup\":\"Switch to pickup\",\"enterNewAddress\":\"Enter new 
+address\",\"close\":\"Close\",\"dialogLabel\":\"Delivery alert\"},\"DisableOverlay\":{\"message\":\"{merchantName} 
+isn't accepting online orders right now.\"},\"EditAddressesModal\":{\"contactless\":\"Leave it in front of my 
+door\",\"meetAtDoor\":\"Meet me at my door\",\"deliveryPreference\":\"Delivery preference\",\"title\":\"Edit your 
+delivery info\",\"subtitle\":\"Please make sure your address and delivery preferences are 
+correct.\",\"deliveryAddress\":\"Delivery address\",\"invalidAddress\":\"Please select a valid 
+address.\",\"aptSuite\":\"Apt #, suite, floor, or company\",\"deliveryInstructions\":\"Delivery 
+instructions\",\"setDefault\":\"Set these delivery settings as default\",\"save\":\"Save\",\"errorIconAlt\":\"error 
+icon\",\"confirmationTitle\":\"To order this item, confirm your delivery info\",\"confirmationSubTitle\":\"We are only 
+accepting delivery orders at this 
+time.\",\"confirmationContinueButton\":\"Continue\",\"close\":\"Close\",\"dialogLabel\":\"Edit 
+address\"},\"Footer\":{\"poweredBy\":\"Powered by © {year} Clover Network, LLC\",\"cloverTerms\":\"Clover 
+Terms\",\"cloverPrivacyPolicy\":\"Clover Privacy Policy\",\"trademarks\":\"Clover and the Clover logo are trademarks 
+of Clover Network, LLC. Other trademarks are the property of their respective owners. This site is protected by 
+recaptcha and the \u003cgooglePrivacyPolicyLink\u003eGoogle Privacy Policy\u003c/googlePrivacyPolicyLink\u003e and 
+\u003ctermsOfServiceLink\u003eTerms of Service\u003c/termsOfServiceLink\u003e apply.\",\"orderAhead\":\"Order ahead 
+and earn rewards on the Clover app\",\"googlePrivacyPolicy\":\"Google Privacy Policy\",\"termsOfService\":\"Terms of 
+Service\",\"googlePlayButtonAlt\":\"Google Play button\",\"appStoreButtonAlt\":\"App Store 
+button\",\"languageIconAlt\":\"Language icon\"},\"LanguageSelector\":{\"changeYourLanguage\":\"Change your 
+language\",\"chooseYourCountry\":\"Choose your country\",\"regions\":{\"NA\":\"North 
+America\"},\"dialogLabel\":\"Location preferences\"},\"CookiesBanner\":{\"message\":\"Our site uses cookies to improve 
+your user experience. By browsing this site you consent to our use of cookies as described in our \u003ca\u003ePrivacy 
+Policy\u003c/a\u003e.\",\"dismiss\":\"Dismiss\",\"privacyPolicyAriaLabel\":\"Open privacy policy in new 
+tab.\"},\"Header\":{\"open\":\"Open\",\"closed\":\"Closed\",\"keepBrowsing\":\"Keep browsing\",\"bookNow\":\"Book 
+now\",\"startOrder\":\"Start order\",\"viewItems\":\"View items\",\"shopNow\":\"Shop now\",\"timeRange\":\"{start} - 
+{end} {abbreviation}\",\"clockIconAlt\":\"clock icon\",\"openBusinessHoursAlt\":\"open business 
+hours\",\"noImageText\":\"No image\",\"defaultMerchantName\":\"Default merchant 
+name\",\"headerLabel\":\"header\"},\"BusinessHoursModal\":{\"orderingHours\":\"Ordering 
+hours\",\"businessHours\":\"Business 
+hours\",\"closed\":\"Closed\",\"close\":\"Close\"},\"ProtectedHeader\":{\"myOrders\":\"My 
+orders\",\"back\":\"Back\",\"backToHome\":\"Back to home\"},\"ModifierRuleBadge\":{\"requiredAndMax\":\"{min} 
+required, {max} maximum\",\"upToMax\":\"Up to {max}\",\"required\":\"{min} 
+required\"},\"LandingProducts\":{\"viewAllServices\":\"View all services\",\"viewAllItems\":\"View all 
+items\",\"viewAllProducts\":\"View all products\",\"book\":\"Book\",\"order\":\"Order\",\"browse\":\"Browse\",\"shop\":
+\"Shop\"},\"LocalizedSurchargeWarning\":{\"surchargeText\":\"A {surchargeRate}% surcharge of ${surchargeAmount} is 
+added to credit card transactions.\",\"additionalSurcharge\":\"Additional card payment surcharges may 
+apply.\"},\"LoginModalOTPInput\":{\"verifyPhoneNumber\":\"Verify your phone number\",\"verifyEmailAddress\":\"Verify 
+your email address\",\"otpMessage\":\"A 6-digit code was just sent to {userAddress}. Please enter it below to keep 
+your account information safe.\",\"resendCode\":\"Re-send 
+code\",\"close\":\"Close\"},\"LoginModalUsernameInput\":{\"title\":\"Sign up or log in\",\"perksMessage\":\"Manage 
+your orders, earn perks, and enjoy a faster checkout with an account.\",\"noPerksMessage\":\"Manage your orders and 
+enjoy a faster checkout with an account.\",\"email\":\"Email\",\"phoneNumber\":\"Phone 
+number\",\"continue\":\"Continue\",\"guestCheckout\":\"Check out as a guest\",\"phoneNumberRequirement\":\"Valid 
+mobile phone number is required\",\"emailErrorRequirement\":\"Valid email is 
+required\",\"signUpOrLoginWithYourEmail\":\"Sign up or log in with your \u003caction\u003eEmail\u003c/action\u003e 
+instead\",\"signUpOrLoginWithYourPhone\":\"Sign up or log in with your \u003caction\u003ePhone 
+Number\u003c/action\u003e instead\",\"close\":\"Close\",\"enterPhoneNumberLabel\":\"Enter phone 
+number\",\"enterEmailLabel\":\"Enter email\"},\"GoogleMap\":{\"loading\":\"Loading...\",\"mockGoogleMap\":\"Mock 
+google map\"},\"Links\":{\"title\":\"Links\",\"aboutUs\":\"About Us\",\"returnsAndExchanges\":\"Returns \u0026 
+Exchanges\",\"termsAndConditions\":\"Terms \u0026 Conditions\"},\"OperatingHours\":{\"noBusinessHours\":\"No business 
+hours available\",\"hours\":\"Hours\",\"closed\":\"Closed\"},\"MerchantMetadata\":{\"defaultDescription\":\"Browse our 
+products online or visit us in person today.\"},\"ModalSpecialInstructions\":{\"addSpecialInstructions\":\"Special 
+instructions +\",\"specialInstructions\":\"Special instructions\"},\"MobileNavigationBar\":{\"closeMenu\":\"Close 
+menu\",\"about\":\"About Us\",\"services\":\"Services\",\"shop\":\"Shop\",\"giftCard\":\"Gift 
+Card\",\"menu\":\"Menu\",\"categories\":\"Categories\",\"closePanel\":\"Close 
+panel\",\"uncategorized\":\"Uncategorized\"},\"RestaurantCartItemView\":{\"yourCart\":\"Your cart 
+({count})\",\"continueToCheckout\":\"Continue to checkout\",\"quantityMultiplier\":\"× 
+{count}\",\"partialItemsAddedToCart\":\"{count} item(s) added to cart. Some items from this past order not available 
+on the current {menuName} and were not added.\",\"allItemsUnavailable\":\"No items from this past order are available 
+on the current {menuName}. Try switching to another menu to find them.\",\"dayPartMenuMessage\":\"{menuName} orders 
+can be placed only until {time}.\",\"giftCardMessage\":\"Remove all non-gift card items to continue checkout 
+or\",\"switchMenu\":\"Switch to a different menu.\",\"invalidItems\":\"Your cart has items from a menu that is no 
+longer being served. To continue, please remove all {itemsText} 
+first.\",\"menu\":\"menu\",\"items\":\"items\",\"nonGiftCardItems\":\"non-gift card items\",\"closeCart\":\"Close 
+cart\",\"removeItem\":\"Remove {itemName} from order\",\"editItem\":\"Edit {itemName}\",\"yourCartLabel\":\"Your 
+cart\"},\"CheckoutCartItems\":{\"quantityMultiplier\":\"× {count}\",\"withEmployee\":\"With 
+\u003cemployeeName\u003e{name}\u003c/employeeName\u003e\",\"atPricePerUnit\":\"at {price} per 
+{unitName}\",\"specialInstructionsQuote\":\"{instructions}\",\"removeItem\":\"Remove {itemName} from 
+order\"},\"RetailCartDrawer\":{\"scheduleYourOrder\":\"Schedule your 
+order\",\"confirm\":\"Confirm\",\"appointmentSummary\":\"Appointment summary\",\"yourCart\":\"Your cart 
+({count})\",\"forWhen\":\"For when?\",\"quantityMultiplier\":\"× {count}\",\"scheduledTimeNotAvailable\":\"Scheduled 
+time not available\",\"idRequired\":\"Government-issued ID required\",\"continueToCheckout\":\"Continue to 
+checkout\",\"deliveryTime\":\"for {day} from {fromDate} to {toDate} {timeZone}\",\"pickupTime\":\"{date}, at {time} 
+{timeZone}\",\"today\":\"Today\",\"tomorrow\":\"Tomorrow\",\"backToCart\":\"Back to cart\",\"closeCart\":\"Close 
+cart\",\"removeItem\":\"Remove {itemName} from order\",\"editItem\":\"Edit {itemName}\",\"yourCartLabel\":\"Your 
+cart\"},\"ScheduledOrderDropdown\":{\"forWhen\":\"For when?\",\"scheduleOrder\":\"Schedule an 
+order\",\"deliverASAP\":\"ASAP ({from} - {to} mins)\",\"pickupASAP\":\"ASAP (In {leadTime} 
+mins)\"},\"OrderTypeDropDown\":{\"orderType\":\"Order type\",\"inStore\":\"In-store pickup\",\"curbside\":\"Curbside 
+pickup\",\"delivery\":\"Delivery\"},\"NavigationBar\":{\"openMainMenu\":\"Open main 
+menu\",\"more\":\"More\",\"viewMoreCategoriesAltText\":\"View more categories\",\"giftCard\":\"Gift 
+Card\",\"cancel\":\"Cancel\",\"clearCartAndSwitchMenu\":\"Clear cart and switch menu\",\"clearCartTitle\":\"Clear cart 
+and switch?\",\"clearCartMessage\":\"Your cart contains items from: {menuName}. To view items from a different menu, 
+we need to clear your current cart.\",\"about\":\"About Us\",\"services\":\"Services\",\"shop\":\"Shop\",\"menu\":\"Men
+u\",\"categories\":\"Categories\",\"uncategorized\":\"Uncategorized\",\"openCart\":\"Open 
+cart\",\"openRetailCart\":\"Open cart, {count} products added\",\"openServicesCart\":\"Open appointment summary, 
+{count} services added.\",\"globalSearchDescriptiveText\":\"Global search\",\"categoryNavigationLabel\":\"All 
+categories\",\"navigationBarLabel\":\"navigation 
+bar\",\"searchIconLabel\":\"search\",\"ariaActivePage\":\"{currentPage}, active page. Skip to main 
+content.\"},\"ConfirmationHeading\":{\"appointmentScheduled\":\"Your appointment has been scheduled 
+for:\",\"orderPrepared\":\"Your order is being 
+prepared!\",\"hooray\":\"Hooray!\"},\"ExpiredPage\":{\"sessionExpired\":\"Your session has 
+expired.\",\"clickToTryAgain\":\"Click to try again\"},\"PageNotFound\":{\"title\":\"Page not found\",\"message\":\"It 
+seems you've followed a broken link or entered an incorrect url.\",\"merchantNotFoundMessage\":\"It seems you've 
+followed a broken link or entered an incorrect URL. Please check the URL for typos and try 
+again.\",\"homepageButton\":\"Go to homepage\"},\"SomethingWentWrongPage\":{\"title\":\"Something went 
+wrong\",\"message\":\"Please try again\",\"tryAgainButton\":\"Try 
+again\"},\"ConfirmationScreen\":{\"loading\":\"Loading...\",\"deliveringTo\":\"Delivering to 
+\",\"keepBrowsing\":\"Keep browsing\",\"durationHours\":\"{count, plural, =1 {1 hr} other {# 
+hrs}}\",\"durationMinutes\":\"{count, plural, =1 {1 min} other {# mins}}\",\"durationHoursMinutes\":\"{hours} hr 
+{minutes} min\",\"appointmentSummaryRange\":\"{date} from {start} - {end} 
+({duration})\"},\"ConfirmationText\":{\"doordashDelivery\":\"A doordash driver will deliver between 
+{range}\",\"orderPlaced\":\"Your order has been placed and should be ready \",\"inDays\":\"in {count, plural, one {# 
+day} other {# days}}\",\"inHours\":\"in {count, plural, one {# hour} other {# hours}}\",\"on\":\"on 
+{date}\",\"inMinutes\":\"in {count} minutes.\",\"at\":\"at {time}\",\"today\":\"today\",\"tomorrow\":\"tomorrow, 
+{date}\"},\"GiftCardConfirmationText\":{\"message\":\"Your ${giftCardAmount} gift card was sent to 
+{giftCardEmail}.\"},\"ViewReceipt\":{\"message\":\"You can view your receipt 
+\u003clink\u003ehere\u003c/link\u003e.\"},\"TrackDeliveryProgress\":{\"title\":\"Track the progress of your 
+order.\",\"message\":\"See it on doordash's real-time \u003clink\u003edelivery 
+map\u003c/link\u003e\"},\"PickUpAtText\":{\"deliveringTo\":\"Delivering to \",\"pickUpAt\":\"Pick up at 
+\"},\"CloverAppText\":{\"message\":\"Track your order with the Clover app for 
+\u003candroid\u003eAndroid\u003c/android\u003e and 
+\u003cios\u003eiOS\u003c/ios\u003e\"},\"SendAnotherGiftCardComponent\":{\"thanksMessage\":\"Thanks for shopping at 
+{merchantName}.\",\"buttonText\":\"Send another gift card\"},\"AddGiftCardButton\":{\"addToCart\":\"Add to 
+cart\",\"buyGiftCard\":\"Buy gift card\"},\"AmountComponent\":{\"selectAmount\":\"Select a gift card 
+amount\",\"amountLabel\":\"Amount\",\"minAmountError\":\"Value must be at least {min}\",\"maxAmountError\":\"Value 
+must be at most {max}\",\"defaultInfoMessage\":\"Enter an amount between {min} and 
+{max}\"},\"BuyThisForMyselfComponent\":{\"checkboxLabel\":\"I want to buy this for 
+myself\"},\"PageHeading\":{\"title\":\"Digital Gift Card\",\"description\":\"Buy a gift card for yourself or gift one 
+to a friend. No tax will be applied at purchase.\"},\"RecipientInformationComponent\":{\"title\":\"Recipient 
+information\",\"recipientNameLabel\":\"Recipient name\",\"recipientNamePlaceholder\":\"Recipient 
+name\",\"recipientEmailLabel\":\"Recipient 
+email\",\"recipientEmailPlaceholder\":\"email@email.com\",\"personalMessageLabel\":\"Personal 
+message\",\"personalMessagePlaceholder\":\"Message\"},\"ReplaceGiftCardModal\":{\"title\":\"You already have a gift 
+card in your cart\",\"message\":\"Only one gift card can be bought at a time. Would you like to replace it with this 
+one?\",\"replaceButton\":\"Replace card\",\"goBackButton\":\"Go 
+back\",\"close\":\"Close\"},\"ServiceSummary\":{\"appointmentSummary\":\"Appointment 
+summary\",\"serviceLimitMessage\":\"You can only book up to {count} services per 
+appointment.\",\"scheduleAppointment\":\"Schedule appointment\",\"selectDate\":\"Select 
+date\",\"availabilityFor\":\"Availability for {date}\",\"continueToCheckout\":\"Continue to 
+checkout\",\"confirm\":\"Confirm\",\"noImage\":\"No image\",\"withEmployee\":\"With 
+\u003cemployeeName\u003e{name}\u003c/employeeName\u003e\",\"noAppointmentsAvailable\":\"There are no appointments 
+available.\",\"servicePrice\":\"from {price}\",\"servicePricePerUnit\":\"from {price} per 
+{unitName}\",\"serviceCartItemPerUnit\":\"{quantity} {unitName} at {price} per {unitName}\",\"closeCart\":\"Close 
+cart\",\"editItem\":\"Edit {itemName}\",\"removeItem\":\"Remove {itemName} from 
+appointment\",\"selectTimeSlot\":\"Select {time}\"},\"ServiceContainer\":{\"noImage\":\"No 
+image\",\"upcomingBookings\":\"Upcoming bookings\",\"noUpcomingAppointments\":\"No upcoming 
+appointments\",\"pastBookings\":\"Past bookings\"},\"AboutSection\":{\"welcomeMessage\":\"Welcome to our about 
+page!\",\"imageAlt\":\"about us 
+image\"},\"ServiceModalEmployeeSelection\":{\"book\":\"Book\",\"selectProfessional\":\"Select 
+professional\",\"back\":\"Back\",\"serviceNameAlt\":\"service 
+name\",\"staff\":\"Staff\",\"close\":\"Close\"},\"ServiceModalModifierSelection\":{\"serviceNameAlt\":\"service 
+name\",\"serviceUnavailable\":\"Sorry, this service is currently 
+unavailable.\",\"close\":\"Close\"},\"ServiceModal\":{\"anyAvailableStaff\":\"Any available staff\"},\"CategoryButton\"
+:{\"services\":\"Services\",\"categories\":\"Categories\",\"menu\":\"Menu\"},\"MobileCategoryModal\":{\"services\":\"Se
+rvices\",\"categories\":\"Categories\",\"close\":\"Close\",\"uncategorized\":\"Uncategorized\"},\"metadata\":{\"default
+Description\":\"Browse our products online or visit us in person 
+today.\"},\"MobileCheckoutForm\":{\"continue\":\"Continue\",\"continueToPayment\":\"Continue to 
+payment\",\"paymentComplete\":\"Complete payment\",\"placeOrder\":\"Place order\",\"bookAppointment\":\"Book 
+appointment\"},\"scheduledTimeDropdown\":{\"time\":\"Time\"},\"BusinessLocations\":{\"facebookIcon\":\"Facebook 
+icon\",\"instagramIcon\":\"Instagram icon\"},\"VerifyEmailHeader\":{\"account\":\"Account\"},\"SingleProductDescription
+FocusedDuration\":{\"hr\":\"hr\",\"min\":\"min\"},\"SingleProductDescriptionFocused\":{\"giftCardDescription\":\"Can 
+be used for any purchase at {merchantName}. A great gift idea.\\nNo tax will be applied at 
+purchase\",\"productImageAlt\":\"product 
+image\"},\"SingleProductImageFocusedPrice\":{\"unavailable\":\"Unavailable\",\"customValue\":\"Custom 
+value\"},\"SingleProductDescriptionFocusedPrice\":{\"unavailable\":\"Unavailable\",\"customValue\":\"Custom 
+value\"},\"ScheduledDateDropdown\":{\"date\":\"Date\"},\"ScanToOrderCartTableInfo\":{\"orderType\":\"Order 
+type\",\"tableNumber\":\"Table number\"},\"ScanToOrderCartHeader\":{\"yourCart\":\"Your 
+cart\",\"close\":\"Close\"},\"WelcomeModalText\":{\"orderingEasy\":\"Ordering on your phone is easy. Add items to your 
+order and send them to the kitchen to get started.\",\"secondCourse\":\"Want a 2nd course?\",\"addMoreLater\":\"You 
+can always add more 
+later.\"},\"RunningTabsWelcomeModal\":{\"logoAlt\":\"Logo\",\"continue\":\"Continue\",\"welcome\":\"Welcome to 
+{merchantName}!\"},\"RunningTabsInvalidTableModal\":{\"logoAlt\":\"Logo\",\"invalidCode\":\"Sorry, the code you 
+scanned is not set up for ordering. \",\"speakToStaff\":\"Please speak to a server, bartender or other staff member to 
+place your order.\",\"close\":\"Close\"},\"ItemsAddedToCartBanner\":{\"title\":\"Items added to 
+cart\",\"message\":\"Tap cart to send your items to the 
+kitchen.\"},\"CheckoutCartHeader\":{\"appointmentSummary\":\"Appointment summary\",\"yourCart\":\"Your cart 
+({count})\",\"yourOrder\":\"Your order\",\"dineInAt\":\"Dine-in at {tableName} - 
+{merchantName}\",\"inStorePickup\":\"In-store pickup\",\"curbsidePickup\":\"Curbside 
+pickup\",\"delivery\":\"Delivery\",\"merchantLogoAlt\":\"Merchant logo\",\"today\":\"Today\",\"tomorrow\":\"Tomorrow, 
+{date}\",\"deliveryTimeText\":\"{dayLabel}, {startTime} - {endTime}\",\"maxAppointmentsReached\":\"Maximum number of 
+appointments reached\",\"contactSupportForAppointment\":\"Please contact support to book this 
+appointment\",\"orderTitle\":\"{orderType} from {merchantName}\",\"deliveryOrderTitle\":\"{orderType} from 
+{merchantName} at {time} \u003cedit\u003eEdit\u003c/edit\u003e\",\"asapOrderTitle\":\"{orderType} from {merchantName} 
+in {minutes} minutes \u003cedit\u003eEdit\u003c/edit\u003e\",\"scheduledOrderTitle\":\"{orderType} from {merchantName} 
+for {time} \u003cedit\u003eEdit\u003c/edit\u003e\",\"asapOrderPickupText\":\"{orderType} from {merchantName} in 
+{minutes} minutes\",\"deliveryOrderText\":\"{orderType} from {merchantName} 
+{deliveryTime}\",\"scheduledOrderPickupText\":\"{orderType} from {merchantName} for {day} at 
+{time}\",\"serviceTime\":\"{time} 
+\u003cedit\u003eEdit\u003c/edit\u003e\"},\"confirmation\":{\"hooray\":\"Hooray!\",\"orderPlacedAtTable\":\"Your order 
+has been placed at table {tableName}.\",\"foodWillBeBroughtOut\":\"Your order has been placed and your food will be 
+brought to table {tableName} soon.\",\"placeAnotherOrder\":\"Place another 
+order\",\"thanks\":\"Thanks!\",\"comeAgain\":\"Please come again!\",\"billPaid\":\"Your bill has been 
+paid.\",\"appreciatePatronage\":\"We appreciate your patronage.\"},\"itemPage\":{\"unnamedItem\":\"Unnamed 
+item\",\"unavailable\":\"Unavailable\",\"priceNotAvailable\":\"Price not available\",\"ageRestriction\":\"Requires 
+valid government-issued ID upon delivery or pickup\",\"noDescription\":\"No 
+description\",\"select\":\"Select\",\"quantity\":\"Quantity\",\"specialInstructions\":\"Special 
+instructions\",\"provideInfo\":\"Provide additional information\",\"itemUnavailable\":\"Sorry, this item is currently 
+unavailable.\",\"addToCart\":\"Add to cart\",\"added\":\"Added\",\"selectModifierLabel\":\"Select {name}, 
+{price}\",\"addModifierLabel\":\"Add {name}, {price}\",\"modifierPriceLabel\":\"Price 
+${price}\",\"itemAddedLabel\":\"Item added\",\"itemUnavailableLabel\":\"Item currently 
+unavailable\",\"addItemLabel\":\"Add {itemName} to order, {itemPrice}\",\"fullProductSummary\":\". Price: {price}. 
+{age}. Description: {description}.\",\"priceAndDescription\":\". Price: {price}. Description: 
+{description}.\"},\"allContainer\":{\"allItems\":\"All items\",\"youSearchedFor\":\"You searched 
+for\",\"result\":\"result\",\"results\":\"results\",\"found\":\"found\",\"noResult\":\"No 
+result\",\"noResultsFound\":\"No results found.\"},\"policies\":{\"noReturnsPolicy\":\"No Returns \u0026 Exchanges 
+policy\",\"returnsPolicy\":\"Returns \u0026 Exchanges\",\"noTermsPolicy\":\"No Terms \u0026 Conditions 
+available\",\"termsPolicy\":\"Terms \u0026 
+Conditions\"},\"common\":{\"loading\":\"Loading...\",\"closeModalButtonLabel\":\"Close 
+modal\"},\"category\":{\"uncategorized\":\"Uncategorized\",\"searchCategoryPlaceholder\":\"Search 
+categories\",\"emptyCategorySearch\":\"No categories found.\",\"toggleSearchDescriptiveText\":\"Toggle category 
+search\",\"resultsFound\":\"{count} categories found.\",\"hamburgerCategoryButton\":\"navigation hamburger category 
+button\"},\"AddToCardContent\":{\"sorryItemUnavailable\":\"Sorry, this item is currently 
+unavailable.\",\"addToCart\":\"Add to cart\"},\"ItemModal\":{\"serviceNameAlt\":\"service 
+name\",\"noDescription\":\"No description available.\",\"close\":\"Close\",\"itemDetails\":\"Item 
+details\"},\"UncategorizedContainer\":{\"uncategorizedItems\":\"Uncategorized 
+items\"},\"SaveCardDetailsModal\":{\"saveError\":\"There was an error saving your card details. Please try again.\",\"c
+ityPlaceholder\":\"City\",\"statePlaceholder\":\"State\",\"provincePlaceholder\":\"Province\",\"saveButton\":\"Save 
+card details\",\"requiredField\":\"{subject} is required\"},\"UpdateCardDetailsModal\":{\"saveError\":\"There was an 
+error saving your card details. Please try again.\",\"cityPlaceholder\":\"City\",\"statePlaceholder\":\"State\",\"provi
+ncePlaceholder\":\"Province\",\"replaceButton\":\"Replace saved card\",\"savingChangesToPaymentMethod\":\"Saving 
+changes to payment method\",\"requiredField\":\"{subject} is 
+required\"},\"checkoutHandlers\":{\"outOfStockError\":\"One or more of your items ran out of stock. Please remove them 
+from the cart to continue with checkout. \",\"notAcceptingOrdersError\":\"This store is not accepting online orders at 
+this time. Please return to the store homepage and check back later.\",\"invalidCartError\":\"One or more of the items 
+in your cart are invalid. Please remove them from the cart to continue with checkout. \",\"invalidGiftCard\":\"Invalid 
+gift card\",\"noGiftCardEntitlement\":\"Merchant does not have proper valuelink gift card 
+entitlement\",\"giftCardDeclined\":\"Gift card declined\",\"giftCardInvalidForMerchant\":\"Gift cards not valid for 
+this merchant\",\"giftCardWatchStatus\":\"This gift card can’t be applied at this time. Please use a different payment 
+method to complete your order or try again in sometime.\",\"genericProcessingError\":\"There was an error processing 
+your order. Please try again.\",\"itemUnavailableError\":\"One or more of the items in your cart are unavailable. 
+Please remove them from the cart to continue with checkout. \",\"gatewayTimeoutError\":\"We had a little trouble 
+verifying some order information, but your order might have been placed successfully anyways. Check your email for a 
+confirmation or contact us if you haven't received one in ten minutes.\",\"finalizingOrderError\":\"We had a little 
+trouble finalising your order. Check your email for a confirmation or contact us if you haven't received one in ten 
+minutes.\",\"noAvailableEmployee\":\"There was an error processing your appointment. Please try 
+again.\",\"dbError\":\"We had a little trouble finalizing your appointment. Check your email for a confirmation or 
+contact us if you haven't received one in ten minutes.\",\"timeSlotNotAvailable\":\"The selected time slot is 
+unavailable. Please choose a different time.\",\"employeeNotFound\":\"The selected staff was not found. Please choose 
+another staff.\",\"apptLimitReached\":\"You have already booked the maximum number of appointments. If you need 
+another appointment, please contact the service provider.\",\"apptDateTooFar\":\"The selected appointment date is too 
+far in the future. Please choose a date within the next {limit} days.\",\"paymentFailed\":\"Payment could not be proces
+sed\"},\"CheckoutInvoiceDisplay\":{\"subtotal\":\"Subtotal\",\"perk\":\"Perk\",\"tax\":\"Tax\",\"tip\":\"Tip\",\"delive
+ryFee\":\"Delivery fee\",\"convenienceFee\":\"Convenience fee\",\"giftCard\":\"Gift card\",\"dueToday\":\"Due 
+today\",\"dueAtAppointment\":\"Due at appointment\",\"total\":\"Total\",\"reviewCartForTotal\":\"Review cart to see 
+total\",\"onlineOrderingUnavailable\":\"Online ordering 
+unavailable\"},\"CheckoutPerkSelection\":{\"availablePerks\":\"Available perks\",\"perkIconAlt\":\"perk 
+icon\",\"applied\":\"Applied\",\"remove\":\"Remove\",\"redeem\":\"Redeem\",\"perkButton\":\"Perk 
+{perk}\",\"appliedPerkButton\":\"Applied Perk {perk}\"},\"CheckoutScheduledOrdersModal\":{\"title\":\"Edit order 
+details\",\"deliverTo\":\"Deliver to\",\"edit\":\"Edit\",\"cancel\":\"Cancel\",\"done\":\"Done\",\"close\":\"Close\"},\
+"CheckoutTipsSelection\":{\"tipDeliveryPerson\":\"Tip your delivery person\",\"leaveTip\":\"Leave a 
+tip\",\"none\":\"None\",\"customTipAmount\":\"Custom tip amount +\",\"tipButtonLabel\":\"{percentage}% tip, 
+{amount}\"},\"PaymentIframesForm\":{\"tooltipDescription\":\"Enter the 4-8 digits found on your gift card. If you 
+don't see a pin, leave this field blank.\",\"cloverOnlineOrder\":\"Clover online order\",\"giftCardApplyError\":\"Gift 
+card could not be applied\",\"payWithGiftCard\":\"Pay with a gift 
+card\",\"apply\":\"Apply\",\"addAnotherGiftCard\":\"Add another gift card\",\"choosePaymentMethod\":\"Choose a payment 
+method\",\"byCard\":\"by card\",\"useSavedCard\":\"Use saved card\",\"enterNewCard\":\"Enter a new 
+card\",\"newCardDisclaimer\":\"This card will only be used for this transaction, and will not replace your saved card 
+on file.\",\"pay\":\"Pay \",\"orPay\":\"Or pay \",\"applePay\":\"Apple Pay\",\"googlePay\":\"Google 
+Pay\",\"paze\":\"Paze\"},\"CustomerDetailsClientContainer\":{\"firstName\":\"first name\",\"lastName\":\"last 
+name\",\"phoneNumber\":\"phone number\",\"email\":\"email\",\"fieldsNeededError\":\"The following fields are needed 
+before saving a payment method: {fields}.\",\"contactInfoMissing\":\"Contact information 
+missing\"},\"NotAcceptingOrdersBanner\":{\"essentialContent\":\"We don't accept online orders - please contact us 
+directly for any purchases.\",\"dineInRestaurant\":\"{merchantName} isn't accepting dine-in {text} right 
+now.\",\"restaurant\":\"{merchantName} isn't accepting online {text} right now.\",\"standaloneGiftCard\":\"We are 
+currently not selling gift cards, and apologize for any inconvenience.\",\"menuAvailableAt\":\"You're viewing our 
+{dayPartName}. Orders for this menu won't be accepted until {dayPartStartTime}.\",\"menuAvailableOn\":\"You're viewing 
+our {dayPartName}. Orders for this menu won't be accepted until {dayPartStartTime} on 
+{day}.\",\"menu\":\"menu\",\"menuNotAvailable\":\"We aren't taking orders from this menu right now. Feel free to 
+explore our other menus or check back 
+later.\"},\"RestaurantCartScheduledOrderForm\":{\"daypartScheduleOrderMessage\":\"{dayPartName} orders can be 
+scheduled until {dayPartEndTime}. To schedule order for later, please switch to another 
+menu.\"},\"RestaurantItemModalModifierSelection\":{\"itemNotAvailable\":\"Sorry, this item is currently 
+unavailable.\",\"addToOrder\":\"Add to order\",\"itemAvailableOn\":\"This item cannot be ordered until 
+{dayPartStartTime} on {day}.\",\"itemAvailableAt\":\"This item cannot be ordered until 
+{dayPartStartTime}.\",\"update\":\"Update\",\"cannotOrder\":\"This item cannot be 
+ordered.\"},\"DayPartMenu\":{\"everyday\":\"Everyday\",\"weekendsOnly\":\"Weekends only\",\"daysOnly\":\"{day}s 
+only\",\"twoDaysOnly\":\"{day1} \u0026 {day2} only\",\"multipleDaysOnly\":\"{days} 
+only\",\"now\":\"NOW\"},\"PaymentIFrameForm\":{\"cloverOnlineOrder\":\"Clover online 
+order\",\"giftCardCouldNotBeAppliedError\":\"Gift card could not be applied\",\"payWithAGiftCard\":\"Pay with a gift 
+card\",\"apply\":\"Apply\",\"addAnotherGiftCard\":\"Add another gift card\",\"chooseAPaymentMethod\":\"Choose a 
+payment method\",\"pay\":\"Pay \",\"orPay\":\"Or pay \",\"byCard\":\"by card\",\"useSavedCard\":\"Use saved 
+card\",\"enterANewCard\":\"Enter a new card\",\"onlyThisTransactionText\":\"This card will only be used for this 
+transaction, and will not replace your saved card on file.\"},\"GiftCardCartOrdersBanner\":{\"message\":\"We are 
+currently not accepting online orders. Remove all non-gift card items to continue 
+checkout.\"},\"CheckoutCreateAppointmentButton\":{\"bookAppointment\":\"Book 
+appointment\"},\"CheckoutPlaceOrderButton\":{\"placeOrder\":\"Place 
+order\"},\"CheckoutOrderCustomerAgreementText\":{\"placingOrderAgree\":\"By placing an order, you agree to Clover's 
+\u003ctermsLink\u003eTerms of Service\u003c/termsLink\u003e and \u003cprivacyLink\u003ePrivacy Policy\u003c/privacyLink
+\u003e\"},\"CheckoutServiceBookingAcknowledgement\":{\"automatedEmailTextAcknowledgement\":\"By booking this 
+appointment, you acknowledge you will receive automated transactional email and/or text messages from Clover on behalf 
+of this merchant and accept Clover's \u003ctermsLink\u003eTerms of Service\u003c/termsLink\u003e and 
+\u003cprivacyLink\u003ePrivacy Policy\u003c/privacyLink\u003e
+\"},\"GiftCard\":{\"name\":\"name\",\"pleaseFillOut\":\"Please fill out this field\",\"nameIsRequired\":\"Name is 
+required\",\"invalidEmail\":\"Valid email is required\",\"giftCard\":\"Gift card\",\"digitalGiftCard\":\"Digital gift 
+card\",\"removeItem\":\"Remove {itemName} from order\",\"editItem\":\"Edit 
+{itemName}\"},\"SomethingWentWrong\":{\"somethingWentWrongTitle\":\"Something went wrong\",\"pleaseTryAgain\":\"Please 
+try again\",\"tryAgainButton\":\"Try 
+again\"},\"OrderCancellationInfoModal\":{\"ok\":\"OK\",\"close\":\"Close\",\"dialogLabel\":\"Cancellation 
+information\"},\"ConfirmationModal\":{\"close\":\"Close\",\"confirmCancellation\":\"Confirm 
+cancellation\"},\"UtilityButtons\":{\"cancelAppointmentTitle\":\"Are you sure you want to cancel your 
+appointment?\",\"cancelAppointmentDescription\":\"Are you sure you want to cancel this appointment? Since this 
+cancellation is within the allowed time window, no cancellation fee will be 
+applied.\",\"unableToCancelTitle\":\"Unable to cancel appointment online\",\"cancellationPeriodPast\":\"The 
+cancellation period for this appointment has passed. Please contact {merchantName} directly to cancel this 
+appointment. Note that you may be subject to additional cancellation fees.\",\"noCancellationFee\":\"Unable to cancel 
+appointment online. Please contact {merchantName} directly to cancel this appointment. Since this cancellation is 
+within the allowed time window, no cancellation fee will be applied.\",\"cancellationFeeMightApply\":\"Unable to 
+cancel appointment online. The cancellation period for this appointment has passed. Please contact {merchantName} 
+directly to cancel this appointment. Note that you may be subject to additional cancellation 
+fees.\",\"bookAgain\":\"Book again\",\"buyAgain\":\"Buy again\",\"orderAgain\":\"Order again\",\"ViewReceipt\":\"View 
+receipt\",\"viewReceiptFor\":\"View receipt for {orderId}\",\"cancelBooking\":\"Cancel 
+booking\"},\"CalculatePickTime\":{\"today\":\"Today\",\"todayTime\":\"Today, 
+{formattedTime}\",\"tomorrow\":\"Tomorrow\",\"tomorrowDate\":\"Tomorrow, 
+{formattedDate}\",\"tomorrowDateTime\":\"Tomorrow ({formattedDate}), {formattedTime}\",\"dateTime\":\"{day} at 
+{time}\",\"dialogLabel\":\"Ordering availability\"},\"SelectedCountryCode\":{\"countryCode\":\"Country 
+code\"},\"CheckoutHeader\":{\"checkout\":\"Checkout\",\"back\":\"Back\"},\"Perks\":{\"singlePerk\":\"You have a perk 
+available!\",\"multiplePerks\":\"You have {count} perks available\",\"trackPerks\":\"Track your progress towards 
+perks\"},\"UtilityPanel\":{\"account\":\"Account\",\"myOrders\":\"My orders\",\"logOut\":\"Log 
+out\",\"loginLabel\":\"Log in\",\"openUserMenuLabel\":\"Open user menu\",\"navDescriptiveText\":\"User 
+settings\"},\"DeliveryOrderModal\":{\"title\":\"You can have it delivered!\",\"subTitle\":\"This spot accepts delivery 
+orders. Do you want to place an order for delivery?\",\"okButton\":\"Order delivery\",\"cancelButton\":\"Not 
+today\",\"close\":\"Close\"},\"HybridOrders\":{\"currentOrders\":\"Current orders\",\"pastOrders\":\"Past 
+orders\",\"noOrders\":\"You don't have any orders in progress\",\"upcomingBookings\":\"Upcoming 
+bookings\",\"pastBookings\":\"Past bookings\",\"noBookings\":\"You don't have any upcoming 
+appointments\",\"bookings\":\"Bookings\",\"orders\":\"Orders\"},\"OrderCard\":{\"orderid\":\"Order id: 
+{orderId}\",\"services\":\"{count} service(s)\",\"items\":\"{count} item(s)\",\"orderTime\":\"from {startTime} - {endTi
+me}\",\"paid\":\"Paid\",\"unpaid\":\"Unpaid\",\"credited\":\"Credited\",\"refunded\":\"Refunded\",\"partiallyPaid\":\"P
+artially paid\",\"partiallyRefunded\":\"Partially refunded\",\"unknown\":\"Unknown\"},\"RetailStatusPill\":{\"paid\":\"
+Paid\",\"created\":\"Created\",\"readyForPickup\":\"Ready for pickup\",\"confirmed\":\"Confirmed\",\"inTransit\":\"In 
+transit\",\"outForDelivery\":\"Out for 
+delivery\",\"completed\":\"Completed\",\"fulfilled\":\"Fulfilled\",\"cancelled\":\"Canceled\",\"inPreperation\":\"In 
+preparation\",\"rejected\":\"Rejected\",\"unknown\":\"Unknown status\"},\"ServiceStatusPill\":{\"pending\":\"Pending\",
+\"confirmed\":\"Confirmed\",\"completed\":\"Completed\",\"cancelled\":\"Canceled\",\"declined\":\"Declined\",\"noShow\"
+:\"No-show\",\"unknown\":\"Unknown status\"},\"Pagination\":{\"leftArrow\":\"Left arrow\",\"rightArrow\":\"Right 
+arrow\",\"status\":\"Showing item(s) {startItem}-{endItem} of 
+{totalItemCount}\"},\"PerksModal\":{\"perks\":\"Perks\",\"availPerks\":\"You have perks available for redemption. You 
+can apply up to 1 perk at checkout.\",\"redeemPerks\":\"Available perks (redeem at checkout)\",\"inProgress\":\"In 
+progress\",\"close\":\"Close\"},\"QuantityStepper\":{\"increaseFor\":\"Increase quantity for 
+{adaName}\",\"increase\":\"Increase quantity\",\"decreaseFor\":\"Decrease quantity for 
+{adaName}\",\"decrease\":\"Decrease quantity\"},\"AlreadySentToKitchenSection\":{\"header\":\"Already sent to 
+kitchen:\"},\"Surcharge\":{\"text\":\"{surchargeRoundRate}% surcharge on credit card 
+transactions\",\"tooltip\":\"Payments made with a credit card will incur a {surchargeRoundRate}% surcharge fee. All 
+other payment types will not incur additional fees.\",\"toolTipLabel\":\"View surcharge 
+details\"},\"VerifyEmailContainer\":{\"updated\":\"Your email has been successfully updated.\",\"failed\":\"Your email 
+could not be updated.\"},\"SortDropDown\":{\"alphabeticallyAZ\":\"Alphabetically (A - 
+Z)\",\"reverseAlphabeticallyZA\":\"Reverse Alphabetically (Z - A)\",\"priceLowHigh\":\"Price (Low - 
+High)\",\"priceHighLow\":\"Price (High - Low)\"},\"ScanToOrderCart\":{\"closeAndPay\":\"Close out / 
+Pay\",\"sendItemToKitchen\":\"Send item to the kitchen\",\"sendItemsToKitchen\":\"Send {cartCount} items to the 
+kitchen\",\"continueToCheckout\":\"Continue to checkout\"},\"DaysOfWeek\":{\"monday\":\"Monday\",\"tuesday\":\"Tuesday\
+",\"wednesday\":\"Wednesday\",\"thursday\":\"Thursday\",\"friday\":\"Friday\",\"saturday\":\"Saturday\",\"sunday\":\"Su
+nday\"},\"DaysLongAbbreviated\":{\"monday\":\"Mon\",\"tuesday\":\"Tue\",\"wednesday\":\"Wed\",\"thursday\":\"Thu\",\"fr
+iday\":\"Fri\",\"saturday\":\"Sat\",\"sunday\":\"Sun\"},\"DaysShortAbbreviated\":{\"monday\":\"M\",\"tuesday\":\"Tu\",\
+"wednesday\":\"W\",\"thursday\":\"Th\",\"friday\":\"F\",\"saturday\":\"S\",\"sunday\":\"Su\"},\"OrderSummary\":{\"showO
+rderSummary\":\"Show order summary\",\"showAppointmentSummary\":\"Show appointment summary\",\"items\":\"{count, 
+plural, =1 {# item} other {# items}}\",\"services\":\"{count, plural, =1 {# service} other {# 
+services}}\"},\"CustomerLoggedInBanner\":{\"welcomeBack\":\"Welcome back, {customerName}. You're signed 
+in.\",\"seeYouAgain\":\"Hi, {customerName}. Nice to see you again.\",\"helloThere\":\"Hello there! You're signed 
+in.\"},\"SearchField\":{\"close\":\"Close search bar\"},\"RemoveFromCartButton\":{\"removeItemLabel\":\"Remove 
+{itemName} from order\"},\"CartDrawerLayout\":{\"closeCart\":\"Close 
+cart\"},\"RestaurantMenuInteractions\":{\"contactServer\":\"Contact 
+Server\"},\"auth\":{\"errors\":{\"SMS_CODE_INVALID\":\"Invalid code. Please try 
+again.\",\"PASSCODE_INVALID\":\"Invalid code. Please try again.\",\"CONFIRMATION_ENTRY_INVALID\":\"Invalid Code. Get a 
+new code.\",\"SMS_CONFIRMATION_ENTRY_INVALID\":\"Invalid code. Get a new code.\",\"SMS_MAX_CODES_EXCEEDED\":\"Too many 
+codes have been sent to {contact}.\",\"EMAIL_CONFIRMATION_TOKEN_INVALID\":\"Your magic link expired. You can 
+\u003c1\u003e request a new one. \u003c/1\u003e\",\"EMAIL_MAX_TOKENS_EXCEEDED\":\"Too many codes have been sent to 
+{contact}.\",\"UNKNOWN\":\"Server error. Please try again later.\"}},\"CheckoutMobileContainer\":{\"headerLabel\":\"Bac
+k\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":\"$L23\"}]\n"])</script><script>self.__next_f.push([1,"9
+:null\nd:[[\"$\",\"title\",\"0\",{\"children\":\"VAPE \u0026 
+MORE\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Vape \u0026 More delivers top vapes, vape 
+juice, tobacco, wraps, and accessories. Great deals, quick service, and curbside pickup. Your go-to smoke 
+shop.\"}],[\"$\",\"meta\",\"2\",{\"name\":\"keywords\",\"content\":\"vape shop,smoke shop,disposable vapes,vape 
+juice,tobacco store,cigars,wraps,vape accessories,nicotine vapes,vape near me,tobacco near me,smoke shop near 
+me\"}],[\"$\",\"meta\",\"3\",{\"name\":\"robots\",\"content\":\"all\"}],[\"$\",\"link\",\"4\",{\"rel\":\"shortcut icon\
+",\"href\":\"/icon.png\"}],[\"$\",\"link\",\"5\",{\"rel\":\"icon\",\"href\":\"/icon.png\"}],[\"$\",\"link\",\"6\",{\"re
+l\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}],[\"$\",\"link\",\"7\",{\"rel\":\"apple-touch-icon-precomp
+osed\",\"href\":\"/apple-touch-icon-precomposed.png\"}],[\"$\",\"$L24\",\"8\",{}]]\n"])</script><script>self.__next_f.p
+ush([1,"25:I[116532,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",\"/_next
+/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c57d38f5ce
+cb.js\"],\"CurrencyProvider\"]\n23:[\"$\",\"$L25\",null,{\"locale\":\"en-US\",\"currency\":\"USD\",\"children\":[\"$\",
+\"$L4\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts
+\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefin
+ed\",\"notFound\":[\"$L26\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]\n"])</script><script>s
+elf.__next_f.push([1,"27:I[267217,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb
+.js\",\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/
+ccf1c57d38f5cecb.js\",\"/_next/static/chunks/864d2130c6065401.js\",\"/_next/static/chunks/0e24f85597843972.js\"],\"defa
+ult\"]\n26:[\"$\",\"div\",null,{\"className\":\"flex flex-col items-center flex-1 overflow-auto 
+w-full\",\"children\":[\"$\",\"div\",null,{\"className\":\"container flex flex-col items-center justify-center px-5 
+mx-auto my-8 space-y-8 text-center sm:max-w-md\",\"children\":[\"$\",\"$L27\",null,{}]}]}]\n"])</script><script>self.__
+next_f.push([1,"28:I[382815,[\"/_next/static/chunks/ebc3deeee2f4a8a5.js\",\"/_next/static/chunks/14ab853f01f6beeb.js\",
+\"/_next/static/chunks/ba406ff3b9491c68.js\",\"/_next/static/chunks/dc4402841ca378c3.js\",\"/_next/static/chunks/ccf1c5
+7d38f5cecb.js\",\"/_next/static/chunks/757e9d9ef15d4ab2.js\",\"/_next/static/chunks/4c292ee2298ffc92.js\",\"/_next/stat
+ic/chunks/c59aa953778527d7.js\",\"/_next/static/chunks/59e022a7766c9911.js\",\"/_next/static/chunks/d51eb47492e4204c.js
+\",\"/_next/static/chunks/d5c81502a49ebc05.js\",\"/_next/static/chunks/85a3c040414d3fea.js\",\"/_next/static/chunks/a6a
+bcb595c5a25db.js\",\"/_next/static/chunks/1c11d23b914eefbf.js\",\"/_next/static/chunks/f879b2a4134b9a17.js\",\"/_next/s
+tatic/chunks/5f47304412212a23.js\",\"/_next/static/chunks/60ac01df40c79bb9.js\",\"/_next/static/chunks/f704b22c87909368
+.js\",\"/_next/static/chunks/beb42051be1d427d.js\",\"/_next/static/chunks/31f88d8ec5dbedb9.js\",\"/_next/static/chunks/
+e749e72da2069d60.js\"],\"Header\"]\n2a:{\"id\":\"0059cf9414586c91acd831cfd3b2205c0d0ecce7a5\",\"bound\":null}\n"])</scr
+ipt><script>self.__next_f.push([1,"1a:[\"$\",\"$L28\",null,{\"merchant\":{\"name\":\"VAPE \u0026 
+MORE\",\"cosMerchantName\":\"VAPE \u0026 
+MORE\",\"phone\":\"8036966046\",\"itemTypesBitmap\":4,\"address\":{\"address1\":\"523 S MILL ST\",\"address2\":\"\",\"c
+ity\":\"MANNING\",\"state\":\"SC\",\"zip\":\"29102\",\"country\":\"US\"},\"services\":[{\"id\":\"J3SPJ2HKFRCC8\",\"type
+\":\"PICKUP\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"monday\":[{\"start\":\"
+1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"start\":\"1100\",\"end\
+":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"MPSBB1M56PCJ4\"}},{\"id\":\"N
+62YGAHHAJQ5R\",\"type\":\"DELIVERY\",\"enabled\":false,\"hours\":{\"sunday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"
+monday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"tuesday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"wednesday\":[{\"
+start\":\"1100\",\"end\":\"2000\"}],\"thursday\":[{\"start\":\"1100\",\"end\":\"2000\"}],\"friday\":[{\"start\":\"1100\
+",\"end\":\"2000\"}],\"saturday\":[{\"start\":\"1100\",\"end\":\"2000\"}]},\"note\":null,\"orderType\":{\"id\":\"Q63156
+RM22HC6\"}}],\"tipSuggestions\":[{\"id\":\"X0X3JM1YTP6CC\",\"name\":\"Best Service Ever!\",\"percentage\":30},{\"id\":\
+"J01FJ0D7XJ6FG\",\"name\":\"Wow!\",\"percentage\":20},{\"id\":\"FKC7HGV20HCX8\",\"name\":\"Great\",\"percentage\":18},{
+\"id\":\"DY9RZ4GSHJBGA\",\"name\":\"Good\",\"percentage\":15}],\"businessHours\":{\"hours\":{\"sunday\":[{\"start\":\"9
+00\",\"end\":\"2100\"}],\"monday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"tuesday\":[{\"start\":\"800\",\"end\":\"220
+0\"}],\"wednesday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"thursday\":[{\"start\":\"800\",\"end\":\"2200\"}],\"friday
+\":[{\"start\":\"800\",\"end\":\"2200\"}],\"saturday\":[{\"start\":\"800\",\"end\":\"2200\"}]}},\"tipsEnabled\":false,\
+"timezone\":\"America/New_York\",\"locale\":\"en-US\",\"leadTime\":60,\"slug\":\"vape-more\",\"defaultCurrency\":\"USD\
+",\"serviceHoursInformation\":{\"PICKUP\":{\"serviceHoursState\":\"CLOSED\"},\"DELIVERY\":{\"serviceHoursState\":\"CLOS
+ED\"}},\"onlineServices\":{\"ONLINE_ORDERING\":{\"type\":\"ONLINE_ORDERING\",\"enabled\":true}},\"paymentMethods\":[\"E
+COMM\",\"GIFTCARD\",\"APPLE_PAY\",\"GOOGLE_PAY\"],\"scheduledOrdering\":{\"enabled\":true,\"maxDays\":3},\"enabledSetti
+ngs\":[\"EMAIL_SIGNUP_LOGIN_ON_COLO2\",\"APPLE_PAY_V2\",\"INCLUDE_SCHEDULED_PERKS\",\"THREEDS_COLO_ENABLED\",\"MIGRATE_
+TO_GCP_CE_ENDPOINTS\",\"PERKS_ENABLED\",\"ECOMM_THREEDS_FEATURE_ENABLE\",\"ENABLE_SERVICE_CHARGE\",\"ENABLE_CWO_GIFT_RE
+DEMPTION\",\"RETAIL_DDD_ENABLED\"],\"launchDarklyFeatures\":[{\"name\":\"PAZE_ON_COLO2\",\"enabled\":true},{\"name\":\"
+HORIZONTAL_SCROLL_ON_COLO2\",\"enabled\":false},{\"name\":\"SERVICES_FRENCH_LOCALIZATION_ENABLED\",\"enabled\":false}],
+\"deliveryMinimum\":0,\"deliveryOrderNoFeesAmount\":100000,\"deliveryFee\":0,\"modules\":{\"elements\":[{\"id\":\"S9JWE
+KZQKY2JJ\",\"name\":\"merchant\"},{\"id\":\"WNHJTPTMK2SJT\",\"name\":\"payments\"},{\"id\":\"KZSH7ZBZ2FJKE\",\"name\":\
+"employees\"},{\"id\":\"8VPP5JMP1HVT8\",\"name\":\"printers\"},{\"id\":\"EG2M3YE32JFW4\",\"name\":\"customers\"},{\"id\
+":\"B2QJASV4D927J\",\"name\":\"orders\"},{\"id\":\"Z4ETYWM9YCJ2C\",\"name\":\"items\"},{\"id\":\"EQ09X0M1MTBKM\",\"name
+\":\"cash\"},{\"id\":\"B9TXTF18V0QM6\",\"name\":\"discounts\"},{\"id\":\"FZHZS2HJ746G2\",\"name\":\"tax_rates\"},{\"id\
+":\"VMKVYBYP472YA\",\"name\":\"order_types\"},{\"id\":\"J82GPGP566VHM\",\"name\":\"order_printers\"},{\"id\":\"DR1D9FWJ
+TD0W2\",\"name\":\"item_modifiers\"},{\"id\":\"J8VMD5SE5CM90\",\"name\":\"service_charges\"},{\"id\":\"KM1YWKXZ86988\",
+\"name\":\"combine_assign_orders\"},{\"id\":\"N6QB1F5JVW576\",\"name\":\"weigh_per_unit_items\"},{\"id\":\"YS4W2NFFKGKZ
+G\",\"name\":\"item_variants\"},{\"id\":\"46SJRC1PFWN00\",\"name\":\"item_exchanges\"},{\"id\":\"Q2QVYZ5GPNF88\",\"name
+\":\"customer_preferences_promotions\"},{\"id\":\"DECMQ1JSR4WEY\",\"name\":\"register_preauth\"},{\"id\":\"8HTGZ03ECBJ5
+M\",\"name\":\"fast_pay\"},{\"id\":\"ATN9FNR1JSF4W\",\"name\":\"cost_of_goods\"},{\"id\":\"ER9YTVHG5DQ6C\",\"name\":\"a
+dvanced_reporting\"},{\"id\":\"GWESE1PJ0C99W\",\"name\":\"purchasing_card\"},{\"id\":\"X9E4CF51E6SZ2\",\"name\":\"retai
+l_hub\"},{\"id\":\"4BCNR1X7AV0MM\",\"name\":\"basic_website\"},{\"id\":\"P47GT5234V72R\",\"name\":\"storefront\"},{\"id
+\":\"G784A17RXEJM2\",\"name\":\"checkout\"},{\"id\":\"B1N6J8FMWTS6M\",\"name\":\"adp_payroll\"},{\"id\":\"S8KC6S6B2M8V0
+\",\"name\":\"hb_timesheets\"},{\"id\":\"Y5H79KTSBM5DE\",\"name\":\"clover_vault\"},{\"id\":\"XD39988SZ20QC\",\"name\":
+\"multi_location\"},{\"id\":\"3W2BAPVT9340W\",\"name\":\"estimate\"},{\"id\":\"QTKNS3PCJXDTJ\",\"name\":\"hb_scheduling
+\"}]},\"merchantBusinessType\":\"4\",\"customerContactEmail\":\"lackmariononestop@gmail.com\",\"enforcedCoFEnabled\":fa
+lse,\"logo\":\"https://www.clover.com/v2/image/ChatGPTImageNov30202511_40_58AM_1268443685029375153.png\",\"id\":\"WV2BF
+YZ60SBX1\",\"merchantMeta\":{\"merchantUuid\":\"WV2BFYZ60SBX1\",\"uuid\":\"BXQ9CD57A83G6\",\"aboutUsGcs\":\"https://clo
+verstatic.com/online-assets/merchant-website/WV2BFYZ60SBX1/BXQ9CD57A83G6/aboutUs/image/aboutUs\",\"aboutUsText\":\"At 
+Vape \u0026 More, we’ve built our reputation on quality, integrity, and an exceptional customer experience. We proudly 
+offer a premium selection of vape products, disposables, e-liquids, tobacco alternatives, cigars, and accessories — 
+all carefully chosen to meet the highest standards in the industry. Our commitment goes beyond just stocking shelves; 
+we focus on providing knowledgeable service, a clean and welcoming environment, and a shopping experience that feels 
+both reliable and refined. Whether you're exploring new flavors, picking up daily essentials, or discovering the 
+latest devices, Vape \u0026 More delivers a level of professionalism and attention to detail that sets us apart. Your 
+satisfaction is our priority, and we strive to make every visit one worth returning for.\",\"aboutUsTitle\":\"THE 
+MANNING VAPE \u0026 MORE \u0026 UHAUL DEALER\",\"appleTapToPay\":{\"domain\":\"vape-more.cloveronline.com\",\"uuid\":\"
+PWV4VYZ2QCJ1C\",\"merchantUuid\":\"WV2BFYZ60SBX1\",\"status\":\"VERIFIED\",\"_class\":\"com.clover.merchant_website.mod
+el.PaymentObject\"},\"businessType\":\"4\",\"cloverTermsAccepted\":true,\"colorPalette\":{\"color\":\"#1646A5\",\"name\
+":\"Blue\"},\"ctaButtonText\":\"NEW INVENTORY\",\"defaultSeoMetaDescription\":\"Shop the latest in  Candy_, CBD 
+Products and Chew Tobacco online, or stop by our store in person. Based in MANNING.\",\"domainName\":\"vape-more.clover
+online.com\",\"featuredCategory\":\"0\",\"heroCtaDestination\":\"all\",\"locale\":\"en-US\",\"merchantName\":\"VAPE 
+\u0026 MORE\",\"navigationCategories\":[{\"label\":\"Misc\",\"value\":\"GNTZW8P7P9DSR\",\"sortOrder\":0},{\"label\":\"C
+igaretts\",\"value\":\"8X3JMRM34MEFJ\",\"sortOrder\":1},{\"label\":\"Vape\",\"value\":\"YW6MK4MVFG1GG\",\"sortOrder\":2
+},{\"label\":\"CBD Products\",\"value\":\"894ZX04X618E4\",\"sortOrder\":3},{\"label\":\"Cigars\",\"value\":\"9BSY1F291B
+TGP\",\"sortOrder\":4}],\"newWebsite\":true,\"previewUrl\":\"preview-v1-WV2BFYZ60SBX1.cloveronline.com\",\"publishedUrl
+\":\"vape-more.cloveronline.com\",\"selectedSetup\":\"Custom\",\"selectedTemplate\":\"Description Focused\",\"subdomain
+\":\"vape-more\",\"subdomainCounter\":1,\"welcomeGcs\":\"https://cloverstatic.com/online-assets/merchant-website/WV2BFY
+Z60SBX1/BXQ9CD57A83G6/welcome/image/welcome\",\"welcomeMessage\":\"VAPE \u0026 MORE -MANNING- 
+\",\"seoMetaDescription\":\"Vape \u0026 More delivers top vapes, vape juice, tobacco, wraps, and accessories. Great 
+deals, quick service, and curbside pickup. Your go-to smoke shop.\",\"seoMetaKeywords\":\"vape shop, smoke shop, 
+disposable vapes, vape juice, tobacco store, cigars, wraps, vape accessories, nicotine vapes, vape near me, tobacco 
+near me, smoke shop near me\\n\"},\"isHybrid\":false,\"isService\":false,\"isRestaurant\":false,\"isRetail\":true,\"isE
+ssentialMerchant\":false,\"isPreview\":false,\"hasOnlyRetailItems\":true,\"isCheckoutEnabled\":true,\"isSellingGiftCard
+s\":false,\"isDeliveryEnabled\":false,\"isStandaloneGiftCardWebsite\":false,\"isRunningTabsEnabled\":false,\"isBusiness
+HourAvailable\":true},\"merchantName\":\"VAPE \u0026 MORE\",\"merchantLogo\":\"https://www.clover.com/v2/image/ChatGPTI
+mageNov30202511_40_58AM_1268443685029375153.png\",\"menu\":[{\"id\":\"GNTZW8P7P9DSR\",\"name\":\"Misc\",\"numberOfItems
+\":595,\"sortOrder\":0},{\"id\":\"8X3JMRM34MEFJ\",\"name\":\"Cigaretts\",\"numberOfItems\":290,\"sortOrder\":1},{\"id\"
+:\"YW6MK4MVFG1GG\",\"name\":\"Vape\",\"numberOfItems\":1186,\"sortOrder\":2},{\"id\":\"894ZX04X618E4\",\"name\":\"CBD P
+roducts\",\"numberOfItems\":142,\"sortOrder\":3},{\"id\":\"9BSY1F291BTGP\",\"name\":\"Cigars\",\"numberOfItems\":179,\"
+sortOrder\":4},{\"id\":\"1PMCSXW1WHEE0\",\"name\":\"Chew 
+Tobacco\",\"numberOfItems\":55,\"sortOrder\":5},{\"id\":\"JH9NR4BRB1ZSY\",\"name\":\"Vape Juice\",\"numberOfItems\":56,
+\"sortOrder\":6},{\"id\":\"3QK6H9J75SR7E\",\"name\":\"Glass\",\"numberOfItems\":11,\"sortOrder\":7},{\"id\":\"B5K3NFP9C
+2KC8\",\"name\":\"Misc Smoke\",\"numberOfItems\":8,\"sortOrder\":8},{\"id\":\"VZWCH126DD5CG\",\"name\":\"Lighter \\\\ 
+Torch\",\"numberOfItems\":28,\"sortOrder\":9},{\"id\":\"ZYBF8MJ7BHQJW\",\"name\":\"Sex Misc\",\"numberOfItems\":25,\"so
+rtOrder\":10},{\"id\":\"R5XMMPRANA2QA\",\"name\":\"Devices\",\"numberOfItems\":68,\"sortOrder\":11},{\"id\":\"RBWCJSMH4
+4P1M\",\"name\":\"FANCY CIGARS\",\"numberOfItems\":30,\"sortOrder\":12},{\"id\":\"YQPSY7DXAPG06\",\"name\":\" 
+Candy_\",\"numberOfItems\":7,\"sortOrder\":13},{\"id\":\"uncategorised\",\"name\":\"Other items\",\"numberOfItems\":522
+8,\"sortOrder\":14}],\"redirectToGiftCard\":false,\"pickupTimePromise\":\"$@29\",\"retailCategories\":[],\"serviceCateg
+ories\":[],\"deleteSession\":\"$h2a\",\"dayPartMenus\":[],\"dayPartMenuCategories\":[],\"paymentConfigPromise\":\"$@2b\
+",\"preferencesPromise\":\"$undefined\"}]\n"])</script><script>self.__next_f.push([1,"2b:{\"is_hipaa_merchant\":false,\
+"mcr\":false,\"mcc\":\"5499\",\"surcharging\":{\"supported\":false},\"gpay\":{\"supported\":true,\"auth_methods\":[\"PA
+N_ONLY\",\"CRYPTOGRAM_3DS\"]},\"apple_pay\":{\"supported\":true},\"samsung_pay\":{\"supported\":true},\"paze\":{\"suppo
+rted\":true,\"client_id\":\"K007HM1XL0DWJX3OR69814OntJVvJr4ByXRSmMUVOiK7CjSXw\"},\"ach\":{\"supported\":false},\"ach_ma
+nual_entry\":{\"supported\":false},\"pay_by_bank\":{\"supported\":false},\"soft_descriptors\":{\"supported\":true},\"fr
+aud_tools\":{\"validate_card_holder_name_provided\":false,\"validate_card_holder_name_verified\":false,\"validate_stree
+t_address_match\":false,\"validate_street_address_provided\":false,\"validate_card_holder_name_match\":false,\"validate
+_street_address_verified\":false},\"purchase_card\":{\"supported\":true},\"convenience_fee\":{\"supported\":false},\"gi
+ft_card\":{\"supported\":true},\"klarna\":{\"supported\":false}}\n29:{\"pickupDateTime\":1777509816.5676262,\"pickupDat
+eTimeMillis\":1777509816567}\n"])</script><script>self.__next_f.push([1,"2c:Tc25,"])</script><script>self.__next_f.push
+([1,"1. General Policy\n\nAt Vape \u0026 More, the safety and integrity of our products are our top priority. Due to 
+federal regulations, health standards, and the nature of vape and tobacco merchandise, returns and exchanges are 
+extremely limited.\nAll sales are final unless otherwise explicitly approved by an authorized employee or the owner at 
+the time of purchase.\n\n2. Non-Returnable Items\n\nFor health, sanitary, and legal reasons, the following cannot be 
+returned or exchanged under any circumstance:\n\nDisposable vapes\n\nVape devices (open or sealed)\n\nE-liquids / vape 
+juice\n\nPods, cartridges, coils, or tanks\n\nTobacco products (cigarettes, cigars, wraps, leaf, etc.)\n\nRolling 
+papers, tips, filters, cones\n\nAny consumables (snacks, drinks, candy)\n\nProducts without original 
+packaging\n\nProducts without receipt\n\nThis policy prevents product tampering and ensures customer safety.\n\n3. 
+Defective Item Exchange Policy\n\nWe understand that defects may occur. Vape \u0026 More will provide same-item 
+exchanges only when the following criteria are met:\n\nEligibility Requirements:\n\nDefect must be reported within 24 
+hours of purchase\n\nCustomer must provide:\n\nOriginal receipt\n\nOriginal packaging\n\nThe defective item 
+itself\n\nConditions:\n\nItem must show no signs of physical damage, including:\n\nCracks\n\nWater damage\n\nDrops or 
+impact damage\n\nBurnt coils due to misuse\n\nCustomized or altered devices\n\nOnly manufacturer defects 
+qualify.\n\nExchange is for the same item only — no substitutions, upgrades, or store credit.\n\nNo cash or card 
+refunds for defective products.\n\n4. Items Not Considered Defective\n\nThe following are not considered defects and 
+do not qualify for exchange:\n\n“I don’t like the flavor”\n\n“It hits too hard / too soft”\n\n“The device didn’t last 
+as long as expected”\n\n“The battery died sooner than I wanted”\n\n“It tastes burnt” (usually caused by misuse)\n\n“I 
+bought the wrong flavor / nicotine strength / brand”\n\nPuffed-out or empty disposables\n\nNormal product wear, tear, 
+or depletion\n\n5. Manager/Owner Discretion\n\nAlthough all sales are final, Vape \u0026 More may — only at the 
+discretion of management or the owner — approve exceptions on a case-by-case basis.\n\nApprovals must be:\n\nStated at 
+the time of purchase\n\nDocumented verbally or in writing\n\nClearly explained to the customer\n\nNo after-the-fact 
+exceptions will be honored.\n\n6. Fraud Prevention\n\nTo protect our customers and the business, Vape \u0026 More may 
+refuse exchanges or returns if:\n\nThe product does not match the receipt\n\nThe packaging is altered or 
+missing\n\nThe item appears used beyond reasonable testing\n\nAbuse of the return policy is suspected\n\nThe item 
+shows signs of tampering\n\nAny fraudulent attempt to return or exchange merchandise may result in refusal of service 
+and possible legal action.\n\n7. Customer Agreement\n\nBy completing a purchase at Vape \u0026 More, the customer 
+acknowledges and agrees that:\n\nAll sales are final\n\nExchanges are limited to verified manufacturer defects\n\nVape 
+\u0026 More reserves the right to deny exchanges that do not meet policy criteria\n\nFinal decisions rest with store 
+management or the 
+owner"])</script><script>self.__next_f.push([1,"2d:Tc94,"])</script><script>self.__next_f.push([1,"1. Agreement to 
+Terms\n\nBy entering Vape \u0026 More, purchasing products, or using any services provided by the store, the customer 
+acknowledges and agrees to comply with these Terms \u0026 Conditions, all posted store policies, and all applicable 
+local, state, and federal laws.\n\n2. Age Requirements\n\nCustomers must be 21 years of age or older to purchase vape, 
+tobacco, nicotine, or related products.\n\nA valid government-issued photo ID is required for all age-restricted 
+purchases.\n\nVape \u0026 More reserves the right to refuse service to anyone unable or unwilling to verify their 
+age.\n\n3. Product Use \u0026 Customer Responsibility\n\nAll products sold by Vape \u0026 More are intended for 
+lawful, personal use only.\n\nCustomers are responsible for selecting appropriate products, flavors, and nicotine 
+levels.\n\nVape devices, batteries, and e-liquids must be used only as directed.\n\nVape \u0026 More is not liable for 
+injuries, damages, or health issues arising from misuse, negligence, modification, or improper handling of any 
+product.\n\n4. No Guarantee of Performance\n\nDisposable vapes and electronic nicotine devices vary in lifespan and 
+performance.\n\nVape \u0026 More does not guarantee:\n\nPuff count\n\nBattery longevity\n\nFlavor 
+duration\n\nSatisfaction with taste, strength, or intensity\n\nAll performance expectations come from manufacturer 
+specifications, not store guarantees.\n\n5. Purchases, Payments \u0026 Final Sales\n\nOnce a transaction is completed, 
+all sales are final unless explicitly stated otherwise by an authorized employee or the owner at the time of 
+purchase.\n\nCustomers must review their purchase before leaving the store.\n\nVape \u0026 More is not responsible 
+for:\n\nIncorrect product selections\n\nFlavor preferences\n\nBuyer’s remorse\n\nLost or misplaced items\n\n6. 
+Defective Products\n\n(Not the same as Returns/Exchanges — this remains a standard legal defect disclosure)\n\nDefects 
+must be reported within 24 hours of purchase.\n\nItems must be returned with:\n\nOriginal receipt\n\nOriginal 
+packaging\n\nNo physical damage or signs of misuse\n\nApproved defective items will be exchanged for the same product 
+only.\n\nNo refunds, store credit, or alternative exchanges will be issued for defective products.\n\n7. Pricing 
+\u0026 Inventory\n\nPrices may change without notice.\n\nInventory quantities and availability vary.\n\nPromotions and 
+discounts cannot be combined unless clearly stated.\n\n8. Limitation of Liability\n\nTo the fullest extent permitted 
+by law, Vape \u0026 More is not responsible for:\n\nPersonal injury\n\nProperty damage\n\nFires or battery 
+malfunctions\n\nHealth complications\n\nMisuse of products\n\nAny damages arising from the purchase or use of store 
+merchandise\n\nCustomers assume full responsibility for safe handling and operation of any device.\n\n9. Security, 
+Conduct \u0026 Compliance\n\nTheft, fraud, tampering, or abusive behavior will result in refusal of service and 
+prosecution.\n\nCustomers must comply with posted rules and follow reasonable staff instructions.\n\n10. Acceptance of 
+Terms\n\nBy completing a purchase at Vape \u0026 More, the customer acknowledges and accepts:\n\nThese Terms \u0026 
+Conditions\n\nAll store policies posted in-store or provided by staff\n\nThat all sales are ultimately final unless 
+explicitly stated otherwise by an authorized employee or the owner"])</script><script>self.__next_f.push([1,"1d:{\"data
+\":{\"returnsAndExchangePolicy\":{\"content\":\"$2c\",\"display\":true,\"lastPublishedTime\":1764542229986},\"termsOfUs
+ePolicy\":{\"content\":\"$2d\",\"display\":true,\"lastPublishedTime\":1764542172478}},\"showLinks\":{\"returnsAndExchan
+gePolicy\":true,\"termsOfUsePolicy\":true}}\n"])</script></body></html>
+
+

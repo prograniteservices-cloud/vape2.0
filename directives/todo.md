@@ -2,11 +2,11 @@
 
 ## Active Plan: [PHASE6_PLAN.md](./PHASE6_PLAN.md)
 
-### 1. Interactive Scripted Chat Experience ⏳
-- [ ] Implement `AIChat` component to replace `DemoChat` (stubs: `TypingIndicator`, `MessageList`).
-- [ ] Create `GuidedTour` script and auto-trigger logic.
-- [ ] Implement `ScriptedResponses` library based on Phase 4 data.
-- [ ] Add staggered progress/thinking delay logic.
+### 1. Real-Time Voice AI Experience ⏳
+- [x] Port Google Cloud TTS engine and API keys from Nighttime Companion.
+- [x] Implement client-side `useVoiceEngine` hook for Web Speech recognition.
+- [ ] Implement `AIVoiceBot` component to handle listening, thinking, and talking states.
+- [ ] Wire Web Speech output -> Gemini API -> Cloud TTS playback pipeline.
 
 ### 2. Premium AI Interface & Polish ⏳
 - [ ] Develop `AnimatedBot` avatar component (Framer Motion).
