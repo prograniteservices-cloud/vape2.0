@@ -99,6 +99,11 @@ export const products: Product[] = (inventoryData as any[]).map((item, index) =>
 
 
 export function getProductsByCategory(categoryId: string): Product[] {
-  if (categoryId === 'root') return products;
-  return products.filter(product => product.categoryPath.includes(categoryId));
+  if (!categoryId || categoryId === 'root') return products || [];
+  if (!Array.isArray(products)) return [];
+  
+  return products.filter(product => {
+    if (!product || !product.categoryPath) return false;
+    return Array.isArray(product.categoryPath) && product.categoryPath.includes(categoryId);
+  });
 }

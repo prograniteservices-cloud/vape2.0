@@ -22,7 +22,15 @@
 ### 4. Verification ⏳
 - [x] Build verification: `npm run build`
 - [x] TypeScript verification: `npx tsc --noEmit`
-- [ ] Functional walkthrough of all scripted interactions.
+- [/] Functional walkthrough of all scripted interactions (STALLED - PRODUCTION HANG).
 
 ### 5. Known Bugs & Next Steps 🐛
-- [ ] Fix Vercel production API connection issue: Chatbot STT works, but fails to connect to Gemini/Cloud TTS backend (falls back to native browser TTS). Verify Vercel environment variables (`NEXT_PUBLIC_GEMINI_API_KEY`, `GOOGLE_TTS_API_KEY`, etc.) and API route configurations.
+- [ ] **URGENT**: Fix Vercel production API connection issue and Sidebar Hang.
+    - [x] Added `ErrorBoundary` to Dashboard.
+    - [x] Added `try-catch` to `setTimeout` in `page.tsx` to prevent infinite spinners.
+    - [x] Added Server-Side debug logs for API keys.
+    - [ ] Inspect Vercel Logs for `[Navigation]` and `[Gemini Server]` tags.
+- [ ] Fix AIVoiceBot connectivity error "I'm having trouble connecting right now."
+    - [x] Secured API key via Server Actions.
+    - [x] Fixed "handleSendMessage is not defined" regression.
+    - [ ] Verify `GOOGLE_APPLICATION_CREDENTIALS` for Cloud TTS if native fallback is triggered.

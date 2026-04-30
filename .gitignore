@@ -48,3 +48,4 @@ connections/
 *_key*
 
 service-account-key.json
+.env*.local

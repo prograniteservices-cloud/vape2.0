@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Category, Product } from '@/types';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
+import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { AIVoiceBot } from '@/components/features/AIVoiceBot';
-import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw, Loader2 } from 'lucide-react';
+import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw } from 'lucide-react';
 import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
 
 export default function Home() {
@@ -14,7 +15,6 @@ export default function Home() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'categories' | 'products'>('categories');
   const [productsToDisplay, setProductsToDisplay] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
 
@@ -24,44 +24,39 @@ export default function Home() {
   };
 
   const handleResetDemo = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setSelectedCategory(null);
-      setViewMode('categories');
-      setProductsToDisplay([]);
-      setActiveHighlight(null);
-      setResetKey(prev => prev + 1);
-      setIsLoading(false);
-    }, 150);
+    setSelectedCategory(null);
+    setViewMode('categories');
+    setProductsToDisplay([]);
+    setActiveHighlight(null);
+    setResetKey(prev => prev + 1);
   };
 
   const handleSelectCategory = (category: Category) => {
-    setIsLoading(true);
+    console.log("[Navigation] Selecting category:", category.id);
     setSelectedCategory(category);
     setIsMobileSidebarOpen(false);
 
-    setTimeout(() => {
+    try {
       if (!hasChildren(category)) {
-        setViewMode('products');
+        console.log("[Navigation] Category has no children, fetching products...");
         const products = getProductsByCategory(category.id);
-        // Limit to 50 items to prevent browser freezing
+        console.log(`[Navigation] Found ${products?.length || 0} products.`);
         setProductsToDisplay(products.slice(0, 50));
+        setViewMode('products');
       } else {
-        setViewMode('categories');
+        console.log("[Navigation] Category has children, switching view...");
         setProductsToDisplay([]);
+        setViewMode('categories');
       }
-      setIsLoading(false);
-    }, 150);
+    } catch (err) {
+      console.error("[Navigation] CRITICAL ERROR:", err);
+    }
   };
 
   const handleNavigateToRoot = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setSelectedCategory(null);
-      setViewMode('categories');
-      setProductsToDisplay([]);
-      setIsLoading(false);
-    }, 150);
+    setSelectedCategory(null);
+    setViewMode('categories');
+    setProductsToDisplay([]);
   };
 
   const handleChatNavigate = (categoryId: string) => {
@@ -93,7 +88,7 @@ export default function Home() {
         </div>
         
         <div className="flex-1 overflow-hidden flex flex-col">
-          <div className={`p-4 border-b border-white/5 transition-all duration-500 ${activeHighlight === 'sidebar' ? 'bg-emerald-500/10 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] border-emerald-500/30' : 'bg-white/5'}`}>
+          <div className={`flex-1 overflow-y-auto scrollbar-hide p-4 transition-all duration-500 ${activeHighlight === 'sidebar' ? 'bg-emerald-500/10 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] border-emerald-500/30' : 'bg-white/5'}`}>
             <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-3 px-2">
               <Layers size={14} className="text-primary" />
               <span>NAVIGATOR</span>
@@ -103,62 +98,46 @@ export default function Home() {
               onSelectCategory={handleSelectCategory}
             />
           </div>
-          
-          <div className={`flex-1 overflow-y-auto scrollbar-hide p-4 transition-all duration-500 relative ${activeHighlight === 'preview' ? 'bg-emerald-500/5 shadow-[inset_0_0_30px_rgba(16,185,129,0.15)] border-t border-emerald-500/20' : ''}`}>
-             <div className="flex items-center justify-between mb-4 px-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-white/60">
-                  <Package size={14} className="text-accent" />
-                  <span>PREVIEW</span>
-                </div>
-                <div className="flex gap-3 items-center">
-                   {selectedCategory && (
-                      <button 
-                       onClick={handleNavigateToRoot}
-                       className="text-[10px] text-primary hover:underline font-bold"
-                      >
-                        BACK
-                      </button>
-                   )}
-                   <button 
-                     onClick={handleResetDemo}
-                     className="text-[10px] text-white/40 hover:text-white uppercase tracking-widest font-bold flex items-center gap-1 bg-white/5 px-2 py-1 rounded hover:bg-white/10 transition-colors"
-                   >
-                     <RefreshCw size={10} /> Reset Showcase
-                   </button>
-                </div>
-             </div>
-             
-             {isLoading ? (
-               <div className="flex flex-col items-center justify-center h-48 gap-3">
-                 <Loader2 className="w-8 h-8 text-primary animate-spin opacity-20" />
-                 <p className="text-[10px] text-white/20 uppercase tracking-[0.2em] font-bold">Processing Data</p>
-               </div>
-             ) : (
-               <Dashboard
+        </div>
+      </div>
+
+      {/* Center Panel: Verbal AI Chat or Dashboard */}
+      <main className="flex-1 h-full flex flex-col z-10 relative">
+        <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
+          <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
+          <div className="flex gap-3 items-center">
+            <button 
+              onClick={handleResetDemo}
+              className="text-[10px] text-white/40 hover:text-white uppercase tracking-widest font-bold flex items-center gap-1 bg-white/5 px-2 py-1 rounded hover:bg-white/10 transition-colors relative z-50"
+            >
+              <RefreshCw size={10} /> Reset
+            </button>
+            <button onClick={() => setIsMobileSidebarOpen(true)} className="p-2 relative z-50">
+              <Menu size={24} />
+            </button>
+          </div>
+        </header>
+
+        <div className="flex-1 flex overflow-hidden relative">
+          {selectedCategory ? (
+            <div className="w-full h-full overflow-y-auto">
+              <ErrorBoundary>
+                <Dashboard 
                   selectedCategory={selectedCategory}
                   onSelectCategory={handleSelectCategory}
                   onBrowse={() => {}}
                   onNavigateToRoot={handleNavigateToRoot}
                   viewMode={viewMode}
                   products={productsToDisplay}
-                  compact={true}
+                  compact={false}
                 />
-             )}
-          </div>
-        </div>
-      </div>
-
-      {/* Center Panel: Verbal AI Chat */}
-      <main className="flex-1 h-full flex flex-col z-10 relative">
-        <header className="md:hidden flex items-center justify-between p-4 bg-black/40 backdrop-blur-md border-b border-white/10 relative z-50">
-          <h1 className="text-xl font-bold gradient-text">VapeOS</h1>
-          <button onClick={() => setIsMobileSidebarOpen(true)} className="p-2 relative z-50">
-            <Menu size={24} />
-          </button>
-        </header>
-
-        <div className="flex-1 flex items-center justify-center overflow-hidden relative p-8">
-          <AIVoiceBot onNavigate={handleChatNavigate} onPulse={handlePulse} resetKey={resetKey} />
+              </ErrorBoundary>
+            </div>
+          ) : (
+            <div className="flex-1 flex items-center justify-center p-8">
+              <AIVoiceBot onNavigate={handleChatNavigate} onPulse={handlePulse} resetKey={resetKey} />
+            </div>
+          )}
         </div>
       </main>
 

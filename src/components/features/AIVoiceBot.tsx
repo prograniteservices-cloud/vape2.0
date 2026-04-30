@@ -19,6 +19,7 @@ export function AIVoiceBot({
 }) {
     const [responseMessage, setResponseMessage] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     
     useEffect(() => {
         setResponseMessage('');
@@ -76,20 +77,29 @@ export function AIVoiceBot({
         }
     };
 
-    const handleSpeechEnd = async (transcript: string) => {
-        if (!transcript.trim()) {
-            setState('idle');
-            return;
-        }
+    const handleSendMessage = async (text: string) => {
+        if (!text.trim() || isProcessing) return;
         
+        console.log("[AIBot] Sending message:", text);
         setIsProcessing(true);
+        setError(null);
+        setResponseMessage('');
+        
         try {
-            const aiResponse = await chatWithGemini(transcript);
+            const aiResponse = await chatWithGemini(text);
+            console.log("[AIBot] Received response:", aiResponse);
+            
+            if (typeof aiResponse === 'object' && (aiResponse as any).error) {
+                throw new Error((aiResponse as any).error);
+            }
+
             let displayString = aiResponse;
             
+            // Command Handling
             const match = aiResponse.match(/\[SHOW:([a-zA-Z0-9-]+)\]/);
             if (match) {
                 const catId = match[1];
+                console.log("[AIBot] Navigation command detected:", catId);
                 if (onNavigate) onNavigate(catId);
                 displayString = aiResponse.replace(/\[SHOW:([a-zA-Z0-9-]+)\]/g, '').trim();
             }
@@ -97,6 +107,7 @@ export function AIVoiceBot({
             const pulseMatch = displayString.match(/\[PULSE:([a-zA-Z0-9-]+)\]/);
             if (pulseMatch) {
                 const target = pulseMatch[1];
+                console.log("[AIBot] Pulse command detected:", target);
                 if (onPulse) onPulse(target);
                 displayString = displayString.replace(/\[PULSE:([a-zA-Z0-9-]+)\]/g, '').trim();
             }
@@ -105,28 +116,36 @@ export function AIVoiceBot({
             setState('talking');
             
             await playAudio(displayString);
-            
-        } catch (error) {
-            console.error("Voice Interaction Error:", error);
-            setResponseMessage("I'm having trouble connecting right now.");
+        } catch (error: any) {
+            console.error("[AIBot] Error:", error);
+            const errorMessage = error?.message || "Connection Error";
+            setError(errorMessage);
+            setResponseMessage(`API Error: ${errorMessage}`);
             setState('talking');
-            await playAudio("I'm having trouble connecting right now.");
+            await playAudio("I encountered a connection error.");
         } finally {
             setIsProcessing(false);
             setState('idle');
-            setResponseMessage('');
         }
+    };
+
+    const handleSpeechEnd = async (transcript: string) => {
+        if (!transcript.trim()) {
+            setState('idle');
+            return;
+        }
+        await handleSendMessage(transcript);
     };
 
     const handleTextSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
         const text = formData.get('textInput') as string;
         if (!text.trim() || isProcessing) return;
         
-        const form = e.currentTarget;
         form.reset();
-        await handleSpeechEnd(text);
+        await handleSendMessage(text);
     };
 
     const { state, setState, startListening, stopListening, isSupported, transcript } = useVoiceEngine({
