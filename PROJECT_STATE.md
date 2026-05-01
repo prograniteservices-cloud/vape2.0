@@ -9,10 +9,13 @@ This is the canonical continuity file for Codex sessions. Update it whenever wor
 ## Protected Production MVP
 
 - Current client-facing MVP is deployed separately under the Vercel link/name `vapes and more mvp 2026`.
-- Do not touch, deploy over, or merge into the production MVP branch unless the user explicitly asks.
+- User explicitly approved replacing the current MVP on 2026-05-01.
 - Treat `vapes-and-more-mvp-2026` as protected.
 - New work must happen on a separate branch from the MVP branch.
 - Do not push to GitHub or deploy to Vercel without explicit user approval and a confirmed target branch/deployment.
+- Current production MVP project: `vape-shop-mvp-2026`.
+- Current production MVP alias: `https://vape-shop-mvp-2026.vercel.app`.
+- Current production deployment after replacement: `dpl_DWUXNk3i87Q9rgdgeaa2Ygv925n4`.
 
 ## Trust Model
 
@@ -87,6 +90,11 @@ Build a reliable semantic inventory search backend for the Vape More MVP using S
 - Full TypeScript passes with `npx tsc --noEmit --pretty false`.
 - Targeted lint on the changed app/search files and repaired scripts passes with only existing `Dashboard` `<img>` warnings.
 - Removed a hardcoded Gemini fallback key from `scripts/generate-embeddings.ts`; recorded the discovery in `C:\Users\heath\Desktop\skills\auth\gemini.md` and `C:\Users\heath\Desktop\skills\auth\SOURCES.md`.
+- `origin/main` now contains the semantic search work:
+  - `90e4091 feat: add semantic inventory search`
+  - `4231dca fix: support vertex credentials on vercel`
+- Vercel project `vape-shop-mvp-2026` production env was updated with required Supabase, Gemini/TTS, and `GOOGLE_APPLICATION_CREDENTIALS_JSON` variables.
+- `https://vape-shop-mvp-2026.vercel.app/api/search` was verified after deployment with `black mild wood tip cigar` and returned HTTP 200 with ranked cigar results.
 - Added frontend categories in `src/lib/data.ts`: `Pipe Tobacco`, `Hookah & Shisha`, and `Beverages`.
 - Added targeted script repair option: `--name-contains=<text>` for reprocessing matching product names.
 - Script runners were added to `package.json`:
@@ -105,7 +113,7 @@ Completed:
 - server-side `/api/search`
 - assistant-to-search UI handoff
 
-Next project phase: manually test and harden the app-level semantic search experience, then prepare a reviewable branch/PR when approved.
+Next project phase: manually test the live MVP UI and tune semantic search behavior if needed.
 
 ## Active Risks / Unknowns
 

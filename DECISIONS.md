@@ -17,6 +17,19 @@ Rationale:
 
 The client is actively reviewing the MVP with their company, and it currently works as a demo.
 
+## 2026-05-01 - Replace Current MVP With Semantic Search Build
+
+Decision:
+
+- User approved replacing the current MVP with the semantic search build.
+- Pushed semantic search work to `origin/main`.
+- Promoted the Vercel `vape-shop-mvp-2026` production deployment to the new main-branch build.
+- Added required production env vars to `vape-shop-mvp-2026`, including server-side Supabase and Vertex credential configuration.
+
+Rationale:
+
+The user wanted the new semantic-search MVP to take the place of the current client-facing MVP.
+
 ## 2026-05-01 - Use PROJECT_STATE.md As Canonical Continuity File
 
 Decision:
