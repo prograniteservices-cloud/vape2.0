@@ -7,8 +7,13 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { Dashboard } from '@/components/layout/Dashboard';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { AIVoiceBot } from '@/components/features/AIVoiceBot';
-import { Menu, Sparkles, Bot, Package, Layers, X, RefreshCw, Download } from 'lucide-react';
-import { hasChildren, getProductsByCategory, products as allProducts, findCategoryById, categoryTree } from '@/lib/data';
+import { Menu, Bot, Layers, X, RefreshCw, Download } from 'lucide-react';
+import { hasChildren, getProductsByCategory, findCategoryById, categoryTree } from '@/lib/data';
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
@@ -18,10 +23,11 @@ export default function Home() {
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
   const [resetKey, setResetKey] = useState(0);
   const [showInstallBanner, setShowInstallBanner] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isIOS, setIsIOS] = useState(false);
   const [isPWAInstalled, setIsPWAInstalled] = useState(false);
   const [pwaReady, setPwaReady] = useState(false);
+  const [searchLabel, setSearchLabel] = useState<string | null>(null);
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
@@ -40,7 +46,7 @@ export default function Home() {
 
     const handler = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e);
+      setDeferredPrompt(e as BeforeInstallPromptEvent);
       if (!hasDismissed) setShowInstallBanner(true);
     };
 
@@ -77,11 +83,13 @@ export default function Home() {
     setViewMode('categories');
     setProductsToDisplay([]);
     setActiveHighlight(null);
+    setSearchLabel(null);
     setResetKey(prev => prev + 1);
   };
 
   const handleSelectCategory = (category: Category) => {
     console.log("[Navigation] Selecting category:", category.id);
+    setSearchLabel(null);
     setSelectedCategory(category);
     setIsMobileSidebarOpen(false);
 
@@ -128,18 +136,57 @@ export default function Home() {
     setSelectedCategory(null);
     setViewMode('categories');
     setProductsToDisplay([]);
+    setSearchLabel(null);
   };
 
-  const handleChatNavigate = (categoryId: string, searchQuery?: string, sortOrder?: string) => {
+  const runSemanticSearch = async (query: string, fallbackProducts: Product[], sortOrder?: string) => {
+    const res = await fetch('/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query, limit: 36 }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Search API failed with ${res.status}`);
+    }
+
+    const data = await res.json();
+    let results = Array.isArray(data.products) ? data.products as Product[] : [];
+
+    if (sortOrder === 'cheapest') {
+      results = [...results].sort((a, b) => a.price - b.price);
+    } else if (sortOrder === 'priciest') {
+      results = [...results].sort((a, b) => b.price - a.price);
+    }
+
+    return results.length > 0 ? results : fallbackProducts;
+  };
+
+  const handleChatNavigate = async (categoryId: string, searchQuery?: string, sortOrder?: string) => {
     const category = findCategoryById(categoryTree, categoryId);
     if (!category) return;
-    handleSelectCategory(category);
 
-    if (!hasChildren(category) && (searchQuery || sortOrder)) {
-      const products = getProductsByCategory(category.id);
-      const filtered = filterAndSortProducts(products, searchQuery, sortOrder);
-      setProductsToDisplay(filtered.slice(0, 50));
+    if (searchQuery || sortOrder) {
+      const staticProducts = getProductsByCategory(category.id);
+      const filtered = filterAndSortProducts(staticProducts, searchQuery, sortOrder).slice(0, 50);
+      const query = [searchQuery, category.name].filter(Boolean).join(' ');
+
+      setSelectedCategory(category);
+      setViewMode('products');
+      setSearchLabel(searchQuery || `${category.name} search`);
+      setProductsToDisplay(filtered);
+
+      try {
+        const semanticResults = await runSemanticSearch(query, filtered, sortOrder);
+        setProductsToDisplay(semanticResults.slice(0, 50));
+      } catch (error) {
+        console.error('[Search] Falling back to local catalog filter:', error);
+      }
+
+      return;
     }
+
+    handleSelectCategory(category);
   };
 
   return (
@@ -247,6 +294,7 @@ export default function Home() {
                   onNavigateToRoot={handleNavigateToRoot}
                   viewMode={viewMode}
                   products={productsToDisplay}
+                  resultLabel={searchLabel}
                   compact={false}
                 />
               </ErrorBoundary>

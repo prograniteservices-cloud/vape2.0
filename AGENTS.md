@@ -1,203 +1,188 @@
-# Agent Directives - Integration Credentials
+# Codex Project Guide - VapeOS v2
 
-## Overview
+This file is the first-read guide for Codex CLI sessions in this repo. Keep it concise, current, and safe for future agents.
 
-This document defines how agents should interact with the centralized credential storage system located at `C:\Users\heath\Desktop\intergration\`.
+## Current Mission
 
----
+VapeOS v2 is an MVP for a vape shop inventory discovery app. The active work is moving from a polished local/demo UI toward a real semantic inventory search backend.
 
-## ⚠️ CRITICAL: Browser Access Prohibition (ALL AGENTS)
+- App: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, Framer Motion.
+- Database: Supabase cloud PostgreSQL with pgvector.
+- AI: Gemini / Vertex AI for metadata generation and embeddings.
+- Deployment: Vercel.
+- Active branch target: `vape2.0`.
+- Production MVP branch: `vapes-and-more-mvp-2026` - do not touch unless the user explicitly asks.
 
-**ABSOLUTE PROHIBITION: Agents MUST NOT access or control the user's browser**
+## Read These First
 
-**FORBIDDEN tools and methods:**
-- ❌ Playwright (automated browser testing)
-- ❌ Puppeteer (headless Chrome automation)
-- ❌ Selenium (browser automation)
-- ❌ Cypress (E2E testing with browser control)
-- ❌ Any automated browser control or screenshot tools
-- ❌ Any script that launches or controls browser instances
+For project context, read these small files before making broad changes:
 
-**Why this is prohibited:**
-- Browser automation causes system errors
-- Closes user's current work and browser sessions
-- Disrupts active development environment
-- Can crash the IDE or operating system
-- Results in lost work and frustration
+1. `PROJECT_STATE.md` - canonical current state, protected branch rules, risks, and next actions.
+2. `DECISIONS.md` - durable project decisions and rationale.
+3. `handoff.md` - historical operational handoff; verify before trusting.
+4. `directives/SOP.md` - workflow, branch strategy, cloud-only Supabase rules.
+5. `directives/PDD.md` - product/design intent and architecture.
+6. `directives/PFD.md` - functional requirements and acceptance criteria.
+7. `directives/todo.md` - current phase checklist; may be stale.
+8. `directives/NORTH_STAR.md` - user experience direction.
 
-**What to do instead:**
-- ✅ Manual testing instructions for the user
-- ✅ Static code analysis and review
-- ✅ Unit tests (Jest, Vitest) without browser dependency
-- ✅ Component tests (React Testing Library) in isolation
-- ✅ API/integration tests (backend only)
-- ✅ Request user to perform manual browser tests
+Avoid loading large/generated files unless needed for the task:
 
-**Verification before testing:**
-Before running ANY test command, verify it does NOT:
-1. Launch a browser instance
-2. Control browser behavior programmatically
-3. Take automated screenshots via browser
-4. Require browser driver installation (ChromeDriver, geckodriver, etc.)
+- `node_modules/`
+- `.next/`
+- `package-lock.json` unless dependency resolution matters
+- `src/data/inventory.json`
+- `merged_inventory.json`
+- large scraped HTML/JSON files in the repo root
 
-**If browser testing is absolutely required:**
-- Ask the user explicitly for permission
-- Explain what will happen to their browser
-- Provide manual testing steps as alternative
-- Never proceed without explicit user consent
+## Current State Snapshot
 
----
+As of May 1, 2026:
 
-## Credential Storage Location
+- Phase 7 Supabase/pgvector backend is mostly initialized.
+- Supabase migration exists at `supabase/migrations/20260501113402_init_vector_inventory.sql`.
+- `@supabase/supabase-js` is already installed in `package.json`.
+- `scripts/seed-mvp.ts`, `scripts/generate-embeddings-vertex.ts`, and `scripts/test-vertex.ts` exist.
+- Phase 8 is active: enrich inventory with Vertex/Gemini metadata and embeddings, then test `match_products`.
+- `directives/todo.md` has some stale unchecked items; verify against the actual tree before assuming work is missing.
 
-**Primary Path**: `C:\Users\heath\Desktop\intergration\`
+Known project refs mentioned in docs:
 
-This folder contains all API keys, tokens, authentication credentials, and service configurations organized by service name.
+- Current Supabase project ref in handoff/phase plan: `kqxbysmbnoejkflufnyj`.
+- Older Supabase ref appears in some docs/scripts: `gnojtwlxcsmdhymqytzm`. Treat this as stale unless the user confirms otherwise.
+- GCP project: `vape-494900`.
 
-## File Structure
+## Safety Rules
 
-Each service has its own markdown file containing:
-- Service name and purpose
-- All relevant credentials (keys, tokens, passwords)
-- API endpoints and URLs
-- Authentication methods
-- Usage notes and security warnings
+### Browser Access Prohibition
 
-### Available Credential Files
+Do not use browser automation or tools that launch/control a browser:
 
-| File | Service | Status |
-|------|---------|--------|
-| `context7.md` | Context7 API | Active |
-| `elevenlabs.md` | ElevenLabs Voice AI | Active |
-| `firecrawl.md` | Firecrawl Scraping | Active |
-| `gemini.md` | Google Gemini AI | Placeholder |
-| `github.md` | GitHub API | Active |
-| `gmail.md` | Gmail SMTP | Active |
-| `mcp-servers.md` | MCP Server Configs | Disabled |
-| `notion.md` | Notion API | Active |
-| `openai.md` | OpenAI API | Placeholder |
-| `supabase.md` | Supabase (3 projects) | Active |
-| `vercel.md` | Vercel Deployment | Active |
+- No Playwright.
+- No Puppeteer.
+- No Selenium.
+- No Cypress.
+- No automated browser screenshots.
+- No scripts that launch browser instances.
 
-## Agent Instructions
+Use static analysis, unit/component tests that do not launch a browser, backend/API tests, and manual test instructions for the user.
 
-### When Starting a New Project
+Before running any test command, verify it does not launch a browser, install a browser driver, or take browser screenshots.
 
-1. **Check the integration folder** for relevant credentials before asking the user for API keys
-2. **Read the appropriate .md file** for the service you need to integrate
-3. **Use existing credentials** when available instead of creating new ones
-4. **Update the corresponding .md file** if you add new credentials or discover existing ones in project files
+### Secrets
 
-### When Discovering New Credentials
+Centralized credential storage is at:
 
-If you find credentials in project files (.env, .env.local, config files, etc.):
+`C:\Users\heath\Desktop\skills\auth\`
 
-1. **Read the corresponding service .md file** in the integration folder
-2. **Update the file** with the new credential information
-3. **Add a source note** indicating where the credential was found
-4. **Update the SOURCES.md** file with the discovery location
+Existing auth material such as API keys, tokens, JSON service account files, URLs, and integration notes are kept there across several service-specific files. Check the relevant file before asking the user for credentials. Do not print secrets to logs or final responses.
 
-### When Using Credentials
+When creating, deleting, rotating, or discovering auth material:
 
-1. **Never commit credentials** to version control
-2. **Always add to .gitignore**:
-   ```
-   /intergration/
-   *.env
-   *.env.local
-   .env.*
-   ```
-3. **Use environment variables** in projects, referencing the integration folder for the actual values
-4. **Document which credentials are used** in project README files
+- Update the relevant file in `C:\Users\heath\Desktop\skills\auth\`.
+- Add a short source/status note so future agents know where it came from and whether it is active.
+- If a matching service file does not exist, create one with the service name, credential purpose, status, source, and usage notes.
+- Never copy raw secret values into project docs, commit messages, or chat responses.
 
-### Credential Priority
+Important credential files include:
 
-1. **First**: Check `C:\Users\heath\Desktop\intergration\` for existing credentials
-2. **Second**: Search project files for .env and config files
-3. **Third**: Ask the user for new credentials only if not found above
+- `supabase.md` / `supabase_vape.md` if present
+- `gemini.md`
+- `vercel.md`
+- `github.md`
+- `gmail.md`
+- `context7.md`
+- `firecrawl.md`
+- `elevenlabs.md`
 
-## Common Integration Patterns
+Project env files may exist, but never commit them:
 
-### Supabase
-- Check `supabase.md` for all project configurations
-- Note: Multiple projects exist - use the correct one for each application
-- Never use service_role keys on client-side
+- `.env.local`
+- `.env.vercel`
+- any `.env*`
+- `service-account-key.json`
 
-### GitHub
-- Use the personal access token from `github.md`
-- Consider migrating to fine-grained tokens for better security
+Keep these ignored:
 
-### API Services (Context7, Firecrawl, ElevenLabs)
-- Keys are stored directly in their respective .md files
-- These are external service APIs - no additional configuration needed
+```gitignore
+*.env
+*.env.local
+.env.*
+service-account-key.json
+credentials/
+connections/
+*token*
+*secret*
+*_key*
+```
 
-### MCP Servers
-- Configuration stored in `mcp-servers.md`
-- Currently disabled by default
-- Enable by changing `"disabled": false` in configs
+Never expose a Supabase `service_role` key or secret key in client code. In Next.js, anything prefixed with `NEXT_PUBLIC_` is browser-visible.
 
-### Email (Gmail)
-- App password stored in `gmail.md`
-- Use for SMTP configurations only
+## Supabase Rules
 
-### AI Services (OpenAI, Gemini)
-- Currently placeholders - need actual API keys
-- Update these files when keys are obtained
+Use the local Supabase skill guidance for any Supabase work. Key repo-specific rules:
 
-## Security Reminders
+- Cloud Supabase only.
+- Do not run local Docker or `supabase start`.
+- Use `supabase --help` before unfamiliar CLI commands.
+- For new migrations, create them with `supabase migration new <name>` instead of inventing filenames.
+- Apply schema to the cloud project only when the user wants that action and credentials are available.
+- Tables in exposed schemas need RLS. The MVP inventory table intentionally has public read access.
+- Do not put `security definer` functions in exposed schemas.
+- Views that should honor RLS need `security_invoker = true` on supported Postgres versions.
 
-⚠️ **CRITICAL**: Never expose these credentials in:
-- Commit messages
-- Public repositories
-- Screenshots or shared images
-- Logs or console output
-- Documentation accessible to others
+Current schema target:
 
-## Search Locations for New Credentials
+- `public.inventory`
+- `embedding vector(768)`
+- `public.match_products(query_embedding, match_threshold, match_count, max_price)`
 
-When looking for credentials, check these locations:
+## AI / Vertex Rules
 
-### Primary Locations
-- `C:\Users\heath\Desktop\intergration\` (centralized storage)
-- `C:\Users\heath\Desktop\Project_Directory\` (project directories)
-- `C:\Users\heath\Desktop\connect\` (credential backups)
+- Product metadata and embeddings should be generated server-side or in scripts, never with public client secrets.
+- Prefer Vertex AI for Phase 8 enrichment because the free Gemini API path hit quota limits.
+- `service-account-key.json` is sensitive and must remain uncommitted.
+- Scripts should read credentials from env vars or the centralized auth folder, not hardcoded keys.
 
-### File Patterns to Search
-- `.env` files
-- `.env.local` files
-- `config.json` files
-- `auth.txt` or similar credential files
-- Application configuration directories
+## Development Commands
 
-### GitHub
-- Check repository secrets (if accessible)
-- Look for GitHub Actions workflow files with encrypted variables
-- Check for any committed credential files (and remind user to remove them)
+Use these when relevant and safe:
 
-## Maintenance Tasks
+```powershell
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-### Regular Updates
-- [ ] Review and rotate tokens quarterly
-- [ ] Check for expired credentials
-- [ ] Update placeholder files with actual values
-- [ ] Remove unused service credentials
+`npm run build` uses `next build --webpack`. It may take longer and can write build output to `.next/`.
 
-### When Adding New Services
-1. Create a new `[service-name].md` file in the integration folder
-2. Follow the template format from existing files
-3. Update this AGENTS.md file to include the new service
-4. Update README.md in the integration folder
+Do not start a browser for verification. If UI verification is needed, provide manual browser steps to the user.
 
-## Emergency Contacts
+## Codebase Map
 
-If credentials are exposed:
-1. Immediately rotate the compromised token/key
-2. Update the corresponding .md file
-3. Check all projects using that credential
-4. Review access logs for unauthorized usage
+- `src/app/` - Next.js App Router pages and API routes.
+- `src/components/layout/` - main dashboard/sidebar layout.
+- `src/components/features/` - chat, voice, cards, product views.
+- `src/lib/` - Gemini, Firebase, inventory/data helpers.
+- `src/data/inventory.json` - large local inventory dataset; avoid loading wholesale.
+- `supabase/` - cloud migration/config files.
+- `scripts/` - data scraping, seeding, enrichment, and diagnostics.
+- `directives/` - project intent and phase planning.
+- `sales/` - client/demo sales collateral.
 
----
+## Known Cleanup Risks
 
-**Last Updated**: 2025-01-30
-**Maintained by**: Agents working on heath's projects
-**Location**: Keep this file in your project root or in the skillskit folder for easy access
+- Some docs contain mojibake from emoji encoding. Prefer ASCII when editing instructions.
+- Some scripts were created during MVP exploration and may be stale.
+- At least one legacy embedding script appears to contain a hardcoded Gemini-like key. Do not print it; move any needed credential to env/central auth before using that script.
+- `git status` may fail under Codex sandbox with a dubious ownership warning. If git operations are required, ask before changing global git config.
+
+## Working Style For This Repo
+
+- Preserve the MVP's visual direction unless the user asks to simplify it.
+- Prioritize semantic search backend stability over the stalled voice showcase.
+- Keep changes focused; this repo contains many generated/scraped artifacts.
+- Update `PROJECT_STATE.md` when you materially change current status, risks, blockers, or next steps.
+- Update `DECISIONS.md` when the user makes a durable project/process decision.
+- Update `handoff.md` only when the user asks or when maintaining historical handoff continuity is specifically useful.
+- Update directive docs only when they become inaccurate or when the user asks for planning documentation.

@@ -15,6 +15,7 @@ interface DashboardProps {
   onNavigateToRoot: () => void;
   viewMode: 'categories' | 'products';
   products: Product[];
+  resultLabel?: string | null;
   compact?: boolean;
 }
 
@@ -25,6 +26,7 @@ export function Dashboard({
   onNavigateToRoot,
   viewMode,
   products,
+  resultLabel,
   compact = false
 }: DashboardProps) {
   const [expandedProduct, setExpandedProduct] = useState<Product | null>(null);
@@ -142,13 +144,13 @@ export function Dashboard({
       <div className="mb-8">
         <h2 className="text-4xl font-black tracking-tighter text-white mb-2 uppercase">
           {viewMode === 'products'
-            ? (selectedCategory ? selectedCategory.name : 'Products')
+            ? (resultLabel ? `Results: ${resultLabel}` : (selectedCategory ? selectedCategory.name : 'Products'))
             : (selectedCategory ? selectedCategory.name : 'Collections')
           }
         </h2>
         <p className="text-sm text-white/40 font-medium max-w-xl">
           {viewMode === 'products'
-            ? `Displaying ${products.length} premium selections.`
+            ? `Displaying ${products.length} ranked selections.`
             : (selectedCategory?.description || 'Curated high-end vaping experiences.')
           }
         </p>

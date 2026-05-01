@@ -1,34 +1,69 @@
-# Project Handoff: Vape 2.0 
+# Project Handoff: Vape 2.0
 
 ## Objective
-Normalize and generate professional one-sentence descriptions for ~1,760 inventory items for the `vape-more.cloveronline.com` storefront MVP, and implement an authentic, real-time voice-to-voice AI Showcase (Phase 6).
+
+Build a semantic inventory search system for the Vape More MVP using Supabase PostgreSQL + pgvector, Vertex AI embeddings, and the existing Next.js app UI.
+
+## Protected MVP
+
+- Client-facing MVP remains protected under Vercel link/name `vapes and more mvp 2026`.
+- Do not deploy over or merge into the protected MVP branch `vapes-and-more-mvp-2026` unless explicitly requested.
+- Current work is on `codex-phase8-vertex-audit`, with user approval to push the completed integration to `main`.
+
+## Current Status
+
+Phase 8 semantic enrichment and first-pass app integration are complete for the current Supabase inventory.
+
+- Supabase target: `https://kqxbysmbnoejkflufnyj.supabase.co`
+- Current inventory rows: 288
+- Enriched rows: 288
+- Missing embeddings: 0
+- Embedding model: Vertex AI `text-embedding-004` with 768 dimensions
+- Chat/enrichment model default: `gemini-2.5-flash-lite`
+- Search RPC: `public.match_products`
 
 ## Core Files
-- **Inventory Data**: `src/data/inventory.json` (JSON array of objects)
-- **TTS Engine**: `src/lib/voice-engine.ts` (Client-side Web Speech hook for listening)
-- **TTS API Route**: `src/app/api/tts/route.ts` (Server-side Google Cloud TTS endpoint)
-- **AIVoiceBot UI**: `src/components/features/AIVoiceBot.tsx` (Animated chat interface for voice pipeline)
-- **Data Logic**: `src/lib/data.ts` (Categorization and normalization logic)
-- **Environment**: `.env.local` (Contains `GOOGLE_TTS_API_KEY` and `GEMINI_API_KEY`)
 
-## Current Status (Phase 6: AI Showcase)
-- **Inventory Descriptions**: **COMPLETED**. Local procedural script successfully generated 1,760 unique descriptions.
-- **Voice-to-Voice AI Foundation**: **IN PROGRESS**. Ported Google Cloud TTS engine and `useVoiceEngine` hook. 
-- **Voice AI UI Integration**: **STALLED**. Built `AIVoiceBot.tsx` with animated Framer Motion states.
-- **Vercel Deployment**: **FAILING**. Despite multiple attempts to secure the Gemini API key and fix component logic, the production build remains unstable.
+- `PROJECT_STATE.md` - canonical current state and restart checklist
+- `DECISIONS.md` - durable process decisions
+- `supabase/migrations/20260501113402_init_vector_inventory.sql` - inventory + vector schema
+- `src/app/api/search/route.ts` - server-side semantic search route
+- `src/lib/supabase.ts` - server-only Supabase client
+- `src/lib/vertex.ts` - server-side Vertex embedding helper
+- `src/app/page.tsx` - assistant navigation to semantic search
+- `src/lib/data.ts` - category taxonomy and product mapping
+- `scripts/test-vertex.ts` - Vertex model diagnostic
+- `scripts/generate-embeddings-vertex.ts` - enrichment pipeline
 
-## ⚠️ Lessons Learned & Failed Approaches
-The following strategies were attempted and resulted in failure or instability:
-1. **Client-Side API Direct Call**: Attempting to call Gemini directly from the browser resulted in environment variable leakage risks and 500 errors. 
-2. **Environment Variable Injection**: Repeatedly adding `GEMINI_API_KEY` via Vercel CLI did not immediately resolve connectivity, possibly due to build-caching or incorrect environment mapping (Production vs Preview).
-3. **Refactoring Regressions**: An accidental deletion of `handleSendMessage` during a refactor led to a "not defined" error that caused silent failures in the AI bot.
-4. **Infinite Loading Loops**: Errors occurring inside async `setTimeout` callbacks (without try-catch) prevented `setIsLoading(false)` from firing, leaving the user stuck on the "Processing Data" spinner.
+## Verification Completed
 
-## Current Blockers
-- **Sidebar Hang**: On the live site, clicking categories often triggers an infinite loading spinner.
-- **AI Connectivity**: The bot still reports connection errors in production, despite keys being set in Vercel.
+- `npx tsc --noEmit --pretty false` passes.
+- `npm run build` passes.
+- Targeted lint passes with only existing Dashboard image warnings.
+- `/api/search` tested locally through Next dev server using real Vertex embeddings + Supabase RPC.
 
-## Next Steps for Development
-1. **Critical Debug**: Inspect Vercel runtime logs for the *specific* deployment ID to see the output of the new debug logs added to `gemini.ts` and `page.tsx`.
-2. **Local Parity**: Verify if the `npx vercel dev` environment can replicate the production hang with the actual production inventory.
-3. **State Recovery**: Implement a "Hard Reset" button on the UI that clears all local state and forces a re-render of the Dashboard.
+Sample successful semantic queries:
+
+- `black mild wood tip cigar`
+- `watermelon ice vape`
+- `apothic merlot bottle`
+- `al fakher watermelon hookah shisha`
+
+## Known Issues / Risks
+
+- Browser automation is prohibited; use manual UI testing steps instead.
+- Repo-wide lint still has pre-existing issues outside this search path.
+- Product names are not unique; scripts should log/use `id` and `clover_id`.
+- Some `Miscellaneous` rows are conservative classifications and may need manual review.
+- Existing scraped/generated files are large; avoid loading them unless required.
+
+## Next Steps
+
+1. Manually test the app UI with natural-language search prompts.
+2. Decide whether semantic results need stricter category filtering or threshold tuning.
+3. Review `Miscellaneous` rows for manual taxonomy improvements.
+4. Push/deploy only to the confirmed non-MVP target.
+
+## Last Updated
+
+2026-05-01 by Codex

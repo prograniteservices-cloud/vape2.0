@@ -28,6 +28,7 @@ export interface Product {
   barcode?: string;
   stock: number;
   updated_at?: string;
+  similarity?: number;
 }
 
 export interface ChatMessage {

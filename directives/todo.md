@@ -1,36 +1,35 @@
-# Phase 6: AI Showcase - Task List
+# Phase 8: Semantic Search Integration - Task List
 
-## Active Plan: [PHASE6_PLAN.md](./PHASE6_PLAN.md)
+## Active Branch
 
-### 1. Real-Time Voice AI Experience ⏳
-- [x] Port Google Cloud TTS engine and API keys from Nighttime Companion.
-- [x] Implement client-side `useVoiceEngine` hook for Web Speech recognition.
-- [x] Implement `AIVoiceBot` component to handle listening, thinking, and talking states.
-- [x] Wire Web Speech output -> Gemini API -> Cloud TTS playback pipeline.
+- `codex-phase8-vertex-audit`
+- User approved pushing completed work to `main`.
+- Protected MVP branch/deployment remains off limits unless explicitly requested.
 
-### 2. Premium AI Interface & Polish ⏳
-- [x] Develop `AnimatedBot` avatar component (Framer Motion).
-- [x] Design and implement `RichMessage` components (Highlight Cards, Badges).
-- [x] Apply dual-layer glow and glassmorphism refinements to Chat UI.
-- [x] Integrate 3D Tilt effect on the chat container.
+## Completed
 
-### 3. Presentation State Management ⏳
-- [x] Map AI responses to dashboard highlight triggers.
-- [x] Implement `ResetDemo` utility.
-- [ ] Ensure URL syncing for deep-linking (optional but recommended).
+- [x] Update project docs for Supabase + Vertex semantic search direction.
+- [x] Create `PROJECT_STATE.md` as canonical continuity tracker.
+- [x] Create `DECISIONS.md`.
+- [x] Add Supabase pgvector migration for `public.inventory` and `match_products`.
+- [x] Add `@supabase/supabase-js`.
+- [x] Add Vertex diagnostic script.
+- [x] Add Vertex enrichment script.
+- [x] Confirm target Supabase project `kqxbysmbnoejkflufnyj`.
+- [x] Enrich current 288 inventory rows with category, metadata, and 768-dim embeddings.
+- [x] Verify semantic RPC with real query embeddings.
+- [x] Add server-only Supabase client.
+- [x] Add server-side Vertex embedding helper.
+- [x] Add `/api/search`.
+- [x] Wire assistant product searches to semantic results.
+- [x] Keep static catalog fallback.
+- [x] Remove hardcoded Gemini/Supabase credential fallbacks found in scripts.
+- [x] Verify TypeScript and production build.
 
-### 4. Verification ⏳
-- [x] Build verification: `npm run build`
-- [x] TypeScript verification: `npx tsc --noEmit`
-- [/] Functional walkthrough of all scripted interactions (STALLED - PRODUCTION HANG).
+## Next
 
-### 5. Known Bugs & Next Steps 🐛
-- [ ] **URGENT**: Fix Vercel production API connection issue and Sidebar Hang.
-    - [x] Added `ErrorBoundary` to Dashboard.
-    - [x] Added `try-catch` to `setTimeout` in `page.tsx` to prevent infinite spinners.
-    - [x] Added Server-Side debug logs for API keys.
-    - [ ] Inspect Vercel Logs for `[Navigation]` and `[Gemini Server]` tags.
-- [ ] Fix AIVoiceBot connectivity error "I'm having trouble connecting right now."
-    - [x] Secured API key via Server Actions.
-    - [x] Fixed "handleSendMessage is not defined" regression.
-    - [ ] Verify `GOOGLE_APPLICATION_CREDENTIALS` for Cloud TTS if native fallback is triggered.
+- [ ] User manual UI test in browser.
+- [ ] Decide whether to tune semantic threshold or add category filtering.
+- [ ] Review `Miscellaneous` rows for manual taxonomy improvements.
+- [ ] Push/deploy only to confirmed non-MVP targets.
+
