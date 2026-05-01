@@ -38,33 +38,40 @@ export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string, searc
     const scrollRef = useRef<HTMLDivElement>(null);
     const recognitionRef = useRef<any>(null);
 
-    // Initialize Speech Recognition
+    // Pre-initialize speech synthesis voices
     useEffect(() => {
+        if (typeof window !== 'undefined' && window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            const handler = () => window.speechSynthesis.getVoices();
+            window.speechSynthesis.addEventListener('voiceschanged', handler);
+            return () => window.speechSynthesis.removeEventListener('voiceschanged', handler);
+        }
         if (typeof window !== 'undefined' && ('WebkitSpeechRecognition' in window || 'speechRecognition' in window)) {
             const SpeechRecognition = (window as any).WebkitSpeechRecognition || (window as any).speechRecognition;
             recognitionRef.current = new SpeechRecognition();
             recognitionRef.current.continuous = false;
             recognitionRef.current.interimResults = false;
-
             recognitionRef.current.onresult = (event: any) => {
                 const transcript = event.results[0][0].transcript;
                 setInputValue(transcript);
                 handleSend(transcript);
                 setIsListening(false);
             };
-
             recognitionRef.current.onerror = () => setIsListening(false);
             recognitionRef.current.onend = () => setIsListening(false);
         }
     }, []);
 
     const speak = (text: string) => {
-        if (!isSpeaking || typeof window === 'undefined') return;
+        if (!isSpeaking || typeof window === 'undefined' || !window.speechSynthesis) return;
+        if (!text.trim()) return;
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1.05;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
+        const utternance = new SpeechSynthesisUtterance(text);
+        utternance.rate = 1.05;
+        utternance.pitch = 1.1;
+        utternance.volume = 1.0;
+        utternance.onerror = () => {};
+        window.speechSynthesis.speak(utternance);
     };
 
     const toggleListening = () => {
@@ -122,13 +129,26 @@ export function AIChat({ onNavigate }: { onNavigate?: (categoryId: string, searc
         try {
             const responseText = await chatWithGemini(messageText);
             let displayString = responseText;
-            const match = responseText.match(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/);
-            if (match) {
-                const catId = match[1];
-                const searchQuery = match[2]?.trim() || undefined;
-                const sortOrder = match[3]?.trim() || undefined;
-                if (onNavigate) onNavigate(catId, searchQuery, sortOrder);
-                displayString = responseText.replace(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/g, '').trim();
+            const showTag = responseText.match(/\[SHOW:[^\]]+\]/);
+            if (showTag) {
+              const tagContent = showTag[0].slice(6, -1);
+              const parts = tagContent.split(':');
+              const catId = parts[0];
+              let searchQuery: string | undefined;
+              let sortOrder: string | undefined;
+
+              if (parts.length > 1) {
+                const last = parts[parts.length - 1];
+                if (['cheapest', 'priciest'].includes(last)) {
+                  sortOrder = last;
+                  searchQuery = parts.slice(1, -1).filter(Boolean).join(':') || undefined;
+                } else {
+                  searchQuery = parts.slice(1).join(':');
+                }
+              }
+
+              if (onNavigate) onNavigate(catId, searchQuery, sortOrder);
+              displayString = responseText.replace(/\[SHOW:[^\]]+\]/g, '').trim();
             }
 
             const aiMsg: ChatMessage = {

@@ -45,7 +45,36 @@ export function AIVoiceBot({
         y.set(0);
     }
     
+    // Pre-initialize speech synthesis voices (Chrome autoplay workaround)
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            const handler = () => window.speechSynthesis.getVoices();
+            window.speechSynthesis.addEventListener('voiceschanged', handler);
+            return () => window.speechSynthesis.removeEventListener('voiceschanged', handler);
+        }
+    }, []);
+
+    const speakWithBrowser = (text: string): Promise<void> => {
+        return new Promise((resolve) => {
+            if (typeof window === 'undefined' || !window.speechSynthesis) {
+                resolve();
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            utterance.onend = () => resolve();
+            utterance.onerror = () => resolve();
+            window.speechSynthesis.speak(utterance);
+        });
+    };
+
     const playAudio = async (text: string) => {
+        if (!text.trim()) return;
+
         try {
             const res = await fetch('/api/tts', {
                 method: 'POST',
@@ -56,24 +85,26 @@ export function AIVoiceBot({
             const blob = await res.blob();
             const url = URL.createObjectURL(blob);
             const audio = new Audio(url);
-            
-            return new Promise((resolve) => {
+
+            try {
+                await audio.play();
+            } catch {
+                URL.revokeObjectURL(url);
+                throw new Error('autoplay');
+            }
+
+            return new Promise<void>((resolve) => {
                 audio.onended = () => {
                     URL.revokeObjectURL(url);
-                    resolve(true);
+                    resolve();
                 };
-                audio.play();
+                audio.onerror = () => {
+                    URL.revokeObjectURL(url);
+                    resolve();
+                };
             });
-        } catch (error) {
-            console.error("Audio playback error:", error);
-            if (typeof window !== 'undefined') {
-                const utterance = new SpeechSynthesisUtterance(text);
-                window.speechSynthesis.speak(utterance);
-                return new Promise(resolve => {
-                    utterance.onend = () => resolve(true);
-                });
-            }
-            return Promise.resolve(true);
+        } catch {
+            await speakWithBrowser(text);
         }
     };
 
@@ -95,15 +126,43 @@ export function AIVoiceBot({
 
             let displayString = aiResponse;
             
-            // Command Handling
-            const match = aiResponse.match(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/);
-            if (match) {
-                const catId = match[1];
-                const searchQuery = match[2]?.trim() || undefined;
-                const sortOrder = match[3]?.trim() || undefined;
-                console.log("[AIBot] Navigation command detected:", catId, searchQuery, sortOrder);
-                if (onNavigate) onNavigate(catId, searchQuery, sortOrder);
-                displayString = aiResponse.replace(/\[SHOW:([a-zA-Z0-9-]+)(?::([^:\]]*))?(?::([a-zA-Z]+))?\]/g, '').trim();
+            let navCatId: string | undefined;
+            let navSearchQuery: string | undefined;
+            let navSortOrder: string | undefined;
+
+            const showTag = aiResponse.match(/\[SHOW:[^\]]+\]/);
+            if (showTag) {
+              const tagContent = showTag[0].slice(6, -1);
+              const parts = tagContent.split(':');
+              navCatId = parts[0];
+
+              if (parts.length > 1) {
+                const last = parts[parts.length - 1];
+                if (['cheapest', 'priciest'].includes(last)) {
+                  navSortOrder = last;
+                  navSearchQuery = parts.slice(1, -1).filter(Boolean).join(':') || undefined;
+                } else {
+                  navSearchQuery = parts.slice(1).join(':');
+                }
+              }
+
+              console.log("[AIBot] Navigation command detected:", navCatId, navSearchQuery, navSortOrder);
+              if (onNavigate) onNavigate(navCatId, navSearchQuery, navSortOrder);
+              displayString = aiResponse.replace(/\[SHOW:[^\]]+\]/g, '').trim();
+            }
+
+            // Fallback spoken response when [SHOW:...] consumed the entire response
+            if (!displayString && navCatId) {
+              const catName = navCatId.replace(/-/g, ' ');
+              if (navSearchQuery && navSortOrder) {
+                displayString = `Here are the ${navSortOrder} ${navSearchQuery} in ${catName}.`;
+              } else if (navSearchQuery) {
+                displayString = `Found ${navSearchQuery} in ${catName} for you.`;
+              } else if (navSortOrder) {
+                displayString = `Showing you ${catName}, sorted by ${navSortOrder}.`;
+              } else {
+                displayString = `Showing you ${catName}.`;
+              }
             }
 
             const pulseMatch = displayString.match(/\[PULSE:([a-zA-Z0-9-]+)\]/);
