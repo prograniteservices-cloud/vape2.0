@@ -1,5 +1,6 @@
 import { GoogleGenAI } from '@google/genai';
-import { existsSync } from 'fs';
+import { existsSync, writeFileSync } from 'fs';
+import os from 'os';
 import path from 'path';
 
 const VERTEX_PROJECT_ID =
@@ -13,6 +14,15 @@ const EMBED_MODEL = process.env.VERTEX_EMBED_MODEL || 'text-embedding-004';
 
 function configureGoogleCredentials() {
   if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    return;
+  }
+
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) {
+    const keyPath = path.join(os.tmpdir(), 'google-application-credentials.json');
+    if (!existsSync(keyPath)) {
+      writeFileSync(keyPath, process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON, { mode: 0o600 });
+    }
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = keyPath;
     return;
   }
 
